@@ -35,10 +35,21 @@ class Settings(BaseSettings):
     jwt_access_token_expire_minutes: int = 30
     jwt_refresh_token_expire_days: int = 7
 
+    # AI Provider Configuration
+    default_ai_provider: str = "openai"  # openai, anthropic, google
+
     # OpenAI
     openai_api_key: str = ""
     openai_model: str = "gpt-4o"
     openai_embedding_model: str = "text-embedding-3-small"
+
+    # Anthropic (Claude)
+    anthropic_api_key: str = ""
+    anthropic_model: str = "claude-sonnet-4-20250514"
+
+    # Google (Gemini)
+    google_api_key: str = ""
+    google_model: str = "gemini-1.5-pro"
 
     # Optional services
     redis_url: str | None = None

@@ -1,11 +1,24 @@
 name: Deploy to GKE
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - "**.md"
-      - "docs/**"
+  # 手動觸發
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+  # 保留自動部署，初期先註解
+  # push:
+  #   branches: [main]
+  #   paths-ignore:
+  #     - "**.md"
+  #     - "docs/**"
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
