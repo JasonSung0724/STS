@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sts-ingress
+  namespace: sts
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    kubernetes.io/ingress.global-static-ip-name: "sts-ip"
+    networking.gke.io/managed-certificates: "sts-cert"
+spec:
+  rules:
+    - host: your-domain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sts-frontend
+                port:
+                  number: 80
+    - host: api.your-domain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sts-backend
+                port:
+                  number: 8000
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: sts-cert
+  namespace: sts
+spec:
+  domains:
+    - your-domain.com
+    - api.your-domain.com

@@ -1,0 +1,90 @@
+name: Deploy to GKE
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GKE_CLUSTER: sts-cluster-prod
+  GKE_ZONE: asia-east1-a
+  REGISTRY: gcr.io
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Setup gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker --quiet
+
+      - name: Get GKE credentials
+        uses: google-github-actions/get-gke-credentials@v2
+        with:
+          cluster_name: ${{ env.GKE_CLUSTER }}
+          location: ${{ env.GKE_ZONE }}
+
+      # Build and push backend
+      - name: Build Backend Image
+        run: |
+          docker build \
+            -f infra/docker/backend.Dockerfile \
+            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:${{ github.sha }} \
+            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:latest \
+            .
+
+      - name: Push Backend Image
+        run: |
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:${{ github.sha }}
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:latest
+
+      # Build and push frontend
+      - name: Build Frontend Image
+        run: |
+          docker build \
+            -f infra/docker/frontend.Dockerfile \
+            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:${{ github.sha }} \
+            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:latest \
+            .
+
+      - name: Push Frontend Image
+        run: |
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:${{ github.sha }}
+          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:latest
+
+      # Deploy to GKE
+      - name: Deploy Backend
+        run: |
+          kubectl set image deployment/sts-backend \
+            backend=${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:${{ github.sha }} \
+            -n sts
+
+      - name: Deploy Frontend
+        run: |
+          kubectl set image deployment/sts-frontend \
+            frontend=${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:${{ github.sha }} \
+            -n sts
+
+      - name: Verify deployment
+        run: |
+          kubectl rollout status deployment/sts-backend -n sts --timeout=300s
+          kubectl rollout status deployment/sts-frontend -n sts --timeout=300s

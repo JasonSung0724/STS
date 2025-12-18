@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sts
+  labels:
+    app.kubernetes.io/name: sts
+    app.kubernetes.io/part-of: sts-platform

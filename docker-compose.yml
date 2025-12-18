@@ -1,0 +1,68 @@
+version: "3.9"
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:17.7-alpine
+    container_name: sts-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sts}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sts_password}
+      POSTGRES_DB: ${POSTGRES_DB:-sts}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sts} -d ${POSTGRES_DB:-sts}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: infra/docker/backend.Dockerfile
+    container_name: sts-backend
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-sts}:${POSTGRES_PASSWORD:-sts_password}@db:5432/${POSTGRES_DB:-sts}
+      - JWT_SECRET=${JWT_SECRET:-your-super-secret-jwt-key}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CORS_ORIGINS=["http://localhost:3000"]
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: infra/docker/frontend.Dockerfile
+    container_name: sts-frontend
+    restart: unless-stopped
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    command: pnpm dev
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
+    name: sts-network

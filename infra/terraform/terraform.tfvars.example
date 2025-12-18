@@ -1,0 +1,15 @@
+# GCP Project Configuration
+project_id = "your-gcp-project-id"
+region     = "asia-east1"
+zone       = "asia-east1-a"
+
+# Environment
+environment = "dev"
+
+# GKE Configuration
+gke_node_count   = 2
+gke_machine_type = "e2-medium"
+
+# Cloud SQL Configuration
+db_tier     = "db-f1-micro"
+db_password = "your-secure-database-password"

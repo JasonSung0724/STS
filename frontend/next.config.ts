@@ -1,0 +1,63 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Enable React strict mode for highlighting potential problems
+  reactStrictMode: true,
+
+  // Environment variables available to the browser
+  env: {
+    NEXT_PUBLIC_APP_NAME: "STS",
+  },
+
+  // Image optimization configuration
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.googleusercontent.com",
+      },
+    ],
+  },
+
+  // Experimental features
+  experimental: {
+    // Enable typed routes
+    typedRoutes: true,
+  },
+
+  // Headers for security
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+        ],
+      },
+    ];
+  },
+
+  // Redirects
+  async redirects() {
+    return [
+      {
+        source: "/dashboard",
+        destination: "/chat",
+        permanent: false,
+      },
+    ];
+  },
+};
+
+export default nextConfig;
