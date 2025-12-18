@@ -30,6 +30,9 @@ dependencies = [
     # OpenAI
     "openai>=1.60.0",
 
+    # ChatKit (OpenAI's chat UI framework)
+    "chatkit>=1.4.0",
+
     # Utilities
     "python-dotenv>=1.0.0",
 ]
