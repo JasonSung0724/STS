@@ -1,0 +1,117 @@
+# ===========================================
+# STS - Local Development Environment
+# ===========================================
+# 使用本地 Docker PostgreSQL + Redis
+# 啟動: docker compose -f docker-compose.local.yml up -d
+
+services:
+  # ===========================================
+  # PostgreSQL Database (Local)
+  # ===========================================
+  db:
+    image: postgres:17-alpine
+    container_name: sts-postgres-local
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sts}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sts_password}
+      POSTGRES_DB: ${POSTGRES_DB:-sts}
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sts} -d ${POSTGRES_DB:-sts}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sts-local
+
+  # ===========================================
+  # Redis Cache (Local)
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    container_name: sts-redis-local
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data_local:/data
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sts-local
+
+  # ===========================================
+  # Backend API (Local Development)
+  # ===========================================
+  backend:
+    build:
+      context: .
+      dockerfile: infra/docker/backend.Dockerfile
+      target: development
+    container_name: sts-backend-local
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-sts}:${POSTGRES_PASSWORD:-sts_password}@db:5432/${POSTGRES_DB:-sts}
+      - REDIS_URL=redis://redis:6379/0
+      - USE_SUPABASE=false
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - sts-local
+
+  # ===========================================
+  # Frontend (Local Development)
+  # ===========================================
+  frontend:
+    build:
+      context: .
+      dockerfile: infra/docker/frontend.Dockerfile
+      target: development
+    container_name: sts-frontend-local
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    networks:
+      - sts-local
+
+volumes:
+  postgres_data_local:
+    driver: local
+  redis_data_local:
+    driver: local
+  frontend_node_modules:
+    driver: local
+
+networks:
+  sts-local:
+    driver: bridge

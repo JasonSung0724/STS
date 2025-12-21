@@ -4,51 +4,78 @@ ChatKit API endpoints.
 Provides endpoints for ChatKit client authentication and message handling.
 """
 
-from typing import Any
+import hashlib
+import secrets
+import time
+from typing import Annotated, Any
 
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Depends, Header, Request
 from fastapi.responses import StreamingResponse
 from openai import OpenAI
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.api.v1.deps import CurrentUser, Database
+from src.api.v1.deps import CurrentUser, Database, get_current_user
 from src.config import settings
+from src.db import get_db
+from src.models import User
 from src.services.chatkit import get_chatkit_server
 
 router = APIRouter()
 
 # OpenAI client for session management
-_openai_client = OpenAI(api_key=settings.openai_api_key)
+_openai_client = OpenAI(api_key=settings.openai_api_key) if settings.openai_api_key else None
+
+
+async def get_optional_user(
+    authorization: Annotated[str | None, Header()] = None,
+    db: AsyncSession = Depends(get_db),
+) -> User | None:
+    """Get current user if authenticated, None otherwise (for dev mode)."""
+    if not authorization or not authorization.startswith("Bearer "):
+        # In development, allow unauthenticated access
+        if settings.is_development:
+            return None
+        from src.core import UnauthorizedException
+        raise UnauthorizedException("Invalid authorization header")
+
+    try:
+        return await get_current_user(authorization, db)
+    except Exception:
+        if settings.is_development:
+            return None
+        raise
+
+
+OptionalUser = Annotated[User | None, Depends(get_optional_user)]
 
 
 @router.post("/session")
 async def create_chatkit_session(
-    current_user: CurrentUser,
-) -> dict[str, str]:
+    user: OptionalUser,
+) -> dict[str, Any]:
     """
     Create a ChatKit client session.
 
     This generates a client_secret token that the frontend uses
     to authenticate with ChatKit.
 
+    In development mode, allows unauthenticated access with a demo user.
+
     Returns:
         Dict with client_secret for ChatKit initialization
     """
     # Create a session token for ChatKit
-    # In production, you might want to use Agent Builder workflow IDs
-    # For now, we create a simple session
+    timestamp = str(int(time.time()))
 
-    # Generate client secret using OpenAI's session API
-    # Note: This requires the ChatKit workflow to be set up in OpenAI
+    if user:
+        # Authenticated user
+        user_id = str(user.id)
+    else:
+        # Development mode: use demo user
+        user_id = "demo-user"
+
     try:
-        # For custom backend integration, we generate our own token
-        # based on user authentication
-        import secrets
-        import hashlib
-        import time
-
         # Create a signed token for this session
-        timestamp = str(int(time.time()))
-        user_id = current_user.id
         secret_base = f"{user_id}:{timestamp}:{settings.jwt_secret}"
         client_secret = hashlib.sha256(secret_base.encode()).hexdigest()[:32]
 
@@ -57,11 +84,11 @@ async def create_chatkit_session(
             "user_id": user_id,
             "expires_in": 3600,  # 1 hour
         }
-    except Exception as e:
+    except Exception:
         # Fallback: generate a random token
         return {
             "client_secret": secrets.token_hex(16),
-            "user_id": current_user.id,
+            "user_id": user_id,
             "expires_in": 3600,
         }
 
@@ -69,7 +96,7 @@ async def create_chatkit_session(
 @router.post("/respond")
 async def chatkit_respond(
     request: Request,
-    current_user: CurrentUser,
+    user: OptionalUser,
     db: Database,
 ) -> StreamingResponse:
     """
@@ -85,7 +112,7 @@ async def chatkit_respond(
 
     async def generate():
         """Generate SSE events from ChatKit server."""
-        context = {"user": current_user, "db": db}
+        context = {"user": user, "db": db}
 
         async for event in chatkit_server.respond(messages, context):
             # Format as SSE
@@ -107,7 +134,7 @@ async def chatkit_respond(
 
 @router.get("/config")
 async def get_chatkit_config(
-    current_user: CurrentUser,
+    user: OptionalUser,
 ) -> dict[str, Any]:
     """
     Get ChatKit configuration for the frontend.

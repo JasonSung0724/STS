@@ -1,0 +1,185 @@
+{
+  "common": {
+    "appName": "STS",
+    "appFullName": "Start To Scale",
+    "tagline": "AI 驅動企業智慧",
+    "signIn": "登入",
+    "signUp": "註冊",
+    "signOut": "登出",
+    "getStarted": "立即開始",
+    "learnMore": "了解更多",
+    "viewDemo": "觀看演示",
+    "startFreeTrial": "開始免費試用",
+    "noCardRequired": "無需信用卡，14 天免費試用。",
+    "loading": "載入中...",
+    "search": "搜尋任何內容...",
+    "settings": "設定",
+    "notifications": "通知"
+  },
+  "nav": {
+    "features": "功能特色",
+    "howItWorks": "運作方式",
+    "pricing": "價格方案",
+    "dashboard": "儀表板",
+    "aiAssistant": "AI 助理",
+    "analytics": "數據分析",
+    "settings": "設定",
+    "collapse": "收合"
+  },
+  "landing": {
+    "hero": {
+      "title": "您的",
+      "titleHighlight": "AI 執行長",
+      "titleEnd": "從不休息",
+      "subtitle": "Start To Scale 透過智慧分析、即時 KPI 監控與 AI 驅動的策略建議，徹底改變企業決策方式。"
+    },
+    "stats": {
+      "clients": "企業客戶",
+      "revenue": "分析營收",
+      "costReduction": "成本降低",
+      "uptime": "服務可用性"
+    },
+    "features": {
+      "title": "企業級智慧",
+      "subtitle": "專為追求數據驅動卓越表現的現代企業設計的強大功能",
+      "revenueGrowth": {
+        "title": "營收成長分析",
+        "description": "AI 識別所有業務單位的成長機會與營收優化策略。"
+      },
+      "kpiMonitoring": {
+        "title": "即時 KPI 監控",
+        "description": "透過智慧警報和趨勢預測追蹤並分析關鍵績效指標。"
+      },
+      "costOptimization": {
+        "title": "成本優化",
+        "description": "自動化費用分析，提供可執行的建議以最大化營運效率。"
+      },
+      "aiAssistant": {
+        "title": "AI 智慧助理",
+        "description": "自然語言介面，即時獲取洞察、查詢與策略建議。"
+      },
+      "automatedReports": {
+        "title": "自動化報表",
+        "description": "一鍵生成完整報表，支援每日、每週或每月定時發送。"
+      },
+      "security": {
+        "title": "企業級安全",
+        "description": "銀行級加密、SSO 整合，符合 SOC 2、GDPR 與 ISO 27001 標準。"
+      }
+    },
+    "howItWorks": {
+      "title": "運作方式",
+      "subtitle": "幾分鐘內即可開始，而非數月",
+      "step1": {
+        "title": "連接您的數據",
+        "description": "透過 API 或安全檔案上傳與現有系統整合，支援 50+ 種資料來源。"
+      },
+      "step2": {
+        "title": "AI 分析",
+        "description": "我們的 AI 引擎處理您的數據，識別模式並生成可執行的洞察。"
+      },
+      "step3": {
+        "title": "依據洞察行動",
+        "description": "接收建議、追蹤 KPI，並與您的 AI 執行長對話以制定策略決策。"
+      }
+    },
+    "cta": {
+      "title": "準備好轉型您的業務了嗎？",
+      "subtitle": "加入 500+ 家已使用 AI 智慧來優化決策的企業。"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "登入您的帳戶",
+      "subtitle": "輸入您的憑證以存取平台",
+      "welcomeTitle": "歡迎來到您的",
+      "welcomeHighlight": "AI 指揮中心",
+      "welcomeSubtitle": "在單一平台上存取即時商業智慧、AI 洞察與策略建議。",
+      "feature1": "即時 KPI 儀表板",
+      "feature2": "AI 驅動分析",
+      "feature3": "即時商業洞察"
+    },
+    "register": {
+      "title": "建立您的帳戶",
+      "subtitle": "立即開始免費試用"
+    },
+    "email": "電子郵件地址",
+    "password": "密碼",
+    "confirmPassword": "確認密碼",
+    "rememberMe": "記住我",
+    "forgotPassword": "忘記密碼？",
+    "noAccount": "還沒有帳戶？",
+    "hasAccount": "已有帳戶？",
+    "createAccount": "建立帳戶",
+    "orContinueWith": "或使用以下方式繼續",
+    "backToHome": "返回首頁",
+    "signingIn": "登入中...",
+    "invalidCredentials": "電子郵件或密碼錯誤，請重試。"
+  },
+  "dashboard": {
+    "welcome": "歡迎回來",
+    "subtitle": "以下是您今日的業務動態。",
+    "askAI": "詢問 AI 助理",
+    "kpi": {
+      "totalRevenue": "總營收",
+      "activeUsers": "活躍用戶",
+      "conversionRate": "轉換率",
+      "avgOrderValue": "平均訂單金額"
+    },
+    "insights": {
+      "title": "AI 洞察",
+      "subtitle": "即時建議",
+      "viewAll": "查看全部",
+      "opportunity": "營收成長機會",
+      "opportunityDesc": "客戶群 A 顯示高出 23% 的 LTV，建議進行針對性行銷活動。",
+      "opportunityImpact": "潛在 +$120K",
+      "alert": "轉換率下降",
+      "alertDesc": "行動裝置結帳放棄率本週增加 15%。",
+      "alertImpact": "需要關注",
+      "success": "成本降低達成",
+      "successDesc": "雲端基礎設施優化本月節省 $45K。",
+      "successImpact": "節省 $45K"
+    },
+    "activity": {
+      "title": "近期活動",
+      "subtitle": "最新更新"
+    },
+    "chart": {
+      "title": "營收概覽",
+      "subtitle": "月度營收趨勢",
+      "placeholder": "圖表視覺化即將推出",
+      "connectBackend": "連接後端以取得真實數據"
+    }
+  },
+  "chat": {
+    "title": "AI 執行長助理",
+    "ready": "準備就緒",
+    "thinking": "思考中...",
+    "newChat": "新對話",
+    "emptyTitle": "今天有什麼我可以幫您的？",
+    "emptySubtitle": "詢問任何關於您的業務數據、KPI、營收或策略決策的問題。",
+    "placeholder": "詢問營收、KPI、成本或任何商業洞察...",
+    "sendHint": "按 Enter 發送，Shift + Enter 換行",
+    "quickQuestions": {
+      "q1": "本季的主要營收驅動因素是什麼？",
+      "q2": "分析我們的客戶流失率",
+      "q3": "如何優化營運成本？",
+      "q4": "顯示表現最佳的產品"
+    },
+    "copyMessage": "複製訊息"
+  },
+  "settings": {
+    "title": "設定",
+    "language": "語言",
+    "languageDesc": "選擇您偏好的語言",
+    "theme": "主題",
+    "themeDesc": "選擇您偏好的主題",
+    "themeDark": "深色",
+    "themeLight": "淺色",
+    "themeSystem": "跟隨系統"
+  },
+  "footer": {
+    "copyright": "版權所有。",
+    "aiDisclaimer": "AI 回應為自動生成，可能並非完全準確，請驗證重要資訊。"
+  }
+}

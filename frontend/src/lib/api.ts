@@ -88,6 +88,41 @@ export const authApi = {
   },
 };
 
+// OAuth API
+export const oauthApi = {
+  // Get LINE OAuth authorization URL
+  getLineAuthUrl: async () => {
+    const response = await api.get("/oauth/line/authorize");
+    return response.data;
+  },
+
+  // Exchange LINE authorization code for tokens
+  lineCallback: async (code: string, state?: string) => {
+    const response = await api.post("/oauth/line/token", { code, state });
+    return response.data;
+  },
+
+  // Get Google OAuth authorization URL (via Supabase)
+  getGoogleAuthUrl: async () => {
+    const response = await api.get("/oauth/google/authorize");
+    return response.data;
+  },
+
+  // Exchange Supabase tokens for our tokens
+  supabaseCallback: async (
+    accessToken: string,
+    refreshToken?: string,
+    provider: "google" | "github" | "facebook" = "google"
+  ) => {
+    const response = await api.post("/oauth/supabase/callback", {
+      access_token: accessToken,
+      refresh_token: refreshToken,
+      provider,
+    });
+    return response.data;
+  },
+};
+
 // Chat API
 export const chatApi = {
   getConversations: async () => {

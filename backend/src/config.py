@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # Application
     app_name: str = "STS"
-    app_env: Literal["development", "staging", "production"] = "development"
+    app_env: Literal["local", "development", "staging", "production"] = "local"
     debug: bool = True
 
     # Server
@@ -28,6 +28,18 @@ class Settings(BaseSettings):
     # Database
     database_url: str = "postgresql+asyncpg://sts:sts_password@localhost:5432/sts"
     db_echo: bool = False
+
+    # Supabase Configuration
+    use_supabase: bool = False
+    supabase_url: str = ""
+    supabase_anon_key: str = ""
+    supabase_service_role_key: str = ""
+    supabase_jwt_secret: str = ""
+
+    # LINE OAuth Configuration
+    line_channel_id: str = ""
+    line_channel_secret: str = ""
+    line_redirect_uri: str = "http://localhost:3000/auth/line/callback"
 
     # JWT
     jwt_secret: str = "your-super-secret-jwt-key-change-in-production"
@@ -56,8 +68,12 @@ class Settings(BaseSettings):
     rabbitmq_url: str | None = None
 
     @property
+    def is_local(self) -> bool:
+        return self.app_env == "local"
+
+    @property
     def is_development(self) -> bool:
-        return self.app_env == "development"
+        return self.app_env in ("local", "development")
 
     @property
     def is_production(self) -> bool:

@@ -1,26 +1,47 @@
-# Frontend Dockerfile
+# ===========================================
+# STS Frontend Dockerfile (Multi-stage)
+# ===========================================
+
+# ===========================================
+# Base Stage
+# ===========================================
 FROM node:20-alpine AS base
 
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
-# Set working directory
 WORKDIR /app
 
-# ================================
-# Dependencies stage
-# ================================
+# ===========================================
+# Dependencies Stage
+# ===========================================
 FROM base AS deps
 
 # Copy package files
-COPY frontend/package.json frontend/pnpm-lock.yaml* ./
+COPY frontend/package.json frontend/package-lock.json* ./
 
 # Install dependencies
-RUN pnpm install --frozen-lockfile || pnpm install
+RUN npm ci
 
-# ================================
-# Builder stage
-# ================================
+# ===========================================
+# Development Stage
+# ===========================================
+FROM base AS development
+
+WORKDIR /app
+
+# Copy dependencies
+COPY --from=deps /app/node_modules ./node_modules
+COPY frontend/ .
+
+ENV NODE_ENV=development \
+    NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3000
+
+# Development command with hot reload
+CMD ["npm", "run", "dev"]
+
+# ===========================================
+# Builder Stage (for Production)
+# ===========================================
 FROM base AS builder
 
 WORKDIR /app
@@ -29,16 +50,27 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY frontend/ .
 
-# Set environment variables for build
+# Set environment for build
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Build the application
-RUN pnpm build
+# Build arguments for environment variables
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_APP_URL
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-# ================================
-# Production stage
-# ================================
-FROM base AS runner
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+# Build the application
+RUN npm run build
+
+# ===========================================
+# Production Stage
+# ===========================================
+FROM base AS production
 
 WORKDIR /app
 
@@ -50,18 +82,17 @@ ENV NODE_ENV=production \
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-# Copy necessary files
+# Copy built assets
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
-# Expose port
 EXPOSE 3000
 
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Run the application
+# Production command
 CMD ["node", "server.js"]

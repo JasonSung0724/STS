@@ -1,0 +1,185 @@
+{
+  "common": {
+    "appName": "STS",
+    "appFullName": "Start To Scale",
+    "tagline": "AI-Powered Enterprise Intelligence",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "viewDemo": "View Demo",
+    "startFreeTrial": "Start Free Trial",
+    "noCardRequired": "No credit card required. 14-day free trial.",
+    "loading": "Loading...",
+    "search": "Search anything...",
+    "settings": "Settings",
+    "notifications": "Notifications"
+  },
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How it Works",
+    "pricing": "Pricing",
+    "dashboard": "Dashboard",
+    "aiAssistant": "AI Assistant",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "collapse": "Collapse"
+  },
+  "landing": {
+    "hero": {
+      "title": "Your",
+      "titleHighlight": "AI CEO",
+      "titleEnd": "Never Sleeps",
+      "subtitle": "Start To Scale transforms enterprise decision-making with intelligent analytics, real-time KPI monitoring, and AI-driven strategic recommendations."
+    },
+    "stats": {
+      "clients": "Enterprise Clients",
+      "revenue": "Revenue Analyzed",
+      "costReduction": "Cost Reduction",
+      "uptime": "Uptime SLA"
+    },
+    "features": {
+      "title": "Enterprise-Grade Intelligence",
+      "subtitle": "Powerful features designed for modern enterprises seeking data-driven excellence",
+      "revenueGrowth": {
+        "title": "Revenue Growth Analysis",
+        "description": "AI identifies growth opportunities and revenue optimization strategies across all business units."
+      },
+      "kpiMonitoring": {
+        "title": "Real-time KPI Monitoring",
+        "description": "Track and analyze key performance indicators with intelligent alerts and trend predictions."
+      },
+      "costOptimization": {
+        "title": "Cost Optimization",
+        "description": "Automated expense analysis with actionable recommendations to maximize operational efficiency."
+      },
+      "aiAssistant": {
+        "title": "AI Agent Assistant",
+        "description": "Natural language interface for instant insights, queries, and strategic recommendations."
+      },
+      "automatedReports": {
+        "title": "Automated Reports",
+        "description": "Generate comprehensive reports with one click. Schedule daily, weekly, or monthly deliveries."
+      },
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Bank-grade encryption, SSO integration, and compliance with SOC 2, GDPR, and ISO 27001."
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Get started in minutes, not months",
+      "step1": {
+        "title": "Connect Your Data",
+        "description": "Integrate with your existing systems via API or secure file upload. We support 50+ data sources."
+      },
+      "step2": {
+        "title": "AI Analysis",
+        "description": "Our AI engine processes your data, identifies patterns, and generates actionable insights."
+      },
+      "step3": {
+        "title": "Act on Insights",
+        "description": "Receive recommendations, track KPIs, and chat with your AI CEO for strategic decisions."
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Join 500+ enterprises already leveraging AI-powered intelligence for better decision-making."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in to your account",
+      "subtitle": "Enter your credentials to access the platform",
+      "welcomeTitle": "Welcome to Your",
+      "welcomeHighlight": "AI Command Center",
+      "welcomeSubtitle": "Access real-time business intelligence, AI-powered insights, and strategic recommendations—all in one platform.",
+      "feature1": "Real-time KPI Dashboard",
+      "feature2": "AI-Powered Analytics",
+      "feature3": "Instant Business Insights"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Start your free trial today"
+    },
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create an account",
+    "orContinueWith": "Or continue with",
+    "backToHome": "Back to home",
+    "signingIn": "Signing in...",
+    "invalidCredentials": "Invalid email or password. Please try again."
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "subtitle": "Here's what's happening with your business today.",
+    "askAI": "Ask AI Assistant",
+    "kpi": {
+      "totalRevenue": "Total Revenue",
+      "activeUsers": "Active Users",
+      "conversionRate": "Conversion Rate",
+      "avgOrderValue": "Avg. Order Value"
+    },
+    "insights": {
+      "title": "AI Insights",
+      "subtitle": "Real-time recommendations",
+      "viewAll": "View all",
+      "opportunity": "Revenue Growth Opportunity",
+      "opportunityDesc": "Customer segment A shows 23% higher LTV. Consider targeted campaigns.",
+      "opportunityImpact": "+$120K potential",
+      "alert": "Conversion Rate Declining",
+      "alertDesc": "Mobile checkout abandonment increased 15% this week.",
+      "alertImpact": "Needs attention",
+      "success": "Cost Reduction Achieved",
+      "successDesc": "Cloud infrastructure optimization saved $45K this month.",
+      "successImpact": "$45K saved"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "subtitle": "Latest updates"
+    },
+    "chart": {
+      "title": "Revenue Overview",
+      "subtitle": "Monthly revenue trend",
+      "placeholder": "Chart visualization coming soon",
+      "connectBackend": "Connect to backend for real data"
+    }
+  },
+  "chat": {
+    "title": "AI CEO Assistant",
+    "ready": "Ready to help",
+    "thinking": "Thinking...",
+    "newChat": "New Chat",
+    "emptyTitle": "How can I help you today?",
+    "emptySubtitle": "Ask me anything about your business data, KPIs, revenue, or strategic decisions.",
+    "placeholder": "Ask about revenue, KPIs, costs, or any business insights...",
+    "sendHint": "Press Enter to send, Shift + Enter for new line",
+    "quickQuestions": {
+      "q1": "What are the key revenue drivers this quarter?",
+      "q2": "Analyze our customer churn rate",
+      "q3": "How can we optimize operational costs?",
+      "q4": "Show me the top performing products"
+    },
+    "copyMessage": "Copy message"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "languageDesc": "Select your preferred language",
+    "theme": "Theme",
+    "themeDesc": "Choose your preferred theme",
+    "themeDark": "Dark",
+    "themeLight": "Light",
+    "themeSystem": "System"
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "aiDisclaimer": "AI responses are generated and may not always be accurate. Verify important information."
+  }
+}

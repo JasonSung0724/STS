@@ -1,4 +1,8 @@
+import json
+from typing import AsyncGenerator
+
 from fastapi import APIRouter
+from fastapi.responses import StreamingResponse
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
@@ -13,7 +17,7 @@ from src.schemas import (
     MessageCreate,
     MessageResponse,
 )
-from src.services.ai_agent import get_ai_response
+from src.services.agents import run_ceo_agent, stream_ceo_agent
 
 router = APIRouter()
 
@@ -129,14 +133,20 @@ async def send_message(
     db.add(user_message)
     await db.flush()
 
-    # Get AI response
-    ai_response = await get_ai_response(
-        messages=[
+    # Build conversation context
+    context = {
+        "user_id": str(current_user.id),
+        "conversation_id": conversation_id,
+        "history": [
             {"role": msg.role.value, "content": msg.content}
             for msg in conversation.messages
-        ]
-        + [{"role": "user", "content": data.content}],
-        user=current_user,
+        ],
+    }
+
+    # Get AI response using OpenAI Agents SDK
+    ai_response = await run_ceo_agent(
+        message=data.content,
+        context=context,
     )
 
     # Create assistant message
@@ -144,7 +154,7 @@ async def send_message(
         conversation_id=conversation_id,
         role=MessageRole.ASSISTANT,
         content=ai_response["content"],
-        metadata=ai_response.get("metadata"),
+        message_metadata=ai_response.get("metadata"),
     )
     db.add(assistant_message)
     await db.flush()
@@ -155,3 +165,100 @@ async def send_message(
         conversation.title = data.content[:50] + ("..." if len(data.content) > 50 else "")
 
     return assistant_message
+
+
+@router.post("/conversations/{conversation_id}/messages/stream")
+async def send_message_stream(
+    conversation_id: str,
+    data: MessageCreate,
+    current_user: CurrentUser,
+    db: Database,
+) -> StreamingResponse:
+    """Send a message and stream the AI response."""
+    # Get conversation
+    result = await db.execute(
+        select(Conversation)
+        .options(selectinload(Conversation.messages))
+        .where(
+            Conversation.id == conversation_id,
+            Conversation.user_id == current_user.id,
+        )
+    )
+    conversation = result.scalar_one_or_none()
+
+    if not conversation:
+        raise NotFoundException("Conversation not found")
+
+    # Create user message
+    user_message = Message(
+        conversation_id=conversation_id,
+        role=MessageRole.USER,
+        content=data.content,
+    )
+    db.add(user_message)
+    await db.flush()
+
+    # Build conversation context
+    context = {
+        "user_id": str(current_user.id),
+        "conversation_id": conversation_id,
+        "history": [
+            {"role": msg.role.value, "content": msg.content}
+            for msg in conversation.messages
+        ],
+    }
+
+    async def generate() -> AsyncGenerator[str, None]:
+        """Generate SSE events from agent stream."""
+        full_content = ""
+
+        async for chunk in stream_ceo_agent(data.content, context):
+            if chunk.get("type") == "error":
+                yield f"data: {json.dumps({'error': chunk['data']})}\n\n"
+                break
+
+            chunk_data = chunk.get("data", "")
+            if chunk_data:
+                full_content += str(chunk_data)
+                yield f"data: {json.dumps({'content': chunk_data})}\n\n"
+
+        # Save the complete message
+        if full_content:
+            assistant_message = Message(
+                conversation_id=conversation_id,
+                role=MessageRole.ASSISTANT,
+                content=full_content,
+            )
+            db.add(assistant_message)
+            await db.commit()
+
+        yield "data: [DONE]\n\n"
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@router.post("/quick-chat")
+async def quick_chat(
+    data: MessageCreate,
+    current_user: CurrentUser,
+) -> dict:
+    """Quick chat without conversation history (for simple queries)."""
+    context = {"user_id": str(current_user.id)}
+
+    response = await run_ceo_agent(
+        message=data.content,
+        context=context,
+    )
+
+    return {
+        "content": response["content"],
+        "metadata": response.get("metadata"),
+    }

@@ -1,8 +1,14 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   // Enable React strict mode for highlighting potential problems
   reactStrictMode: true,
+
+  // Output standalone build for Docker deployment
+  output: "standalone",
 
   // Environment variables available to the browser
   env: {
@@ -19,11 +25,8 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Experimental features
-  experimental: {
-    // Enable typed routes
-    typedRoutes: true,
-  },
+  // Enable typed routes (moved from experimental in Next.js 15.5+)
+  typedRoutes: true,
 
   // Headers for security
   async headers() {
@@ -47,17 +50,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-
-  // Redirects
-  async redirects() {
-    return [
-      {
-        source: "/dashboard",
-        destination: "/chat",
-        permanent: false,
-      },
-    ];
-  },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

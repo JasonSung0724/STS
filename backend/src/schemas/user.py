@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, EmailStr, Field
 
@@ -24,12 +25,14 @@ class UserResponse(BaseModel):
     """User response schema."""
 
     id: str
-    email: str
+    email: str | None
     name: str
-    company: str
+    company: str | None
     role: str
     is_active: bool
     is_verified: bool
+    auth_provider: str | None
+    avatar_url: str | None
     created_at: datetime
     updated_at: datetime
 
@@ -57,3 +60,46 @@ class TokenPayload(BaseModel):
     sub: str
     type: str
     exp: datetime
+
+
+# OAuth Schemas
+class OAuthCallbackRequest(BaseModel):
+    """OAuth callback request schema."""
+
+    code: str
+    state: str | None = None
+
+
+class LineTokenResponse(BaseModel):
+    """LINE token response schema."""
+
+    access_token: str
+    token_type: str
+    refresh_token: str | None = None
+    expires_in: int
+    scope: str | None = None
+    id_token: str | None = None
+
+
+class LineProfile(BaseModel):
+    """LINE user profile schema."""
+
+    userId: str
+    displayName: str
+    pictureUrl: str | None = None
+    statusMessage: str | None = None
+
+
+class SupabaseAuthRequest(BaseModel):
+    """Supabase auth callback request."""
+
+    access_token: str
+    refresh_token: str | None = None
+    provider: Literal["google", "github", "facebook"] = "google"
+
+
+class OAuthUrlResponse(BaseModel):
+    """OAuth URL response schema."""
+
+    auth_url: str
+    state: str | None = None

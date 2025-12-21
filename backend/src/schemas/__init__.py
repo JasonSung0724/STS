@@ -5,6 +5,11 @@ from src.schemas.user import (
     Token,
     TokenPayload,
     LoginRequest,
+    OAuthCallbackRequest,
+    LineTokenResponse,
+    LineProfile,
+    SupabaseAuthRequest,
+    OAuthUrlResponse,
 )
 from src.schemas.chat import (
     MessageCreate,
@@ -27,6 +32,11 @@ __all__ = [
     "Token",
     "TokenPayload",
     "LoginRequest",
+    "OAuthCallbackRequest",
+    "LineTokenResponse",
+    "LineProfile",
+    "SupabaseAuthRequest",
+    "OAuthUrlResponse",
     "MessageCreate",
     "MessageResponse",
     "ConversationCreate",

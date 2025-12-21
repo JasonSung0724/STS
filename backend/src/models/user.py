@@ -22,18 +22,42 @@ class User(Base):
         primary_key=True,
         default=lambda: str(uuid4()),
     )
-    email: Mapped[str] = mapped_column(
+    email: Mapped[str | None] = mapped_column(
         String(255),
         unique=True,
         index=True,
-        nullable=False,
+        nullable=True,  # OAuth users may not have email
     )
-    hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
+    hashed_password: Mapped[str | None] = mapped_column(
+        String(255), nullable=True  # OAuth users don't have password
+    )
     name: Mapped[str] = mapped_column(String(255), nullable=False)
-    company: Mapped[str] = mapped_column(String(255), nullable=False)
+    company: Mapped[str | None] = mapped_column(
+        String(255), nullable=True  # OAuth users may not have company
+    )
     role: Mapped[str] = mapped_column(String(100), default="user")
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     is_verified: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    # OAuth Provider Fields
+    auth_provider: Mapped[str | None] = mapped_column(
+        String(50), nullable=True, index=True  # 'email', 'google', 'line'
+    )
+    provider_user_id: Mapped[str | None] = mapped_column(
+        String(255), nullable=True, index=True  # ID from OAuth provider
+    )
+    avatar_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
+
+    # LINE specific fields
+    line_user_id: Mapped[str | None] = mapped_column(
+        String(255), unique=True, nullable=True, index=True
+    )
+
+    # Google/Supabase specific fields
+    supabase_user_id: Mapped[str | None] = mapped_column(
+        String(255), unique=True, nullable=True, index=True
+    )
+
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc),

@@ -1,9 +1,28 @@
-version: "3.9"
-
 services:
+  # ===========================================
+  # Nginx Reverse Proxy
+  # ===========================================
+  nginx:
+    image: nginx:alpine
+    container_name: sts-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./infra/nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - sts-network
+
+  # ===========================================
   # PostgreSQL Database
+  # ===========================================
   db:
-    image: postgres:17.7-alpine
+    image: postgres:17-alpine
     container_name: sts-postgres
     restart: unless-stopped
     environment:
@@ -12,6 +31,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-sts}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
     ports:
       - "5432:5432"
     healthcheck:
@@ -19,8 +39,32 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - sts-network
 
-  # Backend API
+  # ===========================================
+  # Redis Cache
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    container_name: sts-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sts-network
+
+  # ===========================================
+  # Backend API (FastAPI)
+  # ===========================================
   backend:
     build:
       context: .
@@ -28,20 +72,30 @@ services:
     container_name: sts-backend
     restart: unless-stopped
     environment:
+      - APP_ENV=${APP_ENV:-development}
+      - DEBUG=${DEBUG:-true}
       - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-sts}:${POSTGRES_PASSWORD:-sts_password}@db:5432/${POSTGRES_DB:-sts}
+      - REDIS_URL=redis://redis:6379/0
       - JWT_SECRET=${JWT_SECRET:-your-super-secret-jwt-key}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - CORS_ORIGINS=["http://localhost:3000"]
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o}
+      - CORS_ORIGINS=["http://localhost:3000","http://localhost:80","http://localhost"]
     ports:
       - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     volumes:
       - ./backend:/app
     command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - sts-network
 
-  # Frontend
+  # ===========================================
+  # Frontend (Next.js)
+  # ===========================================
   frontend:
     build:
       context: .
@@ -58,11 +112,22 @@ services:
       - ./frontend:/app
       - /app/node_modules
       - /app/.next
-    command: pnpm dev
+    command: npm run dev
+    networks:
+      - sts-network
 
+# ===========================================
+# Volumes
+# ===========================================
 volumes:
   postgres_data:
+    driver: local
+  redis_data:
+    driver: local
 
+# ===========================================
+# Networks
+# ===========================================
 networks:
-  default:
-    name: sts-network
+  sts-network:
+    driver: bridge

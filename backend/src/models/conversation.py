@@ -82,7 +82,7 @@ class Message(Base):
         nullable=False,
     )
     content: Mapped[str] = mapped_column(Text, nullable=False)
-    metadata: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+    message_metadata: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc),

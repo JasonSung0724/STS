@@ -3,66 +3,24 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-  }
-}
-
-@layer base {
   * {
-    @apply border-border;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html {
+    @apply antialiased;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-slate-950 text-white;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Scrollbar styling */
+  /* 自定義滾動條 - 深色科技感 */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -70,16 +28,94 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/20 rounded-full;
+    @apply bg-white/10 rounded-full;
+    transition: background-color 0.2s;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/30;
+    @apply bg-white/20;
+  }
+
+  /* 選取文字樣式 */
+  ::selection {
+    @apply bg-accent-cyan/30 text-white;
+  }
+}
+
+@layer components {
+  /* 玻璃擬態卡片 */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* 發光邊框 */
+  .glow-border {
+    @apply relative;
+  }
+
+  .glow-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), transparent, rgba(99, 102, 241, 0.3));
+    padding: 1px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+  }
+
+  /* 主要按鈕 */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-accent-cyan to-accent-blue text-white font-semibold rounded-xl;
+    @apply hover:shadow-glow-md transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-cyan/50 focus:ring-offset-2 focus:ring-offset-slate-950;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none;
+  }
+
+  /* 次要按鈕 */
+  .btn-secondary {
+    @apply px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-xl;
+    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/20;
+  }
+
+  /* 輸入框 */
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40;
+    @apply focus:outline-none focus:border-accent-cyan/50 focus:ring-1 focus:ring-accent-cyan/30;
+    @apply transition-all duration-200;
+  }
+
+  /* 標籤 */
+  .label {
+    @apply block text-sm font-medium text-white/70 mb-2;
+  }
+
+  /* 漸層文字 */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-indigo bg-clip-text text-transparent;
+  }
+
+  /* 發光點 */
+  .glow-dot {
+    @apply w-2 h-2 rounded-full bg-accent-cyan;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+  }
+
+  /* 網格背景 */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
 }
 
 @layer utilities {
-  /* Hide scrollbar but keep functionality */
+  /* 隱藏滾動條 */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -89,8 +125,87 @@
     display: none;
   }
 
-  /* Text gradient */
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent;
+  /* 文字省略 */
+  .text-ellipsis-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
+
+  /* 遮罩漸層 */
+  .mask-gradient-b {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
+/* OpenAI ChatKit 暗色主題自訂樣式 */
+.chatkit-container {
+  --chatkit-bg: transparent;
+  --chatkit-text: #ffffff;
+  --chatkit-text-muted: rgba(255, 255, 255, 0.6);
+  --chatkit-border: rgba(255, 255, 255, 0.1);
+  --chatkit-accent: #06b6d4;
+}
+
+.chatkit-container openai-chatkit {
+  height: 100%;
+  width: 100%;
+  display: block;
+  --background: transparent;
+  --foreground: #ffffff;
+  --muted: rgba(255, 255, 255, 0.5);
+  --muted-foreground: rgba(255, 255, 255, 0.7);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --primary: #06b6d4;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.1);
+  --secondary-foreground: #ffffff;
+  --accent: #06b6d4;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --ring: rgba(6, 182, 212, 0.5);
+  --radius: 0.75rem;
+}
+
+/* ChatKit 內部元素樣式覆蓋 */
+.chatkit-container openai-chatkit::part(container) {
+  background: transparent;
+  border: none;
+}
+
+.chatkit-container openai-chatkit::part(input) {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #ffffff;
+}
+
+.chatkit-container openai-chatkit::part(input):focus {
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+}
+
+.chatkit-container openai-chatkit::part(message-user) {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+}
+
+.chatkit-container openai-chatkit::part(message-assistant) {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+.chatkit-container openai-chatkit::part(send-button) {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  border-radius: 0.75rem;
+}
+
+.chatkit-container openai-chatkit::part(send-button):hover {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
 }

@@ -53,7 +53,7 @@ class KPIRecord(Base):
         SQLEnum(KPICategory),
         default=KPICategory.CUSTOM,
     )
-    metadata: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
+    kpi_metadata: Mapped[dict | None] = mapped_column(JSONB, nullable=True)
     recorded_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc),

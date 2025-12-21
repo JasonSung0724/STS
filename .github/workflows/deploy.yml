@@ -13,6 +13,11 @@ on:
           - dev
           - staging
           - prod
+      run_migrations:
+        description: 'Run database migrations'
+        required: false
+        default: true
+        type: boolean
   # 保留自動部署，初期先註解
   # push:
   #   branches: [main]
@@ -27,9 +32,42 @@ env:
   REGISTRY: gcr.io
 
 jobs:
+  # Database Migration Job (runs before deployment)
+  migrate:
+    name: Database Migration
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.run_migrations == 'true' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        working-directory: backend
+        run: uv sync
+
+      - name: Run Alembic migrations
+        working-directory: backend
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          echo "Running database migrations..."
+          uv run alembic upgrade head
+          echo "Migrations completed successfully!"
+
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
+    needs: [migrate]
+    # Run even if migrate was skipped (when run_migrations is false)
+    if: ${{ always() && (needs.migrate.result == 'success' || needs.migrate.result == 'skipped') }}
     permissions:
       contents: read
       id-token: write
