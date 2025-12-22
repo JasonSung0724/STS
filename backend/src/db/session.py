@@ -12,12 +12,19 @@ def create_engine():
 
     Uses NullPool to let external connection poolers (like Supabase pgbouncer
     or local Supavisor) manage connections efficiently.
+
+    Note: prepared_statement_cache_size=0 is required for PgBouncer compatibility
+    when using transaction or statement pooling mode.
     """
     return create_async_engine(
         settings.async_database_url,
         echo=settings.db_echo,
         pool_pre_ping=True,
         poolclass=NullPool,
+        connect_args={
+            "prepared_statement_cache_size": 0,
+            "statement_cache_size": 0,
+        },
     )
 
 
