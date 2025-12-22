@@ -1,65 +1,28 @@
-# ===========================================
-# STS - Deploy to VM (Multi-Environment)
-# ===========================================
-# 架構:
-#   - 單一 VM 上同時運行 dev 和 prod 環境
-#   - Production: port 80/443
-#   - Development: port 8080/8443
-#
-# 觸發方式:
-#   - 推送到 main → 自動部署到 dev（含 migration）
-#   - 手動觸發 → 可選擇 dev 或 prod
-#
-# 設定方式:
-# 1. GitHub → Settings → Environments
-# 2. 建立 "dev" 和 "prod" 兩個 environment
-# 3. 在每個 environment 中設定對應的 secrets/variables
-#
-# Required Secrets (per environment):
-#   - DATABASE_URL: Supabase connection string (Direct mode, port 5432)
-#   - SUPABASE_SERVICE_ROLE_KEY: service role key
-#   - JWT_SECRET: JWT signing secret
-#   - OPENAI_API_KEY: OpenAI API key
-#   - LINE_CHANNEL_SECRET: LINE OAuth secret
-#   - VM_SSH_KEY: SSH private key
-#
-# Required Variables (per environment):
-#   - VM_HOST: VM IP or hostname (共用同一個)
-#   - VM_USER: SSH username (共用同一個)
-#   - API_URL: API 訪問 URL (e.g., http://VM_IP or https://api.sts.example.com)
-#   - APP_URL: Frontend URL (e.g., http://VM_IP or https://sts.example.com)
-#   - SUPABASE_URL: https://xxx.supabase.co
-#   - SUPABASE_ANON_KEY: anon public key
-#   - LINE_CHANNEL_ID: LINE OAuth channel ID
-
 name: Deploy to VM
 
 on:
-  # 推送到 main 自動部署到 dev
   push:
     branches:
       - main
 
-  # 手動觸發（可選擇環境）
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Deployment environment'
+        description: "Deployment environment"
         required: true
-        default: 'dev'
+        default: "dev"
         type: choice
         options:
           - dev
           - prod
       run_migrations:
-        description: 'Run database migrations'
+        description: "Run database migrations"
         required: false
         default: true
         type: boolean
 
 env:
   DOCKER_REGISTRY: ghcr.io
-  # Docker requires lowercase repository names
   IMAGE_NAME: jasonsung0724/sts
 
 jobs:
