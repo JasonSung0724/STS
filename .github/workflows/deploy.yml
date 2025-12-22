@@ -59,7 +59,8 @@ on:
 
 env:
   DOCKER_REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  # Docker requires lowercase repository names
+  IMAGE_NAME: jasonsung0724/sts
 
 jobs:
   # ===========================================
