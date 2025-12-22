@@ -1,0 +1,208 @@
+# ===========================================
+# STS - VM Multi-Environment Deployment
+# ===========================================
+# 在單一 VM 上同時運行 dev 和 prod 環境
+#
+# 架構:
+#   - Nginx (共用): 負責路由到不同環境
+#   - Production: port 80/443 (backend-prod, frontend-prod)
+#   - Development: port 8080/8443 (backend-dev, frontend-dev)
+#   - Redis: 共用
+#
+# 啟動方式:
+#   docker compose -f deployment/docker/docker-compose.vm.yml up -d
+#
+# 訪問方式 (無網域):
+#   - Production:  http://VM_IP/
+#   - Development: http://VM_IP:8080/
+#
+# 訪問方式 (有網域):
+#   - Production:  https://sts.yourdomain.com/
+#   - Development: https://dev.sts.yourdomain.com/
+
+services:
+  # ===========================================
+  # Nginx Reverse Proxy (共用)
+  # ===========================================
+  nginx:
+    image: nginx:alpine
+    container_name: sts-nginx
+    restart: always
+    ports:
+      - "80:80"       # Production HTTP
+      - "443:443"     # Production HTTPS
+      - "8080:8080"   # Development HTTP
+      - "8443:8443"   # Development HTTPS
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certbot/www:/var/www/certbot:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+    depends_on:
+      - backend-prod
+      - frontend-prod
+      - backend-dev
+      - frontend-dev
+    networks:
+      - sts-network
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ===========================================
+  # Redis (共用)
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    container_name: sts-redis
+    restart: always
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    networks:
+      - sts-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================
+  # Production Backend
+  # ===========================================
+  backend-prod:
+    image: ${DOCKER_REGISTRY:-ghcr.io}/${IMAGE_NAME:-sts}/backend:${PROD_TAG:-latest}
+    container_name: sts-backend-prod
+    restart: always
+    env_file:
+      - ../env/.env.prod
+    environment:
+      - APP_ENV=production
+      - REDIS_URL=redis://redis:6379/0
+    networks:
+      - sts-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  # ===========================================
+  # Production Frontend
+  # ===========================================
+  frontend-prod:
+    image: ${DOCKER_REGISTRY:-ghcr.io}/${IMAGE_NAME:-sts}/frontend:${PROD_TAG:-latest}
+    container_name: sts-frontend-prod
+    restart: always
+    env_file:
+      - ../env/.env.prod
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - backend-prod
+    networks:
+      - sts-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+  # ===========================================
+  # Development Backend
+  # ===========================================
+  backend-dev:
+    image: ${DOCKER_REGISTRY:-ghcr.io}/${IMAGE_NAME:-sts}/backend:${DEV_TAG:-dev}
+    container_name: sts-backend-dev
+    restart: always
+    env_file:
+      - ../env/.env.dev
+    environment:
+      - APP_ENV=development
+      - DEBUG=true
+      - REDIS_URL=redis://redis:6379/1  # 使用不同的 Redis DB
+    networks:
+      - sts-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+  # ===========================================
+  # Development Frontend
+  # ===========================================
+  frontend-dev:
+    image: ${DOCKER_REGISTRY:-ghcr.io}/${IMAGE_NAME:-sts}/frontend:${DEV_TAG:-dev}
+    container_name: sts-frontend-dev
+    restart: always
+    env_file:
+      - ../env/.env.dev
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend-dev
+    networks:
+      - sts-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.1'
+          memory: 128M
+
+  # ===========================================
+  # Certbot (SSL 憑證管理)
+  # ===========================================
+  certbot:
+    image: certbot/certbot:latest
+    container_name: sts-certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - sts-network
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  sts-network:
+    driver: bridge

@@ -1,27 +1,36 @@
 # ===========================================
-# STS - Deploy to VM
+# STS - Deploy to VM (Multi-Environment)
 # ===========================================
+# 架構:
+#   - 單一 VM 上同時運行 dev 和 prod 環境
+#   - Production: port 80/443
+#   - Development: port 8080/8443
+#
 # 觸發方式:
-# - 推送到 main → 自動部署到 dev（含 migration）
-# - 手動觸發 → 可選擇 dev 或 prod
+#   - 推送到 main → 自動部署到 dev（含 migration）
+#   - 手動觸發 → 可選擇 dev 或 prod
 #
 # 設定方式:
 # 1. GitHub → Settings → Environments
 # 2. 建立 "dev" 和 "prod" 兩個 environment
-# 3. 在每個 environment 中設定對應的 secrets
+# 3. 在每個 environment 中設定對應的 secrets/variables
 #
 # Required Secrets (per environment):
-#   - DATABASE_URL: Supabase connection string
-#   - SUPABASE_URL: https://xxx.supabase.co
-#   - SUPABASE_ANON_KEY: anon public key
+#   - DATABASE_URL: Supabase connection string (Direct mode, port 5432)
 #   - SUPABASE_SERVICE_ROLE_KEY: service role key
 #   - JWT_SECRET: JWT signing secret
 #   - OPENAI_API_KEY: OpenAI API key
-#   - LINE_CHANNEL_ID: LINE OAuth channel ID
 #   - LINE_CHANNEL_SECRET: LINE OAuth secret
-#   - VM_HOST: VM IP or hostname
-#   - VM_USER: SSH username
 #   - VM_SSH_KEY: SSH private key
+#
+# Required Variables (per environment):
+#   - VM_HOST: VM IP or hostname (共用同一個)
+#   - VM_USER: SSH username (共用同一個)
+#   - API_URL: API 訪問 URL (e.g., http://VM_IP or https://api.sts.example.com)
+#   - APP_URL: Frontend URL (e.g., http://VM_IP or https://sts.example.com)
+#   - SUPABASE_URL: https://xxx.supabase.co
+#   - SUPABASE_ANON_KEY: anon public key
+#   - LINE_CHANNEL_ID: LINE OAuth channel ID
 
 name: Deploy to VM
 
@@ -245,7 +254,7 @@ jobs:
           host: ${{ vars.VM_HOST }}
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
-          source: "deployment/docker/docker-compose.prod.yml,deployment/nginx/,.env.deploy"
+          source: "deployment/docker/docker-compose.vm.yml,deployment/nginx/,.env.deploy"
           target: "~/sts"
           strip_components: 0
 
@@ -256,34 +265,45 @@ jobs:
           IMAGE_NAME: ${{ env.IMAGE_NAME }}
           GITHUB_SHA: ${{ github.sha }}
           ENVIRONMENT: ${{ needs.setup.outputs.environment }}
+          IMAGE_TAG: ${{ needs.build.outputs.image_tag }}
         with:
           host: ${{ vars.VM_HOST }}
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
-          envs: DOCKER_REGISTRY,IMAGE_NAME,GITHUB_SHA,ENVIRONMENT
+          envs: DOCKER_REGISTRY,IMAGE_NAME,GITHUB_SHA,ENVIRONMENT,IMAGE_TAG
           script: |
             cd ~/sts
 
-            # Organize files
-            mkdir -p docker nginx env
-            mv deployment/docker/* docker/ 2>/dev/null || true
-            mv deployment/nginx/* nginx/ 2>/dev/null || true
+            # Create directory structure
+            mkdir -p docker nginx env certbot/www certbot/conf
+
+            # Copy files to proper locations
+            cp -r deployment/docker/* docker/ 2>/dev/null || true
+            cp -r deployment/nginx/* nginx/ 2>/dev/null || true
             mv .env.deploy env/.env.${ENVIRONMENT}
             rm -rf deployment
 
             cd docker
 
-            # Create symlink to env file
-            ln -sf ../env/.env.${ENVIRONMENT} .env
-
             # Login to GitHub Container Registry
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-            # Pull latest images
-            docker compose -f docker-compose.prod.yml pull
+            # Set image tags based on environment
+            if [ "${ENVIRONMENT}" == "prod" ]; then
+              export PROD_TAG="${IMAGE_TAG}"
+              export DEV_TAG="dev"  # Keep dev at its current version
+            else
+              export DEV_TAG="${IMAGE_TAG}"
+              export PROD_TAG="latest"  # Keep prod at its current version
+            fi
 
-            # Restart services with new environment
-            docker compose -f docker-compose.prod.yml up -d --remove-orphans
+            # Pull and deploy only the changed environment's images
+            echo "Pulling images for ${ENVIRONMENT}..."
+            docker compose -f docker-compose.vm.yml pull backend-${ENVIRONMENT} frontend-${ENVIRONMENT}
+
+            # Start/restart services
+            echo "Starting services..."
+            docker compose -f docker-compose.vm.yml up -d nginx redis backend-${ENVIRONMENT} frontend-${ENVIRONMENT}
 
             # Cleanup old images
             docker image prune -f
@@ -292,14 +312,26 @@ jobs:
 
       - name: Health check
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          ENVIRONMENT: ${{ needs.setup.outputs.environment }}
         with:
           host: ${{ vars.VM_HOST }}
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
+          envs: ENVIRONMENT
           script: |
             sleep 15
-            curl -f http://localhost:8000/health || exit 1
-            echo "Health check passed!"
+
+            # Health check based on environment
+            if [ "${ENVIRONMENT}" == "prod" ]; then
+              HEALTH_URL="http://localhost:80/health"
+            else
+              HEALTH_URL="http://localhost:8080/health"
+            fi
+
+            echo "Checking health at ${HEALTH_URL}..."
+            curl -f "${HEALTH_URL}" || exit 1
+            echo "Health check passed for ${ENVIRONMENT}!"
 
       - name: Deployment Summary
         run: |
