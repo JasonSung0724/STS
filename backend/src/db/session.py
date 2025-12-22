@@ -1,33 +1,26 @@
 from typing import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.pool import NullPool
 
 from src.config import settings
-
-
-class Base(DeclarativeBase):
-    """SQLAlchemy declarative base."""
-
-    pass
+from src.db.base import Base  # noqa: F401 - re-export for backward compatibility
 
 
 def create_engine():
     """Create database engine with environment-specific settings."""
-    # Supabase Pooler 需要特殊的連線池設定
+    db_url = settings.async_database_url
+
     if settings.use_supabase:
-        # 使用 NullPool 讓 Supabase Pooler 管理連線
         return create_async_engine(
-            settings.database_url,
+            db_url,
             echo=settings.db_echo,
             pool_pre_ping=True,
-            poolclass=NullPool,  # Supabase 使用 pgbouncer，不需要本地 pool
+            poolclass=NullPool,
         )
     else:
-        # 本地 PostgreSQL 使用預設連線池
         return create_async_engine(
-            settings.database_url,
+            db_url,
             echo=settings.db_echo,
             pool_pre_ping=True,
             pool_size=5,

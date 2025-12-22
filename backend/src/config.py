@@ -29,6 +29,24 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+asyncpg://sts:sts_password@localhost:5432/sts"
     db_echo: bool = False
 
+    @property
+    def async_database_url(self) -> str:
+        """Get database URL with asyncpg driver for async operations."""
+        url = self.database_url
+        # Convert postgresql:// to postgresql+asyncpg:// if needed
+        if url.startswith("postgresql://"):
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return url
+
+    @property
+    def sync_database_url(self) -> str:
+        """Get database URL with psycopg2 driver for sync operations (like Alembic)."""
+        url = self.database_url
+        # Convert postgresql+asyncpg:// to postgresql:// if needed
+        if url.startswith("postgresql+asyncpg://"):
+            url = url.replace("postgresql+asyncpg://", "postgresql://", 1)
+        return url
+
     # Supabase Configuration
     use_supabase: bool = False
     supabase_url: str = ""
