@@ -3,9 +3,9 @@
 # STS Deployment Script
 # ===========================================
 # Usage:
-#   ./scripts/deploy.sh local    # Local development with Docker PostgreSQL
-#   ./scripts/deploy.sh dev      # Development with Supabase
-#   ./scripts/deploy.sh prod     # Production deployment
+#   ./deployment/scripts/deploy.sh local    # Local development with Docker PostgreSQL
+#   ./deployment/scripts/deploy.sh dev      # Development with Supabase
+#   ./deployment/scripts/deploy.sh prod     # Production deployment
 
 set -e
 
@@ -16,9 +16,15 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-# Project root
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Project root (two levels up from scripts)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DEPLOYMENT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROJECT_ROOT="$(cd "$DEPLOYMENT_DIR/.." && pwd)"
 cd "$PROJECT_ROOT"
+
+# Paths
+DOCKER_DIR="$DEPLOYMENT_DIR/docker"
+ENV_DIR="$DEPLOYMENT_DIR/env"
 
 # Print banner
 print_banner() {
@@ -41,7 +47,7 @@ check_docker() {
 
 # Validate environment
 validate_env() {
-    local env_file=$1
+    local env_file="$ENV_DIR/$1"
     if [ ! -f "$env_file" ]; then
         echo -e "${RED}[✗] Environment file not found: $env_file${NC}"
         echo -e "${YELLOW}[!] Please copy from template and configure:${NC}"
@@ -59,21 +65,21 @@ deploy_local() {
 
     # Load environment variables
     set -a
-    source .env.local
+    source "$ENV_DIR/.env.local"
     set +a
 
     # Stop existing containers
-    docker compose -f docker-compose.local.yml down 2>/dev/null || true
+    docker compose -f "$DOCKER_DIR/docker-compose.local.yml" down 2>/dev/null || true
 
     # Start services
     echo -e "${YELLOW}[*] Starting database and Redis...${NC}"
-    docker compose -f docker-compose.local.yml up -d db redis
+    docker compose -f "$DOCKER_DIR/docker-compose.local.yml" up -d db redis
 
     echo -e "${YELLOW}[*] Waiting for database...${NC}"
     sleep 5
 
     echo -e "${YELLOW}[*] Starting backend and frontend...${NC}"
-    docker compose -f docker-compose.local.yml up -d backend frontend
+    docker compose -f "$DOCKER_DIR/docker-compose.local.yml" up -d backend frontend
 
     # Show status
     echo -e "\n${GREEN}=================================================="
@@ -85,8 +91,8 @@ deploy_local() {
     echo -e "  PostgreSQL:  ${BLUE}localhost:${POSTGRES_PORT:-5433}${NC}"
     echo -e "  Redis:       ${BLUE}localhost:${REDIS_PORT:-6380}${NC}"
     echo ""
-    echo -e "${YELLOW}[!] Logs: docker compose -f docker-compose.local.yml logs -f${NC}"
-    echo -e "${YELLOW}[!] Stop: docker compose -f docker-compose.local.yml down${NC}"
+    echo -e "${YELLOW}[!] Logs: docker compose -f deployment/docker/docker-compose.local.yml logs -f${NC}"
+    echo -e "${YELLOW}[!] Stop: docker compose -f deployment/docker/docker-compose.local.yml down${NC}"
 }
 
 # Deploy Development Environment (Supabase)
@@ -96,7 +102,7 @@ deploy_dev() {
     validate_env ".env.dev"
 
     # Check Supabase configuration
-    source .env.dev
+    source "$ENV_DIR/.env.dev"
     if [ -z "$SUPABASE_URL" ] || [ "$SUPABASE_URL" = "https://your-project.supabase.co" ]; then
         echo -e "${RED}[✗] Supabase not configured in .env.dev${NC}"
         echo -e "${YELLOW}[!] Please configure SUPABASE_URL and other Supabase settings${NC}"
@@ -104,16 +110,16 @@ deploy_dev() {
     fi
 
     # Stop existing containers
-    docker compose -f docker-compose.dev.yml down 2>/dev/null || true
+    docker compose -f "$DOCKER_DIR/docker-compose.dev.yml" down 2>/dev/null || true
 
     # Start services
     echo -e "${YELLOW}[*] Starting Redis...${NC}"
-    docker compose -f docker-compose.dev.yml up -d redis
+    docker compose -f "$DOCKER_DIR/docker-compose.dev.yml" up -d redis
 
     sleep 2
 
     echo -e "${YELLOW}[*] Starting backend and frontend...${NC}"
-    docker compose -f docker-compose.dev.yml up -d backend frontend
+    docker compose -f "$DOCKER_DIR/docker-compose.dev.yml" up -d backend frontend
 
     # Show status
     echo -e "\n${GREEN}=================================================="
@@ -125,8 +131,8 @@ deploy_dev() {
     echo -e "  Database:    ${BLUE}Supabase (Cloud)${NC}"
     echo -e "  Redis:       ${BLUE}localhost:6379${NC}"
     echo ""
-    echo -e "${YELLOW}[!] Logs: docker compose -f docker-compose.dev.yml logs -f${NC}"
-    echo -e "${YELLOW}[!] Stop: docker compose -f docker-compose.dev.yml down${NC}"
+    echo -e "${YELLOW}[!] Logs: docker compose -f deployment/docker/docker-compose.dev.yml logs -f${NC}"
+    echo -e "${YELLOW}[!] Stop: docker compose -f deployment/docker/docker-compose.dev.yml down${NC}"
 }
 
 # Deploy Production Environment
@@ -136,7 +142,7 @@ deploy_prod() {
     validate_env ".env.prod"
 
     # Check production configuration
-    source .env.prod
+    source "$ENV_DIR/.env.prod"
     if [ -z "$SUPABASE_URL" ] || [ "$SUPABASE_URL" = "https://your-project.supabase.co" ]; then
         echo -e "${RED}[✗] Supabase not configured in .env.prod${NC}"
         exit 1
@@ -157,15 +163,15 @@ deploy_prod() {
     fi
 
     # Stop existing containers
-    docker compose -f docker-compose.prod.yml down 2>/dev/null || true
+    docker compose -f "$DOCKER_DIR/docker-compose.prod.yml" down 2>/dev/null || true
 
     # Build production images
     echo -e "${YELLOW}[*] Building production images...${NC}"
-    docker compose -f docker-compose.prod.yml build --no-cache
+    docker compose -f "$DOCKER_DIR/docker-compose.prod.yml" build --no-cache
 
     # Start services
     echo -e "${YELLOW}[*] Starting production services...${NC}"
-    docker compose -f docker-compose.prod.yml up -d
+    docker compose -f "$DOCKER_DIR/docker-compose.prod.yml" up -d
 
     # Wait for health checks
     echo -e "${YELLOW}[*] Waiting for services to be healthy...${NC}"
@@ -185,13 +191,13 @@ deploy_prod() {
     echo -e "  Application: ${BLUE}https://your-domain.com${NC}"
     echo -e "  Health:      ${BLUE}https://your-domain.com/health${NC}"
     echo ""
-    echo -e "${YELLOW}[!] Logs: docker compose -f docker-compose.prod.yml logs -f${NC}"
-    echo -e "${YELLOW}[!] Stop: docker compose -f docker-compose.prod.yml down${NC}"
+    echo -e "${YELLOW}[!] Logs: docker compose -f deployment/docker/docker-compose.prod.yml logs -f${NC}"
+    echo -e "${YELLOW}[!] Stop: docker compose -f deployment/docker/docker-compose.prod.yml down${NC}"
 }
 
 # Show help
 show_help() {
-    echo "Usage: ./scripts/deploy.sh [ENVIRONMENT]"
+    echo "Usage: ./deployment/scripts/deploy.sh [ENVIRONMENT]"
     echo ""
     echo "Environments:"
     echo "  local    Local development with Docker PostgreSQL"
@@ -199,9 +205,9 @@ show_help() {
     echo "  prod     Production deployment"
     echo ""
     echo "Examples:"
-    echo "  ./scripts/deploy.sh local    # Start local development"
-    echo "  ./scripts/deploy.sh dev      # Start with Supabase"
-    echo "  ./scripts/deploy.sh prod     # Deploy to production"
+    echo "  ./deployment/scripts/deploy.sh local    # Start local development"
+    echo "  ./deployment/scripts/deploy.sh dev      # Start with Supabase"
+    echo "  ./deployment/scripts/deploy.sh prod     # Deploy to production"
 }
 
 # Main

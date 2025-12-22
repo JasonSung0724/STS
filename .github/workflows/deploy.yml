@@ -1,7 +1,37 @@
-name: Deploy to GKE
+# ===========================================
+# STS - Deploy to VM
+# ===========================================
+# 觸發方式:
+# - 推送到 main → 自動部署到 dev（含 migration）
+# - 手動觸發 → 可選擇 dev 或 prod
+#
+# 設定方式:
+# 1. GitHub → Settings → Environments
+# 2. 建立 "dev" 和 "prod" 兩個 environment
+# 3. 在每個 environment 中設定對應的 secrets
+#
+# Required Secrets (per environment):
+#   - DATABASE_URL: Supabase connection string
+#   - SUPABASE_URL: https://xxx.supabase.co
+#   - SUPABASE_ANON_KEY: anon public key
+#   - SUPABASE_SERVICE_ROLE_KEY: service role key
+#   - JWT_SECRET: JWT signing secret
+#   - OPENAI_API_KEY: OpenAI API key
+#   - LINE_CHANNEL_ID: LINE OAuth channel ID
+#   - LINE_CHANNEL_SECRET: LINE OAuth secret
+#   - VM_HOST: VM IP or hostname
+#   - VM_USER: SSH username
+#   - VM_SSH_KEY: SSH private key
+
+name: Deploy to VM
 
 on:
-  # 手動觸發
+  # 推送到 main 自動部署到 dev
+  push:
+    branches:
+      - main
+
+  # 手動觸發（可選擇環境）
   workflow_dispatch:
     inputs:
       environment:
@@ -11,32 +41,53 @@ on:
         type: choice
         options:
           - dev
-          - staging
           - prod
       run_migrations:
         description: 'Run database migrations'
         required: false
         default: true
         type: boolean
-  # 保留自動部署，初期先註解
-  # push:
-  #   branches: [main]
-  #   paths-ignore:
-  #     - "**.md"
-  #     - "docs/**"
 
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GKE_CLUSTER: sts-cluster-prod
-  GKE_ZONE: asia-east1-a
-  REGISTRY: gcr.io
+  DOCKER_REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  # Database Migration Job (runs before deployment)
-  migrate:
-    name: Database Migration
+  # ===========================================
+  # Determine deployment settings
+  # ===========================================
+  setup:
+    name: Setup Deployment
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.run_migrations == 'true' }}
+    outputs:
+      environment: ${{ steps.set-env.outputs.environment }}
+      run_migrations: ${{ steps.set-env.outputs.run_migrations }}
+
+    steps:
+      - name: Determine environment
+        id: set-env
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            # 推送到 main → 自動部署到 dev，含 migration
+            echo "environment=dev" >> $GITHUB_OUTPUT
+            echo "run_migrations=true" >> $GITHUB_OUTPUT
+            echo "🚀 Auto-deploy to dev triggered by push to main"
+          else
+            # 手動觸發 → 使用指定的環境和設定
+            echo "environment=${{ github.event.inputs.environment }}" >> $GITHUB_OUTPUT
+            echo "run_migrations=${{ github.event.inputs.run_migrations }}" >> $GITHUB_OUTPUT
+            echo "🎯 Manual deploy to ${{ github.event.inputs.environment }}"
+          fi
+
+  # ===========================================
+  # Database Migration Job
+  # ===========================================
+  migrate:
+    name: Database Migration (${{ needs.setup.outputs.environment }})
+    runs-on: ubuntu-latest
+    needs: [setup]
+    if: ${{ needs.setup.outputs.run_migrations == 'true' }}
+    environment: ${{ needs.setup.outputs.environment }}
 
     steps:
       - uses: actions/checkout@v4
@@ -58,84 +109,208 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          echo "Running database migrations..."
+          echo "Running database migrations for ${{ needs.setup.outputs.environment }}..."
           uv run alembic upgrade head
           echo "Migrations completed successfully!"
 
-  build-and-deploy:
-    name: Build and Deploy
+  # ===========================================
+  # Build and Push Docker Images
+  # ===========================================
+  build:
+    name: Build Docker Images
     runs-on: ubuntu-latest
-    needs: [migrate]
-    # Run even if migrate was skipped (when run_migrations is false)
+    needs: [setup, migrate]
     if: ${{ always() && (needs.migrate.result == 'success' || needs.migrate.result == 'skipped') }}
     permissions:
       contents: read
-      id-token: write
+      packages: write
+
+    outputs:
+      backend_image: ${{ steps.meta-backend.outputs.tags }}
+      frontend_image: ${{ steps.meta-frontend.outputs.tags }}
+      image_tag: ${{ steps.vars.outputs.sha_short }}
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
+      - name: Set outputs
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup gcloud CLI
-        uses: google-github-actions/setup-gcloud@v2
+      - name: Extract metadata (Backend)
+        id: meta-backend
+        uses: docker/metadata-action@v5
         with:
-          project_id: ${{ env.PROJECT_ID }}
+          images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}/backend
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest
+            type=raw,value=${{ needs.setup.outputs.environment }}
 
-      - name: Configure Docker for GCR
-        run: gcloud auth configure-docker --quiet
-
-      - name: Get GKE credentials
-        uses: google-github-actions/get-gke-credentials@v2
+      - name: Extract metadata (Frontend)
+        id: meta-frontend
+        uses: docker/metadata-action@v5
         with:
-          cluster_name: ${{ env.GKE_CLUSTER }}
-          location: ${{ env.GKE_ZONE }}
+          images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}/frontend
+          tags: |
+            type=sha,prefix=
+            type=raw,value=latest
+            type=raw,value=${{ needs.setup.outputs.environment }}
 
-      # Build and push backend
-      - name: Build Backend Image
-        run: |
-          docker build \
-            -f infra/docker/backend.Dockerfile \
-            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:${{ github.sha }} \
-            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:latest \
-            .
+      - name: Build and push Backend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: deployment/docker/backend.Dockerfile
+          push: true
+          tags: ${{ steps.meta-backend.outputs.tags }}
+          target: production
 
-      - name: Push Backend Image
-        run: |
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:${{ github.sha }}
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:latest
+      - name: Build and push Frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: deployment/docker/frontend.Dockerfile
+          push: true
+          tags: ${{ steps.meta-frontend.outputs.tags }}
+          target: production
 
-      # Build and push frontend
-      - name: Build Frontend Image
-        run: |
-          docker build \
-            -f infra/docker/frontend.Dockerfile \
-            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:${{ github.sha }} \
-            -t ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:latest \
-            .
+  # ===========================================
+  # Deploy to VM via SSH
+  # ===========================================
+  deploy:
+    name: Deploy to VM (${{ needs.setup.outputs.environment }})
+    runs-on: ubuntu-latest
+    needs: [setup, build]
+    if: ${{ success() }}
+    environment: ${{ needs.setup.outputs.environment }}
 
-      - name: Push Frontend Image
-        run: |
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:${{ github.sha }}
-          docker push ${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:latest
+    steps:
+      - uses: actions/checkout@v4
 
-      # Deploy to GKE
-      - name: Deploy Backend
+      - name: Create environment file
+        env:
+          ENVIRONMENT: ${{ needs.setup.outputs.environment }}
         run: |
-          kubectl set image deployment/sts-backend \
-            backend=${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-backend:${{ github.sha }} \
-            -n sts
+          cat > .env.deploy << EOF
+          # ===========================================
+          # STS - ${ENVIRONMENT} Environment
+          # Generated by GitHub Actions
+          # ===========================================
 
-      - name: Deploy Frontend
-        run: |
-          kubectl set image deployment/sts-frontend \
-            frontend=${{ env.REGISTRY }}/${{ env.PROJECT_ID }}/sts-frontend:${{ github.sha }} \
-            -n sts
+          # Application
+          APP_NAME=STS
+          APP_ENV=${ENVIRONMENT}
+          DEBUG=${{ needs.setup.outputs.environment == 'dev' && 'true' || 'false' }}
 
-      - name: Verify deployment
+          # API URLs
+          NEXT_PUBLIC_API_URL=${{ vars.API_URL || 'http://localhost:8000' }}
+          NEXT_PUBLIC_APP_URL=${{ vars.APP_URL || 'http://localhost:3000' }}
+
+          # Database (Supabase)
+          USE_SUPABASE=true
+          DATABASE_URL=${{ secrets.DATABASE_URL }}
+          SUPABASE_URL=${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+          # Authentication
+          JWT_SECRET=${{ secrets.JWT_SECRET }}
+          JWT_ALGORITHM=HS256
+          JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
+          JWT_REFRESH_TOKEN_EXPIRE_DAYS=7
+
+          # LINE OAuth
+          LINE_CHANNEL_ID=${{ vars.LINE_CHANNEL_ID }}
+          LINE_CHANNEL_SECRET=${{ secrets.LINE_CHANNEL_SECRET }}
+          LINE_REDIRECT_URI=${{ vars.APP_URL }}/auth/callback
+
+          # OpenAI
+          OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL=gpt-4o
+
+          # Redis
+          REDIS_URL=redis://redis:6379/0
+          EOF
+
+      - name: Copy files to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ vars.VM_HOST }}
+          username: ${{ vars.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          source: "deployment/docker/docker-compose.prod.yml,deployment/nginx/,.env.deploy"
+          target: "~/sts"
+          strip_components: 0
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          DOCKER_REGISTRY: ${{ env.DOCKER_REGISTRY }}
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          GITHUB_SHA: ${{ github.sha }}
+          ENVIRONMENT: ${{ needs.setup.outputs.environment }}
+        with:
+          host: ${{ vars.VM_HOST }}
+          username: ${{ vars.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          envs: DOCKER_REGISTRY,IMAGE_NAME,GITHUB_SHA,ENVIRONMENT
+          script: |
+            cd ~/sts
+
+            # Organize files
+            mkdir -p docker nginx env
+            mv deployment/docker/* docker/ 2>/dev/null || true
+            mv deployment/nginx/* nginx/ 2>/dev/null || true
+            mv .env.deploy env/.env.${ENVIRONMENT}
+            rm -rf deployment
+
+            cd docker
+
+            # Create symlink to env file
+            ln -sf ../env/.env.${ENVIRONMENT} .env
+
+            # Login to GitHub Container Registry
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+            # Pull latest images
+            docker compose -f docker-compose.prod.yml pull
+
+            # Restart services with new environment
+            docker compose -f docker-compose.prod.yml up -d --remove-orphans
+
+            # Cleanup old images
+            docker image prune -f
+
+            echo "Deployment to ${ENVIRONMENT} completed!"
+
+      - name: Health check
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ vars.VM_HOST }}
+          username: ${{ vars.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            sleep 15
+            curl -f http://localhost:8000/health || exit 1
+            echo "Health check passed!"
+
+      - name: Deployment Summary
         run: |
-          kubectl rollout status deployment/sts-backend -n sts --timeout=300s
-          kubectl rollout status deployment/sts-frontend -n sts --timeout=300s
+          echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Trigger | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Environment | ${{ needs.setup.outputs.environment }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Migrations | ${{ needs.setup.outputs.run_migrations }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Backend Image | \`${{ needs.build.outputs.backend_image }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Frontend Image | \`${{ needs.build.outputs.frontend_image }}\` |" >> $GITHUB_STEP_SUMMARY

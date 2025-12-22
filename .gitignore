@@ -12,10 +12,14 @@
 .env.*.local
 .env.development
 .env.production
+deployment/env/.env.*
+!deployment/env/.env.example
 *.pem
 *.key
 secrets/
 credentials.json
+*_gcp.json
+*-credentials.json
 
 # Keep example files
 !.env.example
