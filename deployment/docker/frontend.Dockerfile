@@ -64,6 +64,9 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
 ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
 ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+# Ensure public directory exists (even if empty)
+RUN mkdir -p public
+
 # Build the application
 RUN npm run build
 
@@ -82,8 +85,10 @@ ENV NODE_ENV=production \
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-# Copy built assets
+# Copy public assets (directory guaranteed to exist from builder)
 COPY --from=builder /app/public ./public
+
+# Copy built assets
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
