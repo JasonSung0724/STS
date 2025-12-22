@@ -38,11 +38,7 @@ services:
       - ../nginx/conf.d:/etc/nginx/conf.d:ro
       - ./certbot/www:/var/www/certbot:ro
       - ./certbot/conf:/etc/letsencrypt:ro
-    depends_on:
-      - backend-prod
-      - frontend-prod
-      - backend-dev
-      - frontend-dev
+    # 不強制依賴所有服務，允許單獨部署 dev 或 prod
     networks:
       - sts-network
     healthcheck:

@@ -283,6 +283,9 @@ jobs:
             mv .env.deploy env/.env.${ENVIRONMENT}
             rm -rf deployment
 
+            # Create placeholder env files if they don't exist (for docker-compose compatibility)
+            touch env/.env.dev env/.env.prod
+
             cd docker
 
             # Login to GitHub Container Registry
@@ -296,6 +299,10 @@ jobs:
               export DEV_TAG="${IMAGE_TAG}"
               export PROD_TAG="latest"  # Keep prod at its current version
             fi
+
+            # Export for docker compose
+            export DOCKER_REGISTRY="${DOCKER_REGISTRY}"
+            export IMAGE_NAME="${IMAGE_NAME}"
 
             # Pull and deploy only the changed environment's images
             echo "Pulling images for ${ENVIRONMENT}..."
