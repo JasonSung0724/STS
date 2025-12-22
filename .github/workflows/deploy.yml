@@ -276,17 +276,36 @@ jobs:
           script: |
             cd ~/sts
 
+            # Debug: Show what was copied
+            echo "=== Files in ~/sts ==="
+            find . -type f -name "*.yml" -o -name "*.conf" -o -name ".env*" 2>/dev/null | head -20
+
             # Create directory structure
             mkdir -p docker nginx env certbot/www certbot/conf
 
-            # Copy files to proper locations
-            cp -r deployment/docker/* docker/ 2>/dev/null || true
-            cp -r deployment/nginx/* nginx/ 2>/dev/null || true
-            mv .env.deploy env/.env.${ENVIRONMENT}
+            # Copy files to proper locations (handle both possible paths)
+            if [ -d "deployment/docker" ]; then
+              cp -r deployment/docker/* docker/ 2>/dev/null || true
+            fi
+            if [ -d "deployment/nginx" ]; then
+              cp -r deployment/nginx/* nginx/ 2>/dev/null || true
+            fi
+
+            # Move env file
+            if [ -f ".env.deploy" ]; then
+              mv .env.deploy env/.env.${ENVIRONMENT}
+            fi
+
             rm -rf deployment
 
             # Create placeholder env files if they don't exist (for docker-compose compatibility)
             touch env/.env.dev env/.env.prod
+
+            # Debug: Show final structure
+            echo "=== Final docker directory ==="
+            ls -la docker/
+            echo "=== Final nginx directory ==="
+            ls -la nginx/
 
             cd docker
 
