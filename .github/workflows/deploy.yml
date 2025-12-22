@@ -247,6 +247,9 @@ jobs:
             # Create directory structure
             mkdir -p docker nginx env certbot/www certbot/conf
 
+            # Clean nginx conf.d before copying (remove stale configs)
+            rm -rf nginx/conf.d/*
+
             # Copy files to proper locations (handle both possible paths)
             if [ -d "deployment/docker" ]; then
               cp -r deployment/docker/* docker/ 2>/dev/null || true
