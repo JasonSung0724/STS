@@ -215,7 +215,6 @@ jobs:
           NEXT_PUBLIC_APP_URL=${{ vars.APP_URL || 'http://localhost:3000' }}
 
           # Database (Supabase)
-          USE_SUPABASE=true
           DATABASE_URL=${{ secrets.DATABASE_URL }}
           SUPABASE_URL=${{ vars.SUPABASE_URL }}
           SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}

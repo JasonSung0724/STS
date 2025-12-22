@@ -8,24 +8,17 @@ from src.db.base import Base  # noqa: F401 - re-export for backward compatibilit
 
 
 def create_engine():
-    """Create database engine with environment-specific settings."""
-    db_url = settings.async_database_url
+    """Create database engine.
 
-    if settings.use_supabase:
-        return create_async_engine(
-            db_url,
-            echo=settings.db_echo,
-            pool_pre_ping=True,
-            poolclass=NullPool,
-        )
-    else:
-        return create_async_engine(
-            db_url,
-            echo=settings.db_echo,
-            pool_pre_ping=True,
-            pool_size=5,
-            max_overflow=10,
-        )
+    Uses NullPool to let external connection poolers (like Supabase pgbouncer
+    or local Supavisor) manage connections efficiently.
+    """
+    return create_async_engine(
+        settings.async_database_url,
+        echo=settings.db_echo,
+        pool_pre_ping=True,
+        poolclass=NullPool,
+    )
 
 
 engine = create_engine()

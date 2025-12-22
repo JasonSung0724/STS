@@ -1,0 +1,314 @@
+# ===========================================
+# STS - Local Supabase Development Environment
+# ===========================================
+# 本地 Supabase 開發環境（含 PostgreSQL、Auth、Storage、Realtime）
+#
+# 使用方式:
+# 1. 首次啟動: docker compose -f deployment/docker/docker-compose.supabase.yml up -d
+# 2. 查看狀態: docker compose -f deployment/docker/docker-compose.supabase.yml ps
+# 3. 停止: docker compose -f deployment/docker/docker-compose.supabase.yml down
+#
+# 本地服務端點:
+# - Supabase Studio: http://localhost:54323
+# - API Gateway: http://localhost:54321
+# - Database: postgresql://postgres:postgres@localhost:54322/postgres
+# - Mailpit (Email): http://localhost:54324
+#
+# 注意: 這是簡化版本，適合本地開發。生產環境請使用 Supabase Cloud。
+
+services:
+  # ===========================================
+  # PostgreSQL Database
+  # ===========================================
+  db:
+    image: supabase/postgres:15.6.1.143
+    container_name: sts-supabase-db
+    restart: unless-stopped
+    ports:
+      - "54322:5432"
+    environment:
+      POSTGRES_HOST: /var/run/postgresql
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      JWT_EXP: 3600
+    volumes:
+      - supabase_db_data:/var/lib/postgresql/data
+      - ./volumes/db/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Supabase Studio (Dashboard)
+  # ===========================================
+  studio:
+    image: supabase/studio:20241202-60d4e05
+    container_name: sts-supabase-studio
+    restart: unless-stopped
+    ports:
+      - "54323:3000"
+    environment:
+      STUDIO_PG_META_URL: http://meta:8080
+      POSTGRES_PASSWORD: postgres
+      DEFAULT_ORGANIZATION_NAME: STS Local
+      DEFAULT_PROJECT_NAME: STS Development
+      SUPABASE_URL: http://kong:8000
+      SUPABASE_PUBLIC_URL: http://localhost:54321
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      SUPABASE_SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+      LOGFLARE_API_KEY: your-super-secret-and-long-logflare-key
+      LOGFLARE_URL: http://analytics:4000
+      NEXT_PUBLIC_ENABLE_LOGS: true
+      NEXT_ANALYTICS_BACKEND_PROVIDER: postgres
+    depends_on:
+      - db
+      - meta
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Kong API Gateway
+  # ===========================================
+  kong:
+    image: kong:2.8.1
+    container_name: sts-supabase-kong
+    restart: unless-stopped
+    ports:
+      - "54321:8000"
+      - "54320:8443"
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /home/kong/kong.yml
+      KONG_DNS_ORDER: LAST,A,CNAME
+      KONG_PLUGINS: request-transformer,cors,key-auth,acl,basic-auth
+      KONG_NGINX_PROXY_PROXY_BUFFER_SIZE: 160k
+      KONG_NGINX_PROXY_PROXY_BUFFERS: 64 160k
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      SUPABASE_SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+      DASHBOARD_USERNAME: supabase
+      DASHBOARD_PASSWORD: this_password_is_insecure_and_should_be_updated
+    volumes:
+      - ./volumes/kong/kong.yml:/home/kong/kong.yml:ro
+    depends_on:
+      - db
+      - auth
+      - rest
+      - realtime
+      - storage
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # GoTrue Auth Service
+  # ===========================================
+  auth:
+    image: supabase/gotrue:v2.164.0
+    container_name: sts-supabase-auth
+    restart: unless-stopped
+    environment:
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+      API_EXTERNAL_URL: http://localhost:54321
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://supabase_auth_admin:postgres@db:5432/postgres
+      GOTRUE_SITE_URL: http://localhost:3000
+      GOTRUE_URI_ALLOW_LIST: "*"
+      GOTRUE_DISABLE_SIGNUP: false
+      GOTRUE_JWT_ADMIN_ROLES: service_role
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_JWT_EXP: 3600
+      GOTRUE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: true
+      GOTRUE_EXTERNAL_ANONYMOUS_USERS_ENABLED: false
+      GOTRUE_MAILER_AUTOCONFIRM: true
+      GOTRUE_SMTP_HOST: inbucket
+      GOTRUE_SMTP_PORT: 2500
+      GOTRUE_SMTP_ADMIN_EMAIL: admin@email.com
+      GOTRUE_SMTP_MAX_FREQUENCY: 1s
+      GOTRUE_MAILER_URLPATHS_INVITE: /auth/v1/verify
+      GOTRUE_MAILER_URLPATHS_CONFIRMATION: /auth/v1/verify
+      GOTRUE_MAILER_URLPATHS_RECOVERY: /auth/v1/verify
+      GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: /auth/v1/verify
+      # External OAuth providers (configure as needed)
+      GOTRUE_EXTERNAL_GOOGLE_ENABLED: false
+      GOTRUE_EXTERNAL_GOOGLE_CLIENT_ID: ""
+      GOTRUE_EXTERNAL_GOOGLE_SECRET: ""
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # PostgREST REST API
+  # ===========================================
+  rest:
+    image: postgrest/postgrest:v12.2.0
+    container_name: sts-supabase-rest
+    restart: unless-stopped
+    environment:
+      PGRST_DB_URI: postgres://authenticator:postgres@db:5432/postgres
+      PGRST_DB_SCHEMAS: public,storage,graphql_public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_DB_USE_LEGACY_GUCS: false
+      PGRST_APP_SETTINGS_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_APP_SETTINGS_JWT_EXP: 3600
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Realtime Server
+  # ===========================================
+  realtime:
+    image: supabase/realtime:v2.33.58
+    container_name: sts-supabase-realtime
+    restart: unless-stopped
+    environment:
+      PORT: 4000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: supabase_admin
+      DB_PASSWORD: postgres
+      DB_NAME: postgres
+      DB_AFTER_CONNECT_QUERY: 'SET search_path TO _realtime'
+      DB_ENC_KEY: supabase_realtime_encryption_key_32
+      API_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      SECRET_KEY_BASE: UpNVntn3cDxHJpq99YMc1T1AQgQpc8kfYTuRgBiYa15BLrx8etQoXz3gZv1/u2oq
+      ERL_AFLAGS: -proto_dist inet_tcp
+      DNS_NODES: "''"
+      RLIMIT_NOFILE: 10000
+      APP_NAME: realtime
+      SEED_SELF_HOST: true
+      REPLICATION_MODE: RLS
+      REPLICATION_POLL_INTERVAL: 100
+      SECURE_CHANNELS: true
+      SLOT_NAME: supabase_realtime_rls
+      TEMPORARY_SLOT: true
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Storage API
+  # ===========================================
+  storage:
+    image: supabase/storage-api:v1.11.13
+    container_name: sts-supabase-storage
+    restart: unless-stopped
+    environment:
+      ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+      SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+      POSTGREST_URL: http://rest:3000
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      DATABASE_URL: postgres://supabase_storage_admin:postgres@db:5432/postgres
+      FILE_SIZE_LIMIT: 52428800
+      STORAGE_BACKEND: file
+      FILE_STORAGE_BACKEND_PATH: /var/lib/storage
+      TENANT_ID: stub
+      REGION: stub
+      GLOBAL_S3_BUCKET: stub
+      ENABLE_IMAGE_TRANSFORMATION: true
+      IMGPROXY_URL: http://imgproxy:8080
+    volumes:
+      - supabase_storage_data:/var/lib/storage
+    depends_on:
+      db:
+        condition: service_healthy
+      rest:
+        condition: service_started
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Image Proxy (for image transformations)
+  # ===========================================
+  imgproxy:
+    image: darthsim/imgproxy:v3.8.0
+    container_name: sts-supabase-imgproxy
+    restart: unless-stopped
+    environment:
+      IMGPROXY_BIND: ":8080"
+      IMGPROXY_LOCAL_FILESYSTEM_ROOT: /
+      IMGPROXY_USE_ETAG: true
+      IMGPROXY_ENABLE_WEBP_DETECTION: true
+    volumes:
+      - supabase_storage_data:/var/lib/storage:ro
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Postgres Meta (for Studio)
+  # ===========================================
+  meta:
+    image: supabase/postgres-meta:v0.84.2
+    container_name: sts-supabase-meta
+    restart: unless-stopped
+    environment:
+      PG_META_PORT: 8080
+      PG_META_DB_HOST: db
+      PG_META_DB_PORT: 5432
+      PG_META_DB_NAME: postgres
+      PG_META_DB_USER: supabase_admin
+      PG_META_DB_PASSWORD: postgres
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Inbucket (Local Email Testing)
+  # ===========================================
+  inbucket:
+    image: inbucket/inbucket:3.0.3
+    container_name: sts-supabase-inbucket
+    restart: unless-stopped
+    ports:
+      - "54324:9000"   # Web UI
+      - "54325:2500"   # SMTP
+    networks:
+      - sts-supabase
+
+  # ===========================================
+  # Redis (for sessions/cache)
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    container_name: sts-supabase-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - supabase_redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sts-supabase
+
+volumes:
+  supabase_db_data:
+    driver: local
+  supabase_storage_data:
+    driver: local
+  supabase_redis_data:
+    driver: local
+
+networks:
+  sts-supabase:
+    driver: bridge
