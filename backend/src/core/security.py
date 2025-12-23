@@ -1,3 +1,10 @@
+"""Security utilities for JWT handling.
+
+Supports both:
+- Supabase JWT tokens (primary authentication method)
+- Local JWT tokens (for backward compatibility and special cases)
+"""
+
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -23,7 +30,7 @@ def create_access_token(
     data: dict[str, Any],
     expires_delta: timedelta | None = None,
 ) -> str:
-    """Create JWT access token."""
+    """Create JWT access token (local tokens, for backward compatibility)."""
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + (
         expires_delta
@@ -37,7 +44,7 @@ def create_refresh_token(
     data: dict[str, Any],
     expires_delta: timedelta | None = None,
 ) -> str:
-    """Create JWT refresh token."""
+    """Create JWT refresh token (local tokens, for backward compatibility)."""
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + (
         expires_delta or timedelta(days=settings.jwt_refresh_token_expire_days)
@@ -47,7 +54,33 @@ def create_refresh_token(
 
 
 def verify_token(token: str, token_type: str = "access") -> dict[str, Any] | None:
-    """Verify and decode JWT token."""
+    """Verify and decode JWT token.
+
+    Supports both Supabase JWT tokens and local JWT tokens.
+
+    Args:
+        token: JWT token string
+        token_type: Expected token type ("access" or "refresh")
+
+    Returns:
+        Decoded payload or None if invalid
+    """
+    # Try Supabase JWT first (if configured)
+    if settings.supabase_jwt_secret:
+        try:
+            payload = jwt.decode(
+                token,
+                settings.supabase_jwt_secret,
+                algorithms=["HS256"],
+                audience="authenticated",
+            )
+            # Supabase tokens have 'sub' as user ID
+            # They don't have a 'type' field, so we skip type check for Supabase tokens
+            return payload
+        except JWTError:
+            pass  # Fall through to try local JWT
+
+    # Try local JWT (backward compatibility)
     try:
         payload = jwt.decode(
             token, settings.jwt_secret, algorithms=[settings.jwt_algorithm]

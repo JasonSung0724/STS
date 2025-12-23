@@ -22,13 +22,39 @@ export default function AuthCallbackPage() {
           throw new Error(error);
         }
 
-        // Check for direct tokens (from backend redirect)
-        const accessToken = searchParams.get("access_token");
-        const refreshToken = searchParams.get("refresh_token");
         const provider = searchParams.get("provider");
 
+        // Check for Supabase callback (hash fragment) - Google OAuth
+        const hash = window.location.hash;
+        if (hash) {
+          const params = new URLSearchParams(hash.substring(1));
+          const supabaseAccessToken = params.get("access_token");
+          const supabaseRefreshToken = params.get("refresh_token");
+
+          if (supabaseAccessToken) {
+            setMessage("Syncing with server...");
+            // Sync user with backend and get tokens
+            const response = await oauthApi.supabaseCallback(
+              supabaseAccessToken,
+              supabaseRefreshToken || undefined,
+              "google"
+            );
+
+            // Store Supabase tokens (they work with our backend)
+            localStorage.setItem("access_token", response.access_token);
+            localStorage.setItem("refresh_token", response.refresh_token);
+            setStatus("success");
+            setMessage("Successfully logged in with Google");
+            setTimeout(() => router.push("/dashboard"), 1500);
+            return;
+          }
+        }
+
+        // Check for direct tokens (from backend redirect - legacy support)
+        const accessToken = searchParams.get("access_token");
+        const refreshToken = searchParams.get("refresh_token");
+
         if (accessToken) {
-          // Tokens from backend redirect (LINE callback)
           localStorage.setItem("access_token", accessToken);
           if (refreshToken) {
             localStorage.setItem("refresh_token", refreshToken);
@@ -39,32 +65,31 @@ export default function AuthCallbackPage() {
           return;
         }
 
-        // Check for Supabase callback (hash fragment)
-        const hash = window.location.hash;
-        if (hash) {
-          const params = new URLSearchParams(hash.substring(1));
-          const supabaseAccessToken = params.get("access_token");
-          const supabaseRefreshToken = params.get("refresh_token");
-
-          if (supabaseAccessToken) {
-            setMessage("Syncing with server...");
-            // Exchange Supabase tokens for our tokens
-            const response = await oauthApi.supabaseCallback(
-              supabaseAccessToken,
-              supabaseRefreshToken || undefined,
-              "google"
-            );
-
+        // Check for LINE callback with user_id (new Supabase-integrated flow)
+        const userId = searchParams.get("user_id");
+        if (userId && provider === "line") {
+          // LINE users are already created in Supabase
+          // We need to exchange for tokens via the line/token endpoint
+          const code = searchParams.get("code");
+          if (code) {
+            setMessage("Completing LINE authentication...");
+            const response = await oauthApi.lineCallback(code);
             localStorage.setItem("access_token", response.access_token);
             localStorage.setItem("refresh_token", response.refresh_token);
             setStatus("success");
-            setMessage("Successfully logged in with Google");
+            setMessage("Successfully logged in with LINE");
             setTimeout(() => router.push("/dashboard"), 1500);
             return;
           }
+
+          // If no code but has user_id, show success and redirect
+          setStatus("success");
+          setMessage("Successfully logged in with LINE");
+          setTimeout(() => router.push("/dashboard"), 1500);
+          return;
         }
 
-        // Check for LINE authorization code
+        // Check for LINE authorization code (SPA flow)
         const code = searchParams.get("code");
         const state = searchParams.get("state");
 

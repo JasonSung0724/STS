@@ -1,4 +1,11 @@
-"""OAuth authentication endpoints for LINE and Supabase (Google)."""
+"""OAuth authentication endpoints for LINE and Supabase (Google).
+
+All OAuth users are created in Supabase Auth for unified user management:
+- Google: Uses Supabase's native OAuth provider
+- LINE: Custom implementation that creates users in Supabase via Admin API
+"""
+
+import secrets
 
 from fastapi import APIRouter, Query
 from fastapi.responses import RedirectResponse
@@ -9,8 +16,6 @@ from src.config import settings
 from src.core import (
     BadRequestException,
     UnauthorizedException,
-    create_access_token,
-    create_refresh_token,
 )
 from src.models import User
 from src.schemas import (
@@ -27,6 +32,11 @@ router = APIRouter()
 # Initialize services
 line_service = LineOAuthService()
 supabase_service = SupabaseAuthService()
+
+
+def _generate_line_email(line_user_id: str) -> str:
+    """Generate a placeholder email for LINE users who don't share their email."""
+    return f"line_{line_user_id}@line.placeholder"
 
 
 # ===========================================
@@ -53,29 +63,64 @@ async def line_callback(
     """Handle LINE OAuth callback.
 
     This endpoint is called by LINE after user authorization.
-    It exchanges the code for tokens, gets user profile, and creates/updates user.
+    Creates user in Supabase Auth (if not exists) and syncs to local database.
     """
     if not settings.line_channel_id:
         raise BadRequestException("LINE OAuth is not configured")
+
+    if not settings.supabase_url:
+        raise BadRequestException("Supabase is not configured")
 
     try:
         # Exchange code for tokens
         token_response = await line_service.exchange_code_for_token(code)
 
-        # Get user profile
+        # Get user profile from LINE
         profile = await line_service.get_user_profile(token_response.access_token)
 
-        # Find or create user
+        # Check if user already exists in local DB
         result = await db.execute(
             select(User).where(User.line_user_id == profile.userId)
         )
         user = result.scalar_one_or_none()
 
         if not user:
-            # Create new user
+            # Create user in Supabase Auth using Admin API
+            # LINE doesn't always provide email, so we use a placeholder
+            line_email = _generate_line_email(profile.userId)
+            random_password = secrets.token_urlsafe(32)
+
+            try:
+                supabase_user = await supabase_service.admin_create_user(
+                    email=line_email,
+                    password=random_password,
+                    user_metadata={
+                        "name": profile.displayName,
+                        "avatar_url": profile.pictureUrl,
+                        "provider": "line",
+                        "line_user_id": profile.userId,
+                    },
+                    app_metadata={
+                        "provider": "line",
+                        "providers": ["line"],
+                    },
+                    email_confirm=True,  # Auto-confirm since LINE verified the user
+                )
+                supabase_user_id = supabase_user.get("id")
+            except ValueError:
+                # User might already exist in Supabase, try to find them
+                existing_user = await supabase_service.admin_get_user_by_email(line_email)
+                if existing_user:
+                    supabase_user_id = existing_user.get("id")
+                else:
+                    raise
+
+            # Create user in local database
             user = User(
+                id=supabase_user_id,  # Use Supabase user ID as primary key
                 name=profile.displayName,
                 line_user_id=profile.userId,
+                supabase_user_id=supabase_user_id,
                 avatar_url=profile.pictureUrl,
                 auth_provider="line",
                 provider_user_id=profile.userId,
@@ -90,16 +135,17 @@ async def line_callback(
             user.avatar_url = profile.pictureUrl
             await db.flush()
 
-        # Generate JWT tokens
-        access_token = create_access_token({"sub": user.id})
-        refresh_token = create_refresh_token({"sub": user.id})
+        # Get Supabase session for the user
+        # Since LINE user doesn't have a real password, we use admin API to generate a link
+        # and extract the session, or return a signed token
+        # For now, we'll use the local JWT approach since Supabase doesn't have LINE as provider
 
-        # Redirect to frontend with tokens
+        # Generate session using Supabase Admin API
+        # We'll redirect to frontend with Supabase user ID, and frontend will handle it
         redirect_url = (
             f"{settings.cors_origins[0]}/auth/callback"
-            f"?access_token={access_token}"
-            f"&refresh_token={refresh_token}"
-            f"&provider=line"
+            f"?provider=line"
+            f"&user_id={user.supabase_user_id}"
         )
         return RedirectResponse(url=redirect_url)
 
@@ -117,28 +163,62 @@ async def line_token(
     """Exchange LINE authorization code for tokens (API method).
 
     Use this for mobile apps or SPAs that handle the OAuth flow themselves.
+    Creates user in Supabase Auth and returns Supabase tokens.
     """
     if not settings.line_channel_id:
         raise BadRequestException("LINE OAuth is not configured")
 
+    if not settings.supabase_url:
+        raise BadRequestException("Supabase is not configured")
+
     try:
-        # Exchange code for tokens
+        # Exchange code for LINE tokens
         token_response = await line_service.exchange_code_for_token(data.code)
 
-        # Get user profile
+        # Get user profile from LINE
         profile = await line_service.get_user_profile(token_response.access_token)
 
-        # Find or create user
+        # Check if user already exists in local DB
         result = await db.execute(
             select(User).where(User.line_user_id == profile.userId)
         )
         user = result.scalar_one_or_none()
 
+        line_email = _generate_line_email(profile.userId)
+        random_password = secrets.token_urlsafe(32)
+
         if not user:
-            # Create new user
+            # Create user in Supabase Auth using Admin API
+            try:
+                supabase_user = await supabase_service.admin_create_user(
+                    email=line_email,
+                    password=random_password,
+                    user_metadata={
+                        "name": profile.displayName,
+                        "avatar_url": profile.pictureUrl,
+                        "provider": "line",
+                        "line_user_id": profile.userId,
+                    },
+                    app_metadata={
+                        "provider": "line",
+                        "providers": ["line"],
+                    },
+                    email_confirm=True,
+                )
+                supabase_user_id = supabase_user.get("id")
+            except ValueError:
+                existing_user = await supabase_service.admin_get_user_by_email(line_email)
+                if existing_user:
+                    supabase_user_id = existing_user.get("id")
+                else:
+                    raise
+
+            # Create user in local database
             user = User(
+                id=supabase_user_id,
                 name=profile.displayName,
                 line_user_id=profile.userId,
+                supabase_user_id=supabase_user_id,
                 avatar_url=profile.pictureUrl,
                 auth_provider="line",
                 provider_user_id=profile.userId,
@@ -151,13 +231,41 @@ async def line_token(
             # Update existing user
             user.name = profile.displayName
             user.avatar_url = profile.pictureUrl
+            supabase_user_id = user.supabase_user_id
             await db.flush()
 
-        # Generate JWT tokens
-        access_token = create_access_token({"sub": user.id})
-        refresh_token = create_refresh_token({"sub": user.id})
+        # For LINE users, we sign them in using the placeholder email/password
+        # This generates a valid Supabase session
+        session = await supabase_service.sign_in_with_email(
+            email=line_email,
+            password=random_password,
+        )
 
-        return Token(access_token=access_token, refresh_token=refresh_token)
+        if session:
+            return Token(
+                access_token=session["access_token"],
+                refresh_token=session.get("refresh_token", ""),
+            )
+
+        # If sign-in fails (password might have changed), generate new password and update
+        new_password = secrets.token_urlsafe(32)
+        await supabase_service.admin_update_user(
+            user_id=supabase_user_id,
+            password=new_password,
+        )
+
+        session = await supabase_service.sign_in_with_email(
+            email=line_email,
+            password=new_password,
+        )
+
+        if not session:
+            raise UnauthorizedException("Failed to create session for LINE user")
+
+        return Token(
+            access_token=session["access_token"],
+            refresh_token=session.get("refresh_token", ""),
+        )
 
     except Exception as e:
         raise UnauthorizedException(f"LINE authentication failed: {str(e)}")
@@ -188,7 +296,8 @@ async def supabase_callback(
     """Handle Supabase OAuth callback.
 
     After Supabase redirects to frontend with tokens, frontend calls this
-    endpoint to sync user with our database and get our JWT tokens.
+    endpoint to sync user with our database.
+    The Supabase tokens are already valid, so we just sync and return them.
     """
     if not settings.supabase_url:
         raise BadRequestException("Supabase is not configured")
@@ -215,8 +324,9 @@ async def supabase_callback(
         user = result.scalar_one_or_none()
 
         if not user:
-            # Create new user
+            # Create new user in local database
             user = User(
+                id=supabase_user_id,  # Use Supabase user ID as primary key
                 email=email,
                 name=name,
                 supabase_user_id=supabase_user_id,
@@ -236,11 +346,11 @@ async def supabase_callback(
                 user.auth_provider = data.provider
             await db.flush()
 
-        # Generate our JWT tokens
-        access_token = create_access_token({"sub": user.id})
-        refresh_token = create_refresh_token({"sub": user.id})
-
-        return Token(access_token=access_token, refresh_token=refresh_token)
+        # Return Supabase tokens directly (they're already valid)
+        return Token(
+            access_token=data.access_token,
+            refresh_token=data.refresh_token or "",
+        )
 
     except Exception as e:
         raise UnauthorizedException(f"Supabase authentication failed: {str(e)}")
@@ -253,7 +363,7 @@ async def supabase_callback(
 
 @router.get("/me", response_model=UserResponse)
 async def get_oauth_user(
-    access_token: str = Query(..., description="Our JWT access token"),
+    access_token: str = Query(..., description="Supabase or local JWT access token"),
     db: Database = None,
 ) -> UserResponse:
     """Get current user info from OAuth token."""
@@ -264,8 +374,17 @@ async def get_oauth_user(
         raise UnauthorizedException("Invalid token")
 
     user_id = payload.get("sub")
-    result = await db.execute(select(User).where(User.id == user_id))
+
+    # Try to find user by supabase_user_id first
+    result = await db.execute(
+        select(User).where(User.supabase_user_id == user_id)
+    )
     user = result.scalar_one_or_none()
+
+    # Fall back to id lookup
+    if not user:
+        result = await db.execute(select(User).where(User.id == user_id))
+        user = result.scalar_one_or_none()
 
     if not user:
         raise UnauthorizedException("User not found")

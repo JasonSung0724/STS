@@ -1,3 +1,5 @@
+"""FastAPI dependencies for authentication and database access."""
+
 from typing import Annotated
 
 from fastapi import Depends, Header
@@ -13,7 +15,12 @@ async def get_current_user(
     authorization: Annotated[str | None, Header()] = None,
     db: AsyncSession = Depends(get_db),
 ) -> User:
-    """Get current authenticated user."""
+    """Get current authenticated user.
+
+    Supports both Supabase JWT tokens and local JWT tokens.
+    For Supabase tokens, looks up user by supabase_user_id.
+    For local tokens, looks up user by id.
+    """
     if not authorization or not authorization.startswith("Bearer "):
         raise UnauthorizedException("Invalid authorization header")
 
@@ -27,8 +34,16 @@ async def get_current_user(
     if not user_id:
         raise UnauthorizedException("Invalid token payload")
 
-    result = await db.execute(select(User).where(User.id == user_id))
+    # Try to find user by supabase_user_id first (Supabase tokens)
+    result = await db.execute(
+        select(User).where(User.supabase_user_id == user_id)
+    )
     user = result.scalar_one_or_none()
+
+    # Fall back to id lookup (for backward compatibility with local tokens)
+    if not user:
+        result = await db.execute(select(User).where(User.id == user_id))
+        user = result.scalar_one_or_none()
 
     if not user:
         raise UnauthorizedException("User not found")

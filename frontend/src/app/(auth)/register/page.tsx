@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Bot, Eye, EyeOff, Loader2 } from "lucide-react";
+import { authApi } from "@/lib/api";
 
 const registerSchema = z
   .object({
@@ -33,6 +34,8 @@ export default function RegisterPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
 
   const {
     register,
@@ -44,12 +47,23 @@ export default function RegisterPage() {
 
   const onSubmit = async (data: RegisterFormData) => {
     setIsLoading(true);
+    setError(null);
     try {
-      // TODO: Implement register API call
-      console.log("Register:", data);
-      router.push("/chat");
-    } catch (error) {
-      console.error("Registration failed:", error);
+      await authApi.register({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        password: data.password,
+      });
+      setSuccess(true);
+      // Redirect to login page after successful registration
+      setTimeout(() => router.push("/login"), 2000);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error
+        ? err.message
+        : (err as { response?: { data?: { detail?: string } } })?.response?.data?.detail || "Registration failed. Please try again.";
+      setError(errorMessage);
+      console.error("Registration failed:", err);
     } finally {
       setIsLoading(false);
     }
@@ -74,6 +88,21 @@ export default function RegisterPage() {
 
         {/* Form */}
         <div className="rounded-xl border bg-white p-8 shadow-sm dark:bg-slate-900">
+          {/* Success Message */}
+          {success && (
+            <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 dark:bg-green-900/20 dark:border-green-800 dark:text-green-400">
+              Account created successfully! Please check your email to verify your account.
+              Redirecting to login...
+            </div>
+          )}
+
+          {/* Error Message */}
+          {error && (
+            <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400">
+              {error}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Name */}
             <div>

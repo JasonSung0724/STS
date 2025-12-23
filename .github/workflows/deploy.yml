@@ -192,6 +192,7 @@ jobs:
           SUPABASE_URL=${{ vars.SUPABASE_URL }}
           SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_JWT_SECRET=${{ secrets.SUPABASE_JWT_SECRET }}
 
           # Authentication
           JWT_SECRET=${{ secrets.JWT_SECRET }}
@@ -212,6 +213,19 @@ jobs:
           REDIS_URL=redis://redis:6379/0
           EOF
 
+      - name: Prepare VM directories
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ vars.VM_HOST }}
+          username: ${{ vars.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            # Create directory structure for deployment
+            mkdir -p ~/sts/deployment/docker
+            mkdir -p ~/sts/deployment/nginx/conf.d
+            echo "Directory structure created successfully"
+            ls -la ~/sts/
+
       - name: Copy files to VM
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -221,6 +235,7 @@ jobs:
           source: "deployment/docker/docker-compose.vm.yml,deployment/nginx/,.env.deploy"
           target: "~/sts"
           strip_components: 0
+          overwrite: true
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
