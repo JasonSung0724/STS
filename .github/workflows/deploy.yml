@@ -213,30 +213,58 @@ jobs:
           REDIS_URL=redis://redis:6379/0
           EOF
 
-      - name: Prepare VM directories
+      - name: Prepare files for transfer
+        run: |
+          # Create a tarball of deployment files
+          tar -czvf deploy-files.tar.gz \
+            deployment/docker/docker-compose.vm.yml \
+            deployment/nginx/ \
+            .env.deploy
+          # Encode to base64 for reliable transfer
+          base64 deploy-files.tar.gz > deploy-files.tar.gz.b64
+          echo "Files prepared for transfer:"
+          ls -la deploy-files.tar.gz*
+
+      - name: Copy and extract files on VM
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ vars.VM_HOST }}
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
+          script_stop: true
           script: |
-            # Create directory structure for deployment
+            # Create directory structure
             mkdir -p ~/sts/deployment/docker
             mkdir -p ~/sts/deployment/nginx/conf.d
-            echo "Directory structure created successfully"
-            ls -la ~/sts/
 
-      - name: Copy files to VM
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ vars.VM_HOST }}
-          username: ${{ vars.VM_USER }}
-          key: ${{ secrets.VM_SSH_KEY }}
-          source: "deployment/docker/docker-compose.vm.yml,deployment/nginx/,.env.deploy"
-          target: "/home/${{ vars.VM_USER }}/sts"
-          strip_components: 0
-          overwrite: true
-          debug: true
+            # Check disk space
+            echo "=== Disk space ==="
+            df -h ~
+
+            echo "Directory structure created"
+
+      - name: Transfer files via SCP
+        env:
+          SSH_KEY: ${{ secrets.VM_SSH_KEY }}
+        run: |
+          # Setup SSH
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ vars.VM_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+          # Transfer using scp directly
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            deploy-files.tar.gz \
+            ${{ vars.VM_USER }}@${{ vars.VM_HOST }}:~/sts/
+
+          # Extract on remote
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ vars.VM_USER }}@${{ vars.VM_HOST }} \
+            "cd ~/sts && tar -xzvf deploy-files.tar.gz && rm deploy-files.tar.gz"
+
+          # Cleanup
+          rm -f ~/.ssh/deploy_key deploy-files.tar.gz deploy-files.tar.gz.b64
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
