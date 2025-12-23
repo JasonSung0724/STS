@@ -363,7 +363,11 @@ jobs:
             echo "Starting services with new images..."
             docker compose -f docker-compose.vm.yml up -d nginx redis backend-${ENVIRONMENT} frontend-${ENVIRONMENT}
 
-            # Step 5: Delete old images (only if different from new ones)
+            # Step 5: Reload nginx to refresh DNS cache for new container IPs
+            echo "Reloading nginx to refresh DNS..."
+            docker compose -f docker-compose.vm.yml exec -T nginx nginx -s reload 2>/dev/null || true
+
+            # Step 6: Delete old images (only if different from new ones)
             echo "Cleaning up old images..."
             if [ -n "$OLD_BACKEND_ID" ] && [ "$OLD_BACKEND_ID" != "$NEW_BACKEND_ID" ]; then
               echo "Removing old backend image: $OLD_BACKEND_ID"
