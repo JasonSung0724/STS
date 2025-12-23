@@ -284,6 +284,10 @@ jobs:
           script: |
             cd ~/sts
 
+            # Show current disk space
+            echo "=== Disk space ==="
+            df -h / | tail -1
+
             # Debug: Show what was copied
             echo "=== Files in ~/sts ==="
             find . -type f -name "*.yml" -o -name "*.conf" -o -name ".env*" 2>/dev/null | head -20
@@ -336,16 +340,42 @@ jobs:
             export DOCKER_REGISTRY="${DOCKER_REGISTRY}"
             export IMAGE_NAME="${IMAGE_NAME}"
 
-            # Pull and deploy only the changed environment's images
-            echo "Pulling images for ${ENVIRONMENT}..."
+            # === Zero-downtime deployment with smart cleanup ===
+            # Strategy: Record old → Pull new → Start new → Delete old
+
+            # Step 1: Record old image IDs before pulling new ones
+            OLD_BACKEND_ID=$(docker images -q ${DOCKER_REGISTRY}/${IMAGE_NAME}/backend:${ENVIRONMENT} 2>/dev/null)
+            OLD_FRONTEND_ID=$(docker images -q ${DOCKER_REGISTRY}/${IMAGE_NAME}/frontend:${ENVIRONMENT} 2>/dev/null)
+            echo "Old backend image ID: ${OLD_BACKEND_ID:-none}"
+            echo "Old frontend image ID: ${OLD_FRONTEND_ID:-none}"
+
+            # Step 2: Pull new images (old containers keep running)
+            echo "Pulling new images for ${ENVIRONMENT}..."
             docker compose -f docker-compose.vm.yml pull backend-${ENVIRONMENT} frontend-${ENVIRONMENT}
 
-            # Start/restart services
-            echo "Starting services..."
+            # Step 3: Get new image IDs
+            NEW_BACKEND_ID=$(docker images -q ${DOCKER_REGISTRY}/${IMAGE_NAME}/backend:${ENVIRONMENT} 2>/dev/null)
+            NEW_FRONTEND_ID=$(docker images -q ${DOCKER_REGISTRY}/${IMAGE_NAME}/frontend:${ENVIRONMENT} 2>/dev/null)
+            echo "New backend image ID: ${NEW_BACKEND_ID}"
+            echo "New frontend image ID: ${NEW_FRONTEND_ID}"
+
+            # Step 4: Start/restart services with new images (docker compose handles the swap)
+            echo "Starting services with new images..."
             docker compose -f docker-compose.vm.yml up -d nginx redis backend-${ENVIRONMENT} frontend-${ENVIRONMENT}
 
-            # Cleanup old images
-            docker image prune -f
+            # Step 5: Delete old images (only if different from new ones)
+            echo "Cleaning up old images..."
+            if [ -n "$OLD_BACKEND_ID" ] && [ "$OLD_BACKEND_ID" != "$NEW_BACKEND_ID" ]; then
+              echo "Removing old backend image: $OLD_BACKEND_ID"
+              docker rmi $OLD_BACKEND_ID 2>/dev/null || true
+            fi
+            if [ -n "$OLD_FRONTEND_ID" ] && [ "$OLD_FRONTEND_ID" != "$NEW_FRONTEND_ID" ]; then
+              echo "Removing old frontend image: $OLD_FRONTEND_ID"
+              docker rmi $OLD_FRONTEND_ID 2>/dev/null || true
+            fi
+
+            # Remove dangling images (layers no longer referenced)
+            docker image prune -f 2>/dev/null || true
 
             echo "Deployment to ${ENVIRONMENT} completed!"
 
