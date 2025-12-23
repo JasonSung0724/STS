@@ -233,9 +233,10 @@ jobs:
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
           source: "deployment/docker/docker-compose.vm.yml,deployment/nginx/,.env.deploy"
-          target: "~/sts"
+          target: "/home/${{ vars.VM_USER }}/sts"
           strip_components: 0
           overwrite: true
+          debug: true
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
