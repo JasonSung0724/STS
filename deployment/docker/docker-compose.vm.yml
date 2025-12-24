@@ -34,11 +34,15 @@ services:
       - "8080:8080"   # Development HTTP
       - "8443:8443"   # Development HTTPS
     volumes:
+      # VM 上的實際路徑結構: ~/sts/docker/ (docker-compose 在這裡)
+      #                      ~/sts/nginx/ (nginx 配置在這裡)
       - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ../nginx/conf.d:/etc/nginx/conf.d:ro
-      - ./certbot/www:/var/www/certbot:ro
-      - ./certbot/conf:/etc/letsencrypt:ro
-    # 不強制依賴所有服務，允許單獨部署 dev 或 prod
+      - ../certbot/www:/var/www/certbot:ro
+      - ../certbot/conf:/etc/letsencrypt:ro
+    depends_on:
+      redis:
+        condition: service_healthy
     networks:
       - sts-network
     healthcheck:
@@ -77,6 +81,9 @@ services:
     environment:
       - APP_ENV=production
       - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      redis:
+        condition: service_healthy
     networks:
       - sts-network
     healthcheck:
@@ -136,6 +143,9 @@ services:
       - APP_ENV=development
       - DEBUG=true
       - REDIS_URL=redis://redis:6379/1  # 使用不同的 Redis DB
+    depends_on:
+      redis:
+        condition: service_healthy
     networks:
       - sts-network
     healthcheck:
@@ -189,8 +199,8 @@ services:
     image: certbot/certbot:latest
     container_name: sts-certbot
     volumes:
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/letsencrypt
+      - ../certbot/www:/var/www/certbot
+      - ../certbot/conf:/etc/letsencrypt
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     networks:
       - sts-network

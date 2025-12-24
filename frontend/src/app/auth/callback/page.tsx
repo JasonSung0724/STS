@@ -13,6 +13,12 @@ export default function AuthCallbackPage() {
   );
   const [message, setMessage] = useState("Processing authentication...");
 
+  // Get redirect path based on onboarding status
+  const getRedirectPath = () => {
+    const onboardingCompleted = localStorage.getItem("onboarding_completed");
+    return onboardingCompleted === "true" ? "/war-room" : "/onboarding";
+  };
+
   useEffect(() => {
     const handleCallback = async () => {
       try {
@@ -23,6 +29,7 @@ export default function AuthCallbackPage() {
         }
 
         const provider = searchParams.get("provider");
+        const redirectPath = getRedirectPath();
 
         // Check for Supabase callback (hash fragment) - Google OAuth
         const hash = window.location.hash;
@@ -45,7 +52,7 @@ export default function AuthCallbackPage() {
             localStorage.setItem("refresh_token", response.refresh_token);
             setStatus("success");
             setMessage("Successfully logged in with Google");
-            setTimeout(() => router.push("/dashboard"), 1500);
+            setTimeout(() => router.push(redirectPath), 1500);
             return;
           }
         }
@@ -61,7 +68,7 @@ export default function AuthCallbackPage() {
           }
           setStatus("success");
           setMessage(`Successfully logged in with ${provider || "OAuth"}`);
-          setTimeout(() => router.push("/dashboard"), 1500);
+          setTimeout(() => router.push(redirectPath), 1500);
           return;
         }
 
@@ -78,14 +85,14 @@ export default function AuthCallbackPage() {
             localStorage.setItem("refresh_token", response.refresh_token);
             setStatus("success");
             setMessage("Successfully logged in with LINE");
-            setTimeout(() => router.push("/dashboard"), 1500);
+            setTimeout(() => router.push(redirectPath), 1500);
             return;
           }
 
           // If no code but has user_id, show success and redirect
           setStatus("success");
           setMessage("Successfully logged in with LINE");
-          setTimeout(() => router.push("/dashboard"), 1500);
+          setTimeout(() => router.push(redirectPath), 1500);
           return;
         }
 
@@ -101,7 +108,7 @@ export default function AuthCallbackPage() {
           localStorage.setItem("refresh_token", response.refresh_token);
           setStatus("success");
           setMessage("Successfully logged in with LINE");
-          setTimeout(() => router.push("/dashboard"), 1500);
+          setTimeout(() => router.push(redirectPath), 1500);
           return;
         }
 
@@ -135,7 +142,7 @@ export default function AuthCallbackPage() {
             <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
             <p className="text-white">{message}</p>
             <p className="text-white/40 text-sm mt-2">
-              Redirecting to dashboard...
+              Redirecting...
             </p>
           </>
         )}

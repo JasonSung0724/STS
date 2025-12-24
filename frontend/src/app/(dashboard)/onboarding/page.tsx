@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   Brain,
   Building2,
@@ -14,7 +15,6 @@ import {
   DollarSign,
   TrendingUp,
   Clock,
-  AlertTriangle,
   Zap,
   CheckCircle2,
   Loader2,
@@ -42,117 +42,84 @@ interface OnboardingData {
   targetMetric: string;
 }
 
-const INDUSTRIES = [
-  "Technology / SaaS",
-  "Manufacturing",
-  "Retail / E-commerce",
-  "Healthcare",
-  "Financial Services",
-  "Professional Services",
-  "Education",
-  "Real Estate",
-  "Food & Beverage",
-  "Other",
-];
+// Industry keys for translation
+const INDUSTRY_KEYS = [
+  "technology",
+  "manufacturing",
+  "retail",
+  "healthcare",
+  "financial",
+  "professional",
+  "education",
+  "realEstate",
+  "foodBeverage",
+  "other",
+] as const;
 
-const EMPLOYEE_RANGES = [
-  "1-10 (Startup)",
-  "11-50 (Small)",
-  "51-200 (Medium)",
-  "201-500 (Growth)",
-  "500+ (Enterprise)",
-];
+// Employee range keys
+const EMPLOYEE_RANGE_KEYS = [
+  "startup",
+  "small",
+  "medium",
+  "growth",
+  "enterprise",
+] as const;
 
-const REVENUE_RANGES = [
-  "< $500K",
-  "$500K - $2M",
-  "$2M - $10M",
-  "$10M - $50M",
-  "$50M+",
-];
+// Revenue range keys
+const REVENUE_RANGE_KEYS = [
+  "under500k",
+  "500kTo2m",
+  "2mTo10m",
+  "10mTo50m",
+  "over50m",
+] as const;
 
-const PAIN_POINTS = [
-  {
-    id: "cashflow",
-    icon: DollarSign,
-    title: "Cash Flow Management",
-    description: "Difficulty predicting and managing working capital",
-  },
-  {
-    id: "customer",
-    icon: Users,
-    title: "Customer Acquisition",
-    description: "High CAC or struggling to find new customers",
-  },
-  {
-    id: "efficiency",
-    icon: Clock,
-    title: "Operational Efficiency",
-    description: "Low productivity or manual processes slowing growth",
-  },
-  {
-    id: "growth",
-    icon: TrendingUp,
-    title: "Revenue Growth",
-    description: "Plateaued growth or unclear path to scale",
-  },
-  {
-    id: "talent",
-    icon: Users,
-    title: "Talent & Team",
-    description: "Hiring, retention, or team performance issues",
-  },
-  {
-    id: "strategy",
-    icon: Target,
-    title: "Strategic Direction",
-    description: "Unclear priorities or too many opportunities",
-  },
-];
+// Pain point keys
+const PAIN_POINT_KEYS = [
+  "cashflow",
+  "customer",
+  "efficiency",
+  "growth",
+  "talent",
+  "strategy",
+] as const;
 
-const URGENCY_LEVELS = [
-  { id: "critical", label: "Critical - Needs immediate action", color: "red" },
-  { id: "high", label: "High - Within 30 days", color: "orange" },
-  { id: "medium", label: "Medium - Within 90 days", color: "yellow" },
-  { id: "low", label: "Low - Strategic planning", color: "green" },
-];
+const PAIN_POINT_ICONS = {
+  cashflow: DollarSign,
+  customer: Users,
+  efficiency: Clock,
+  growth: TrendingUp,
+  talent: Users,
+  strategy: Target,
+} as const;
 
-const TOOLS = [
-  "ERP System",
-  "CRM (Salesforce, HubSpot)",
-  "Accounting Software",
-  "BI/Analytics Tools",
-  "Project Management",
-  "HR System",
-  "E-commerce Platform",
-  "Custom Internal Tools",
-];
+// Urgency level keys
+const URGENCY_LEVEL_KEYS = ["critical", "high", "medium", "low"] as const;
+const URGENCY_COLORS = {
+  critical: "red",
+  high: "orange",
+  medium: "yellow",
+  low: "green",
+} as const;
 
-const DATA_READINESS = [
-  {
-    id: "advanced",
-    title: "Advanced",
-    description: "We have centralized data with regular reporting",
-  },
-  {
-    id: "developing",
-    title: "Developing",
-    description: "Some data exists but in multiple systems",
-  },
-  {
-    id: "basic",
-    title: "Basic",
-    description: "Mostly spreadsheets and manual tracking",
-  },
-  {
-    id: "starting",
-    title: "Just Starting",
-    description: "Limited data collection in place",
-  },
-];
+// Tool keys
+const TOOL_KEYS = [
+  "erp",
+  "crm",
+  "accounting",
+  "biAnalytics",
+  "projectManagement",
+  "hr",
+  "ecommerce",
+  "customTools",
+] as const;
+
+// Data readiness keys
+const DATA_READINESS_KEYS = ["advanced", "developing", "basic", "starting"] as const;
 
 export default function OnboardingPage() {
   const router = useRouter();
+  const t = useTranslations("onboarding");
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisProgress, setAnalysisProgress] = useState(0);
@@ -238,11 +205,11 @@ export default function OnboardingPage() {
   };
 
   const steps = [
-    { title: "Welcome", icon: Sparkles },
-    { title: "Company Profile", icon: Building2 },
-    { title: "Pain Points", icon: Target },
-    { title: "Data & Goals", icon: Database },
-    { title: "Launch", icon: Rocket },
+    { title: t("steps.welcome"), icon: Sparkles },
+    { title: t("steps.companyProfile"), icon: Building2 },
+    { title: t("steps.painPoints"), icon: Target },
+    { title: t("steps.dataGoals"), icon: Database },
+    { title: t("steps.launch"), icon: Rocket },
   ];
 
   return (
@@ -311,17 +278,15 @@ export default function OnboardingPage() {
                 <Brain className="w-10 h-10 text-white" />
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Welcome to Your AI Strategy Partner
+                {t("welcome.title")}
               </h1>
               <p className="text-lg text-slate-400 mb-8 max-w-lg mx-auto">
-                Start to Scale is now officially your strategic advisor.
-                Like McKinsey consultants, we&apos;ll first understand your business
-                before delivering insights.
+                {t("welcome.subtitle")}
               </p>
               <div className="glass-card p-6 text-left mb-8">
                 <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
                   <Zap className="w-5 h-5 text-cyan-400" />
-                  What happens next:
+                  {t("welcome.whatHappensNext")}
                 </h3>
                 <ul className="space-y-3 text-slate-300">
                   <li className="flex items-start gap-3">
@@ -329,7 +294,7 @@ export default function OnboardingPage() {
                       1
                     </span>
                     <span>
-                      <strong>Company Scan</strong> - We&apos;ll understand your business DNA
+                      <strong>{t("welcome.step1Title")}</strong> - {t("welcome.step1Desc")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -337,7 +302,7 @@ export default function OnboardingPage() {
                       2
                     </span>
                     <span>
-                      <strong>Pain Point Focus</strong> - Identify the critical 20% that matters
+                      <strong>{t("welcome.step2Title")}</strong> - {t("welcome.step2Desc")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -345,7 +310,7 @@ export default function OnboardingPage() {
                       3
                     </span>
                     <span>
-                      <strong>Data Connection</strong> - Prepare for data-driven decisions
+                      <strong>{t("welcome.step3Title")}</strong> - {t("welcome.step3Desc")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -353,13 +318,13 @@ export default function OnboardingPage() {
                       4
                     </span>
                     <span>
-                      <strong>Launch War Room</strong> - Your personalized command center
+                      <strong>{t("welcome.step4Title")}</strong> - {t("welcome.step4Desc")}
                     </span>
                   </li>
                 </ul>
               </div>
               <p className="text-sm text-slate-500">
-                Estimated time: 3-5 minutes
+                {t("welcome.estimatedTime")}
               </p>
             </div>
           )}
@@ -372,10 +337,10 @@ export default function OnboardingPage() {
                   <Building2 className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2">
-                  Company Health Scan
+                  {t("companyProfile.title")}
                 </h2>
                 <p className="text-slate-400">
-                  Just like a doctor checks vitals, we need to understand your baseline.
+                  {t("companyProfile.subtitle")}
                 </p>
               </div>
 
@@ -383,34 +348,34 @@ export default function OnboardingPage() {
                 {/* Company Name */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    Company Name
+                    {t("companyProfile.companyName")}
                   </label>
                   <input
                     type="text"
                     value={data.companyName}
                     onChange={(e) => updateData("companyName", e.target.value)}
                     className="input-field w-full"
-                    placeholder="Enter your company name"
+                    placeholder={t("companyProfile.companyNamePlaceholder")}
                   />
                 </div>
 
                 {/* Industry */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    Industry
+                    {t("companyProfile.industry")}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
-                    {INDUSTRIES.map((industry) => (
+                    {INDUSTRY_KEYS.map((key) => (
                       <button
-                        key={industry}
-                        onClick={() => updateData("industry", industry)}
+                        key={key}
+                        onClick={() => updateData("industry", key)}
                         className={`p-3 rounded-lg border text-left text-sm transition-all ${
-                          data.industry === industry
+                          data.industry === key
                             ? "border-cyan-500 bg-cyan-500/10 text-white"
                             : "border-slate-700 bg-slate-800/50 text-slate-400 hover:border-slate-600"
                         }`}
                       >
-                        {industry}
+                        {t(`industries.${key}`)}
                       </button>
                     ))}
                   </div>
@@ -419,20 +384,20 @@ export default function OnboardingPage() {
                 {/* Employee Count */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    Team Size
+                    {t("companyProfile.teamSize")}
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    {EMPLOYEE_RANGES.map((range) => (
+                    {EMPLOYEE_RANGE_KEYS.map((key) => (
                       <button
-                        key={range}
-                        onClick={() => updateData("employeeCount", range)}
+                        key={key}
+                        onClick={() => updateData("employeeCount", key)}
                         className={`p-3 rounded-lg border text-center text-sm transition-all ${
-                          data.employeeCount === range
+                          data.employeeCount === key
                             ? "border-cyan-500 bg-cyan-500/10 text-white"
                             : "border-slate-700 bg-slate-800/50 text-slate-400 hover:border-slate-600"
                         }`}
                       >
-                        {range}
+                        {t(`employeeRanges.${key}`)}
                       </button>
                     ))}
                   </div>
@@ -441,20 +406,20 @@ export default function OnboardingPage() {
                 {/* Annual Revenue */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    Annual Revenue (Optional)
+                    {t("companyProfile.annualRevenue")}
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    {REVENUE_RANGES.map((range) => (
+                    {REVENUE_RANGE_KEYS.map((key) => (
                       <button
-                        key={range}
-                        onClick={() => updateData("annualRevenue", range)}
+                        key={key}
+                        onClick={() => updateData("annualRevenue", key)}
                         className={`p-3 rounded-lg border text-center text-sm transition-all ${
-                          data.annualRevenue === range
+                          data.annualRevenue === key
                             ? "border-cyan-500 bg-cyan-500/10 text-white"
                             : "border-slate-700 bg-slate-800/50 text-slate-400 hover:border-slate-600"
                         }`}
                       >
-                        {range}
+                        {t(`revenueRanges.${key}`)}
                       </button>
                     ))}
                   </div>
@@ -471,11 +436,10 @@ export default function OnboardingPage() {
                   <Target className="w-6 h-6 text-orange-400" />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2">
-                  The McKinsey Principle
+                  {t("painPoints.title")}
                 </h2>
                 <p className="text-slate-400">
-                  Focus on the critical 20% that drives 80% of results.
-                  What&apos;s keeping you up at night?
+                  {t("painPoints.subtitle")}
                 </p>
               </div>
 
@@ -483,52 +447,55 @@ export default function OnboardingPage() {
                 {/* Pain Point Selection */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-3">
-                    Select your primary challenge
+                    {t("painPoints.selectChallenge")}
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {PAIN_POINTS.map((point) => (
-                      <button
-                        key={point.id}
-                        onClick={() => updateData("primaryPainPoint", point.id)}
-                        className={`p-4 rounded-xl border text-left transition-all ${
-                          data.primaryPainPoint === point.id
-                            ? "border-cyan-500 bg-cyan-500/10"
-                            : "border-slate-700 bg-slate-800/50 hover:border-slate-600"
-                        }`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                              data.primaryPainPoint === point.id
-                                ? "bg-cyan-500/20"
-                                : "bg-slate-700"
-                            }`}
-                          >
-                            <point.icon
-                              className={`w-5 h-5 ${
-                                data.primaryPainPoint === point.id
-                                  ? "text-cyan-400"
-                                  : "text-slate-400"
-                              }`}
-                            />
-                          </div>
-                          <div>
-                            <h4
-                              className={`font-medium ${
-                                data.primaryPainPoint === point.id
-                                  ? "text-white"
-                                  : "text-slate-300"
+                    {PAIN_POINT_KEYS.map((key) => {
+                      const Icon = PAIN_POINT_ICONS[key];
+                      return (
+                        <button
+                          key={key}
+                          onClick={() => updateData("primaryPainPoint", key)}
+                          className={`p-4 rounded-xl border text-left transition-all ${
+                            data.primaryPainPoint === key
+                              ? "border-cyan-500 bg-cyan-500/10"
+                              : "border-slate-700 bg-slate-800/50 hover:border-slate-600"
+                          }`}
+                        >
+                          <div className="flex items-start gap-3">
+                            <div
+                              className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                                data.primaryPainPoint === key
+                                  ? "bg-cyan-500/20"
+                                  : "bg-slate-700"
                               }`}
                             >
-                              {point.title}
-                            </h4>
-                            <p className="text-sm text-slate-500 mt-1">
-                              {point.description}
-                            </p>
+                              <Icon
+                                className={`w-5 h-5 ${
+                                  data.primaryPainPoint === key
+                                    ? "text-cyan-400"
+                                    : "text-slate-400"
+                                }`}
+                              />
+                            </div>
+                            <div>
+                              <h4
+                                className={`font-medium ${
+                                  data.primaryPainPoint === key
+                                    ? "text-white"
+                                    : "text-slate-300"
+                                }`}
+                              >
+                                {t(`painPoints.${key}.title`)}
+                              </h4>
+                              <p className="text-sm text-slate-500 mt-1">
+                                {t(`painPoints.${key}.description`)}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      </button>
-                    ))}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -536,7 +503,7 @@ export default function OnboardingPage() {
                 {data.primaryPainPoint && (
                   <div className="animate-fade-in">
                     <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Tell us more (optional)
+                      {t("painPoints.tellUsMore")}
                     </label>
                     <textarea
                       value={data.painPointDetails}
@@ -544,7 +511,7 @@ export default function OnboardingPage() {
                         updateData("painPointDetails", e.target.value)
                       }
                       className="input-field w-full h-24 resize-none"
-                      placeholder="What specific aspects of this challenge are most pressing?"
+                      placeholder={t("painPoints.tellUsMorePlaceholder")}
                     />
                   </div>
                 )}
@@ -552,38 +519,38 @@ export default function OnboardingPage() {
                 {/* Urgency Level */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-3">
-                    How urgent is this?
+                    {t("painPoints.howUrgent")}
                   </label>
                   <div className="space-y-2">
-                    {URGENCY_LEVELS.map((level) => (
+                    {URGENCY_LEVEL_KEYS.map((key) => (
                       <button
-                        key={level.id}
-                        onClick={() => updateData("urgencyLevel", level.id)}
+                        key={key}
+                        onClick={() => updateData("urgencyLevel", key)}
                         className={`w-full p-3 rounded-lg border text-left flex items-center gap-3 transition-all ${
-                          data.urgencyLevel === level.id
+                          data.urgencyLevel === key
                             ? "border-cyan-500 bg-cyan-500/10"
                             : "border-slate-700 bg-slate-800/50 hover:border-slate-600"
                         }`}
                       >
                         <div
                           className={`w-3 h-3 rounded-full ${
-                            level.color === "red"
+                            URGENCY_COLORS[key] === "red"
                               ? "bg-red-500"
-                              : level.color === "orange"
+                              : URGENCY_COLORS[key] === "orange"
                                 ? "bg-orange-500"
-                                : level.color === "yellow"
+                                : URGENCY_COLORS[key] === "yellow"
                                   ? "bg-yellow-500"
                                   : "bg-green-500"
                           }`}
                         />
                         <span
                           className={
-                            data.urgencyLevel === level.id
+                            data.urgencyLevel === key
                               ? "text-white"
                               : "text-slate-400"
                           }
                         >
-                          {level.label}
+                          {t(`urgencyLevels.${key}`)}
                         </span>
                       </button>
                     ))}
@@ -601,10 +568,10 @@ export default function OnboardingPage() {
                   <Database className="w-6 h-6 text-blue-400" />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2">
-                  Data is Decision Fuel
+                  {t("dataGoals.title")}
                 </h2>
                 <p className="text-slate-400">
-                  Understanding your data landscape helps us provide better insights.
+                  {t("dataGoals.subtitle")}
                 </p>
               </div>
 
@@ -612,20 +579,20 @@ export default function OnboardingPage() {
                 {/* Current Tools */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-3">
-                    What tools do you currently use? (Select all that apply)
+                    {t("dataGoals.currentTools")}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
-                    {TOOLS.map((tool) => (
+                    {TOOL_KEYS.map((key) => (
                       <button
-                        key={tool}
-                        onClick={() => toggleTool(tool)}
+                        key={key}
+                        onClick={() => toggleTool(key)}
                         className={`p-3 rounded-lg border text-left text-sm transition-all ${
-                          data.currentTools.includes(tool)
+                          data.currentTools.includes(key)
                             ? "border-cyan-500 bg-cyan-500/10 text-white"
                             : "border-slate-700 bg-slate-800/50 text-slate-400 hover:border-slate-600"
                         }`}
                       >
-                        {tool}
+                        {t(`tools.${key}`)}
                       </button>
                     ))}
                   </div>
@@ -634,30 +601,30 @@ export default function OnboardingPage() {
                 {/* Data Readiness */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-3">
-                    How would you describe your data readiness?
+                    {t("dataGoals.dataReadiness")}
                   </label>
                   <div className="space-y-2">
-                    {DATA_READINESS.map((level) => (
+                    {DATA_READINESS_KEYS.map((key) => (
                       <button
-                        key={level.id}
-                        onClick={() => updateData("dataReadiness", level.id)}
+                        key={key}
+                        onClick={() => updateData("dataReadiness", key)}
                         className={`w-full p-4 rounded-lg border text-left transition-all ${
-                          data.dataReadiness === level.id
+                          data.dataReadiness === key
                             ? "border-cyan-500 bg-cyan-500/10"
                             : "border-slate-700 bg-slate-800/50 hover:border-slate-600"
                         }`}
                       >
                         <h4
                           className={`font-medium ${
-                            data.dataReadiness === level.id
+                            data.dataReadiness === key
                               ? "text-white"
                               : "text-slate-300"
                           }`}
                         >
-                          {level.title}
+                          {t(`dataReadinessLevels.${key}.title`)}
                         </h4>
                         <p className="text-sm text-slate-500 mt-1">
-                          {level.description}
+                          {t(`dataReadinessLevels.${key}.description`)}
                         </p>
                       </button>
                     ))}
@@ -667,14 +634,14 @@ export default function OnboardingPage() {
                 {/* Primary Goal */}
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    What&apos;s your #1 goal for using STS?
+                    {t("dataGoals.primaryGoal")}
                   </label>
                   <input
                     type="text"
                     value={data.primaryGoal}
                     onChange={(e) => updateData("primaryGoal", e.target.value)}
                     className="input-field w-full"
-                    placeholder="e.g., Increase revenue by 30%, Reduce operational costs..."
+                    placeholder={t("dataGoals.primaryGoalPlaceholder")}
                   />
                 </div>
               </div>
@@ -688,40 +655,44 @@ export default function OnboardingPage() {
                 <Rocket className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-2xl font-bold text-white mb-4">
-                Ready to Launch Your War Room
+                {t("launch.title")}
               </h2>
               <p className="text-slate-400 mb-8 max-w-lg mx-auto">
-                Our AI will now analyze your business profile and prepare
-                personalized strategic frameworks and recommendations.
+                {t("launch.subtitle")}
               </p>
 
               {!isAnalyzing ? (
                 <div className="glass-card p-6 mb-8">
                   <h3 className="text-white font-semibold mb-4">
-                    Summary of Your Profile
+                    {t("launch.profileSummary")}
                   </h3>
                   <div className="grid grid-cols-2 gap-4 text-left text-sm">
                     <div>
-                      <span className="text-slate-500">Company</span>
+                      <span className="text-slate-500">{t("launch.company")}</span>
                       <p className="text-white">{data.companyName || "—"}</p>
                     </div>
                     <div>
-                      <span className="text-slate-500">Industry</span>
-                      <p className="text-white">{data.industry || "—"}</p>
-                    </div>
-                    <div>
-                      <span className="text-slate-500">Team Size</span>
-                      <p className="text-white">{data.employeeCount || "—"}</p>
-                    </div>
-                    <div>
-                      <span className="text-slate-500">Primary Challenge</span>
+                      <span className="text-slate-500">{t("launch.industry")}</span>
                       <p className="text-white">
-                        {PAIN_POINTS.find((p) => p.id === data.primaryPainPoint)
-                          ?.title || "—"}
+                        {data.industry ? t(`industries.${data.industry}`) : "—"}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-slate-500">{t("launch.teamSize")}</span>
+                      <p className="text-white">
+                        {data.employeeCount ? t(`employeeRanges.${data.employeeCount}`) : "—"}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-slate-500">{t("launch.primaryChallenge")}</span>
+                      <p className="text-white">
+                        {data.primaryPainPoint
+                          ? t(`painPoints.${data.primaryPainPoint}.title`)
+                          : "—"}
                       </p>
                     </div>
                     <div className="col-span-2">
-                      <span className="text-slate-500">Goal</span>
+                      <span className="text-slate-500">{t("launch.goal")}</span>
                       <p className="text-white">{data.primaryGoal || "—"}</p>
                     </div>
                   </div>
@@ -732,32 +703,32 @@ export default function OnboardingPage() {
                     <Loader2 className="w-8 h-8 text-cyan-400 animate-spin" />
                   </div>
                   <h3 className="text-white font-semibold mb-4">
-                    AI Strategy Engine Activating...
+                    {t("launch.aiActivating")}
                   </h3>
                   <div className="space-y-3 text-left text-sm">
                     <div
                       className={`flex items-center gap-2 ${analysisProgress > 20 ? "text-cyan-400" : "text-slate-500"}`}
                     >
                       <CheckCircle2 className="w-4 h-4" />
-                      <span>Analyzing industry benchmarks</span>
+                      <span>{t("launch.analyzingBenchmarks")}</span>
                     </div>
                     <div
                       className={`flex items-center gap-2 ${analysisProgress > 40 ? "text-cyan-400" : "text-slate-500"}`}
                     >
                       <CheckCircle2 className="w-4 h-4" />
-                      <span>Mapping strategic frameworks</span>
+                      <span>{t("launch.mappingFrameworks")}</span>
                     </div>
                     <div
                       className={`flex items-center gap-2 ${analysisProgress > 60 ? "text-cyan-400" : "text-slate-500"}`}
                     >
                       <CheckCircle2 className="w-4 h-4" />
-                      <span>Generating priority roadmap</span>
+                      <span>{t("launch.generatingRoadmap")}</span>
                     </div>
                     <div
                       className={`flex items-center gap-2 ${analysisProgress > 80 ? "text-cyan-400" : "text-slate-500"}`}
                     >
                       <CheckCircle2 className="w-4 h-4" />
-                      <span>Preparing your War Room</span>
+                      <span>{t("launch.preparingWarRoom")}</span>
                     </div>
                   </div>
                   <div className="mt-6 h-2 bg-slate-700 rounded-full overflow-hidden">
@@ -780,7 +751,7 @@ export default function OnboardingPage() {
               }`}
             >
               <ChevronLeft className="w-4 h-4" />
-              Back
+              {t("navigation.back")}
             </button>
             <button
               onClick={handleNext}
@@ -795,17 +766,17 @@ export default function OnboardingPage() {
                 isAnalyzing ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Analyzing...
+                    {t("navigation.analyzing")}
                   </>
                 ) : (
                   <>
-                    Launch War Room
+                    {t("navigation.launchWarRoom")}
                     <Rocket className="w-4 h-4" />
                   </>
                 )
               ) : (
                 <>
-                  Continue
+                  {t("navigation.continue")}
                   <ChevronRight className="w-4 h-4" />
                 </>
               )}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { ChatKit, useChatKit } from "@openai/chatkit-react";
 import { getClientSecret } from "@/lib/chatkit";
 import {
@@ -40,8 +41,8 @@ interface OnboardingData {
 
 interface ActionItem {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   impact: "high" | "medium" | "low";
   effort: "high" | "medium" | "low";
   status: "pending" | "in_progress" | "completed";
@@ -49,53 +50,27 @@ interface ActionItem {
 
 interface Document {
   id: string;
-  title: string;
+  titleKey: string;
   type: "pdf" | "excel" | "report";
   size: string;
 }
 
-// McKinsey Framework Tools
-const FRAMEWORK_TOOLS = [
-  {
-    id: "pyramid",
-    name: "Pyramid Principle",
-    icon: Layers,
-    description: "Structure your thinking top-down",
-  },
-  {
-    id: "swot",
-    name: "SWOT Analysis",
-    icon: Target,
-    description: "Strengths, Weaknesses, Opportunities, Threats",
-  },
-  {
-    id: "bcg",
-    name: "BCG Matrix",
-    icon: PieChart,
-    description: "Portfolio analysis framework",
-  },
-  {
-    id: "7s",
-    name: "McKinsey 7S",
-    icon: BarChart3,
-    description: "Organizational alignment model",
-  },
-  {
-    id: "horizon",
-    name: "Three Horizons",
-    icon: TrendingUp,
-    description: "Growth planning framework",
-  },
-  {
-    id: "porter",
-    name: "Porter's 5 Forces",
-    icon: Zap,
-    description: "Industry competitive analysis",
-  },
-];
+// Framework tool IDs for i18n
+const FRAMEWORK_IDS = ["pyramid", "swot", "bcg", "7s", "horizon", "porter"] as const;
+
+const FRAMEWORK_ICONS = {
+  pyramid: Layers,
+  swot: Target,
+  bcg: PieChart,
+  "7s": BarChart3,
+  horizon: TrendingUp,
+  porter: Zap,
+} as const;
 
 export default function WarRoomPage() {
   const router = useRouter();
+  const t = useTranslations("warRoom");
+  const tOnboarding = useTranslations("onboarding");
   const [onboardingData, setOnboardingData] = useState<OnboardingData | null>(null);
   const [activeFramework, setActiveFramework] = useState<string | null>(null);
   const [chatKey, setChatKey] = useState(0);
@@ -112,7 +87,7 @@ export default function WarRoomPage() {
           setError(null);
           return secret;
         } catch (err) {
-          setError("無法連接到 AI 服務");
+          setError(t("errors.cannotConnectAI"));
           throw err;
         }
       },
@@ -123,24 +98,24 @@ export default function WarRoomPage() {
   const [actionItems, setActionItems] = useState<ActionItem[]>([
     {
       id: "1",
-      title: "Complete Customer Journey Mapping",
-      description: "Map all touchpoints from awareness to retention",
+      titleKey: "customerJourneyMapping",
+      descriptionKey: "customerJourneyMappingDesc",
       impact: "high",
       effort: "medium",
       status: "pending",
     },
     {
       id: "2",
-      title: "Set Up Weekly KPI Dashboard",
-      description: "Track North Star metrics in real-time",
+      titleKey: "weeklyKpiDashboard",
+      descriptionKey: "weeklyKpiDashboardDesc",
       impact: "high",
       effort: "low",
       status: "in_progress",
     },
     {
       id: "3",
-      title: "Conduct Competitor Analysis",
-      description: "Benchmark against top 5 competitors",
+      titleKey: "competitorAnalysis",
+      descriptionKey: "competitorAnalysisDesc",
       impact: "medium",
       effort: "medium",
       status: "pending",
@@ -149,8 +124,8 @@ export default function WarRoomPage() {
 
   // Sample documents
   const documents: Document[] = [
-    { id: "1", title: "Strategic Diagnosis Report", type: "pdf", size: "2.4 MB" },
-    { id: "2", title: "KPI Tracker Template", type: "excel", size: "156 KB" },
+    { id: "1", titleKey: "strategicDiagnosis", type: "pdf", size: "2.4 MB" },
+    { id: "2", titleKey: "kpiTracker", type: "excel", size: "156 KB" },
   ];
 
   // Load onboarding data
@@ -169,15 +144,27 @@ export default function WarRoomPage() {
   }, [router]);
 
   const getPainPointLabel = (id: string) => {
-    const labels: Record<string, string> = {
-      cashflow: "Cash Flow Management",
-      customer: "Customer Acquisition",
-      efficiency: "Operational Efficiency",
-      growth: "Revenue Growth",
-      talent: "Talent & Team",
-      strategy: "Strategic Direction",
-    };
-    return labels[id] || "Strategic Planning";
+    try {
+      return tOnboarding(`painPoints.${id}.title`);
+    } catch {
+      return tOnboarding("painPoints.strategy.title");
+    }
+  };
+
+  const getIndustryLabel = (id: string) => {
+    try {
+      return tOnboarding(`industries.${id}`);
+    } catch {
+      return id;
+    }
+  };
+
+  const getEmployeeLabel = (id: string) => {
+    try {
+      return tOnboarding(`employeeRanges.${id}`);
+    } catch {
+      return id;
+    }
   };
 
   const handleFrameworkClick = useCallback((frameworkId: string) => {
@@ -210,17 +197,17 @@ export default function WarRoomPage() {
     router.push("/onboarding");
   };
 
-  // KPI Data
+  // KPI Data with i18n
   const kpis = [
-    { label: "Revenue Target", value: "78%", trend: "+12%", positive: true, icon: DollarSign },
-    { label: "Cash Position", value: "$2.4M", trend: "-5%", positive: false, icon: TrendingUp },
-    { label: "Team Efficiency", value: "67%", trend: "+8%", positive: true, icon: Users },
+    { labelKey: "revenueTarget", value: "78%", trend: "+12%", positive: true, icon: DollarSign },
+    { labelKey: "cashPosition", value: "$2.4M", trend: "-5%", positive: false, icon: TrendingUp },
+    { labelKey: "teamEfficiency", value: "67%", trend: "+8%", positive: true, icon: Users },
   ];
 
   if (!onboardingData) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <div className="animate-pulse text-cyan-400">Loading War Room...</div>
+        <div className="animate-pulse text-cyan-400">{t("loading")}</div>
       </div>
     );
   }
@@ -236,10 +223,10 @@ export default function WarRoomPage() {
             </div>
             <div>
               <h1 className="text-white font-semibold">
-                {onboardingData.companyName} War Room
+                {onboardingData.companyName} {t("header.warRoom")}
               </h1>
               <p className="text-xs text-slate-500">
-                {isReady ? "AI Strategy Partner Active" : "Connecting..."}
+                {isReady ? t("header.aiPartnerActive") : t("header.connecting")}
               </p>
             </div>
           </div>
@@ -247,7 +234,7 @@ export default function WarRoomPage() {
             <button
               onClick={resetOnboarding}
               className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
-              title="Reset Onboarding"
+              title={t("resetOnboarding")}
             >
               <RefreshCw className="w-5 h-5" />
             </button>
@@ -262,14 +249,14 @@ export default function WarRoomPage() {
           <div className="flex items-center gap-6 min-w-max">
             {kpis.map((kpi) => (
               <div
-                key={kpi.label}
+                key={kpi.labelKey}
                 className="flex items-center gap-3 bg-slate-800/30 rounded-lg px-4 py-2"
               >
                 <div className="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center">
                   <kpi.icon className="w-4 h-4 text-slate-400" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500">{kpi.label}</p>
+                  <p className="text-xs text-slate-500">{t(`kpi.${kpi.labelKey}`)}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-white font-semibold">{kpi.value}</span>
                     <span
@@ -290,7 +277,7 @@ export default function WarRoomPage() {
             ))}
             <button className="flex items-center gap-1 text-cyan-400 text-sm hover:text-cyan-300 transition-colors">
               <Plus className="w-4 h-4" />
-              Add KPI
+              {t("kpi.addKpi")}
             </button>
           </div>
         </div>
@@ -302,67 +289,72 @@ export default function WarRoomPage() {
         <aside className="hidden lg:block w-64 border-r border-slate-800 bg-slate-900/30 overflow-y-auto">
           <div className="p-4">
             <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
-              Strategy Frameworks
+              {t("frameworks.title")}
             </h2>
             <div className="space-y-2">
-              {FRAMEWORK_TOOLS.map((tool) => (
-                <button
-                  key={tool.id}
-                  onClick={() => handleFrameworkClick(tool.id)}
-                  className={`w-full p-3 rounded-lg text-left transition-all group ${
-                    activeFramework === tool.id
-                      ? "bg-cyan-500/10 border border-cyan-500/50"
-                      : "hover:bg-slate-800/50"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                        activeFramework === tool.id
-                          ? "bg-cyan-500/20"
-                          : "bg-slate-700/50 group-hover:bg-slate-700"
-                      }`}
-                    >
-                      <tool.icon
-                        className={`w-4 h-4 ${
-                          activeFramework === tool.id ? "text-cyan-400" : "text-slate-400"
-                        }`}
-                      />
-                    </div>
-                    <div>
-                      <p
-                        className={`text-sm font-medium ${
-                          activeFramework === tool.id ? "text-white" : "text-slate-300"
+              {FRAMEWORK_IDS.map((id) => {
+                const Icon = FRAMEWORK_ICONS[id];
+                return (
+                  <button
+                    key={id}
+                    onClick={() => handleFrameworkClick(id)}
+                    className={`w-full p-3 rounded-lg text-left transition-all group ${
+                      activeFramework === id
+                        ? "bg-cyan-500/10 border border-cyan-500/50"
+                        : "hover:bg-slate-800/50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                          activeFramework === id
+                            ? "bg-cyan-500/20"
+                            : "bg-slate-700/50 group-hover:bg-slate-700"
                         }`}
                       >
-                        {tool.name}
-                      </p>
-                      <p className="text-xs text-slate-500 line-clamp-1">{tool.description}</p>
+                        <Icon
+                          className={`w-4 h-4 ${
+                            activeFramework === id ? "text-cyan-400" : "text-slate-400"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <p
+                          className={`text-sm font-medium ${
+                            activeFramework === id ? "text-white" : "text-slate-300"
+                          }`}
+                        >
+                          {t(`frameworks.${id}.name`)}
+                        </p>
+                        <p className="text-xs text-slate-500 line-clamp-1">
+                          {t(`frameworks.${id}.description`)}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </button>
-              ))}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Company Context */}
             <div className="mt-6 p-4 rounded-xl bg-slate-800/30 border border-slate-700/50">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                Context Loaded
+                {t("context.title")}
               </h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <span className="text-slate-500">Industry:</span>
-                  <span className="text-white ml-2">{onboardingData.industry}</span>
+                  <span className="text-slate-500">{t("context.industry")}:</span>
+                  <span className="text-white ml-2">{getIndustryLabel(onboardingData.industry)}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500">Focus:</span>
+                  <span className="text-slate-500">{t("context.focus")}:</span>
                   <span className="text-white ml-2">
                     {getPainPointLabel(onboardingData.primaryPainPoint)}
                   </span>
                 </div>
                 <div>
-                  <span className="text-slate-500">Team:</span>
-                  <span className="text-white ml-2">{onboardingData.employeeCount}</span>
+                  <span className="text-slate-500">{t("context.team")}:</span>
+                  <span className="text-white ml-2">{getEmployeeLabel(onboardingData.employeeCount)}</span>
                 </div>
               </div>
             </div>
@@ -374,20 +366,23 @@ export default function WarRoomPage() {
           {/* Framework Quick Access (Mobile) */}
           <div className="lg:hidden border-b border-slate-800 p-3 overflow-x-auto">
             <div className="flex gap-2 min-w-max">
-              {FRAMEWORK_TOOLS.map((tool) => (
-                <button
-                  key={tool.id}
-                  onClick={() => handleFrameworkClick(tool.id)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                    activeFramework === tool.id
-                      ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/50"
-                      : "bg-slate-800 text-slate-400 hover:text-white"
-                  }`}
-                >
-                  <tool.icon className="w-3 h-3" />
-                  {tool.name}
-                </button>
-              ))}
+              {FRAMEWORK_IDS.map((id) => {
+                const Icon = FRAMEWORK_ICONS[id];
+                return (
+                  <button
+                    key={id}
+                    onClick={() => handleFrameworkClick(id)}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                      activeFramework === id
+                        ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/50"
+                        : "bg-slate-800 text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <Icon className="w-3 h-3" />
+                    {t(`frameworks.${id}.name`)}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -399,13 +394,13 @@ export default function WarRoomPage() {
                   <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-red-400/10 border border-red-400/20">
                     <AlertCircle className="h-8 w-8 text-red-400" />
                   </div>
-                  <h2 className="text-xl font-bold text-white mb-2">連接失敗</h2>
+                  <h2 className="text-xl font-bold text-white mb-2">{t("errors.connectionFailed")}</h2>
                   <p className="text-white/60 mb-6">{error}</p>
                   <button
                     onClick={() => setChatKey((prev) => prev + 1)}
                     className="btn-primary inline-flex items-center gap-2"
                   >
-                    重試連接
+                    {t("errors.retryConnection")}
                   </button>
                 </div>
               </div>
@@ -423,7 +418,7 @@ export default function WarRoomPage() {
           <div className="p-4 border-b border-slate-800">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Priority Actions
+                {t("actions.title")}
               </h2>
               <button className="text-cyan-400 hover:text-cyan-300">
                 <Plus className="w-4 h-4" />
@@ -461,9 +456,15 @@ export default function WarRoomPage() {
                             : "text-white"
                         }`}
                       >
-                        {item.title}
+                        {item.titleKey === "customerJourneyMapping" && "Complete Customer Journey Mapping"}
+                        {item.titleKey === "weeklyKpiDashboard" && "Set Up Weekly KPI Dashboard"}
+                        {item.titleKey === "competitorAnalysis" && "Conduct Competitor Analysis"}
                       </p>
-                      <p className="text-xs text-slate-500 mt-0.5">{item.description}</p>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        {item.descriptionKey === "customerJourneyMappingDesc" && "Map all touchpoints from awareness to retention"}
+                        {item.descriptionKey === "weeklyKpiDashboardDesc" && "Track North Star metrics in real-time"}
+                        {item.descriptionKey === "competitorAnalysisDesc" && "Benchmark against top 5 competitors"}
+                      </p>
                       <div className="flex items-center gap-2 mt-2">
                         <span
                           className={`text-xs px-2 py-0.5 rounded-full ${
@@ -474,7 +475,7 @@ export default function WarRoomPage() {
                                 : "bg-slate-500/20 text-slate-400"
                           }`}
                         >
-                          {item.impact} impact
+                          {t(`actions.${item.impact}`)} {t("actions.impact")}
                         </span>
                         <span
                           className={`text-xs px-2 py-0.5 rounded-full ${
@@ -485,7 +486,7 @@ export default function WarRoomPage() {
                                 : "bg-red-500/20 text-red-400"
                           }`}
                         >
-                          {item.effort} effort
+                          {t(`actions.${item.effort}`)} {t("actions.effort")}
                         </span>
                       </div>
                     </div>
@@ -499,7 +500,7 @@ export default function WarRoomPage() {
           <div className="p-4">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Generated Documents
+                {t("documents.title")}
               </h2>
             </div>
             <div className="space-y-2">
@@ -528,7 +529,7 @@ export default function WarRoomPage() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-white truncate">{doc.title}</p>
+                    <p className="text-sm text-white truncate">{t(`documents.${doc.titleKey}`)}</p>
                     <p className="text-xs text-slate-500">{doc.size}</p>
                   </div>
                   <button className="opacity-0 group-hover:opacity-100 p-2 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-white transition-all">
@@ -541,7 +542,7 @@ export default function WarRoomPage() {
             {/* Quick Insights */}
             <div className="mt-6">
               <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
-                Quick Insights
+                {t("insights.title")}
               </h2>
               <div className="p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
                 <div className="flex items-start gap-3">
@@ -549,14 +550,15 @@ export default function WarRoomPage() {
                     <Lightbulb className="w-4 h-4 text-cyan-400" />
                   </div>
                   <div>
-                    <p className="text-sm text-white font-medium">Industry Benchmark</p>
+                    <p className="text-sm text-white font-medium">{t("insights.industryBenchmark")}</p>
                     <p className="text-xs text-slate-400 mt-1">
-                      Your {getPainPointLabel(onboardingData.primaryPainPoint).toLowerCase()}{" "}
-                      metrics are in the top 40% of {onboardingData.industry} companies your
-                      size.
+                      {t("insights.benchmarkDesc", {
+                        painPoint: getPainPointLabel(onboardingData.primaryPainPoint).toLowerCase(),
+                        industry: getIndustryLabel(onboardingData.industry),
+                      })}
                     </p>
                     <button className="flex items-center gap-1 text-cyan-400 text-xs mt-2 hover:text-cyan-300">
-                      View full analysis
+                      {t("insights.viewFullAnalysis")}
                       <ArrowUpRight className="w-3 h-3" />
                     </button>
                   </div>

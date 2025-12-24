@@ -182,5 +182,230 @@
   "footer": {
     "copyright": "All rights reserved.",
     "aiDisclaimer": "AI responses are generated and may not always be accurate. Verify important information."
+  },
+  "onboarding": {
+    "steps": {
+      "welcome": "Welcome",
+      "companyProfile": "Company Profile",
+      "painPoints": "Pain Points",
+      "dataGoals": "Data & Goals",
+      "launch": "Launch"
+    },
+    "welcome": {
+      "title": "Welcome to Your AI Strategy Partner",
+      "subtitle": "Start to Scale is now officially your strategic advisor. Like McKinsey consultants, we'll first understand your business before delivering insights.",
+      "whatHappensNext": "What happens next:",
+      "step1Title": "Company Scan",
+      "step1Desc": "We'll understand your business DNA",
+      "step2Title": "Pain Point Focus",
+      "step2Desc": "Identify the critical 20% that matters",
+      "step3Title": "Data Connection",
+      "step3Desc": "Prepare for data-driven decisions",
+      "step4Title": "Launch War Room",
+      "step4Desc": "Your personalized command center",
+      "estimatedTime": "Estimated time: 3-5 minutes"
+    },
+    "companyProfile": {
+      "title": "Company Health Scan",
+      "subtitle": "Just like a doctor checks vitals, we need to understand your baseline.",
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Enter your company name",
+      "industry": "Industry",
+      "teamSize": "Team Size",
+      "annualRevenue": "Annual Revenue (Optional)"
+    },
+    "industries": {
+      "technology": "Technology / SaaS",
+      "manufacturing": "Manufacturing",
+      "retail": "Retail / E-commerce",
+      "healthcare": "Healthcare",
+      "financial": "Financial Services",
+      "professional": "Professional Services",
+      "education": "Education",
+      "realEstate": "Real Estate",
+      "foodBeverage": "Food & Beverage",
+      "other": "Other"
+    },
+    "employeeRanges": {
+      "startup": "1-10 (Startup)",
+      "small": "11-50 (Small)",
+      "medium": "51-200 (Medium)",
+      "growth": "201-500 (Growth)",
+      "enterprise": "500+ (Enterprise)"
+    },
+    "revenueRanges": {
+      "under500k": "< $500K",
+      "500kTo2m": "$500K - $2M",
+      "2mTo10m": "$2M - $10M",
+      "10mTo50m": "$10M - $50M",
+      "over50m": "$50M+"
+    },
+    "painPoints": {
+      "title": "The McKinsey Principle",
+      "subtitle": "Focus on the critical 20% that drives 80% of results. What's keeping you up at night?",
+      "selectChallenge": "Select your primary challenge",
+      "tellUsMore": "Tell us more (optional)",
+      "tellUsMorePlaceholder": "What specific aspects of this challenge are most pressing?",
+      "howUrgent": "How urgent is this?",
+      "cashflow": {
+        "title": "Cash Flow Management",
+        "description": "Difficulty predicting and managing working capital"
+      },
+      "customer": {
+        "title": "Customer Acquisition",
+        "description": "High CAC or struggling to find new customers"
+      },
+      "efficiency": {
+        "title": "Operational Efficiency",
+        "description": "Low productivity or manual processes slowing growth"
+      },
+      "growth": {
+        "title": "Revenue Growth",
+        "description": "Plateaued growth or unclear path to scale"
+      },
+      "talent": {
+        "title": "Talent & Team",
+        "description": "Hiring, retention, or team performance issues"
+      },
+      "strategy": {
+        "title": "Strategic Direction",
+        "description": "Unclear priorities or too many opportunities"
+      }
+    },
+    "urgencyLevels": {
+      "critical": "Critical - Needs immediate action",
+      "high": "High - Within 30 days",
+      "medium": "Medium - Within 90 days",
+      "low": "Low - Strategic planning"
+    },
+    "dataGoals": {
+      "title": "Data is Decision Fuel",
+      "subtitle": "Understanding your data landscape helps us provide better insights.",
+      "currentTools": "What tools do you currently use? (Select all that apply)",
+      "dataReadiness": "How would you describe your data readiness?",
+      "primaryGoal": "What's your #1 goal for using STS?",
+      "primaryGoalPlaceholder": "e.g., Increase revenue by 30%, Reduce operational costs..."
+    },
+    "tools": {
+      "erp": "ERP System",
+      "crm": "CRM (Salesforce, HubSpot)",
+      "accounting": "Accounting Software",
+      "biAnalytics": "BI/Analytics Tools",
+      "projectManagement": "Project Management",
+      "hr": "HR System",
+      "ecommerce": "E-commerce Platform",
+      "customTools": "Custom Internal Tools"
+    },
+    "dataReadinessLevels": {
+      "advanced": {
+        "title": "Advanced",
+        "description": "We have centralized data with regular reporting"
+      },
+      "developing": {
+        "title": "Developing",
+        "description": "Some data exists but in multiple systems"
+      },
+      "basic": {
+        "title": "Basic",
+        "description": "Mostly spreadsheets and manual tracking"
+      },
+      "starting": {
+        "title": "Just Starting",
+        "description": "Limited data collection in place"
+      }
+    },
+    "launch": {
+      "title": "Ready to Launch Your War Room",
+      "subtitle": "Our AI will now analyze your business profile and prepare personalized strategic frameworks and recommendations.",
+      "profileSummary": "Summary of Your Profile",
+      "company": "Company",
+      "industry": "Industry",
+      "teamSize": "Team Size",
+      "primaryChallenge": "Primary Challenge",
+      "goal": "Goal",
+      "aiActivating": "AI Strategy Engine Activating...",
+      "analyzingBenchmarks": "Analyzing industry benchmarks",
+      "mappingFrameworks": "Mapping strategic frameworks",
+      "generatingRoadmap": "Generating priority roadmap",
+      "preparingWarRoom": "Preparing your War Room"
+    },
+    "navigation": {
+      "back": "Back",
+      "continue": "Continue",
+      "launchWarRoom": "Launch War Room",
+      "analyzing": "Analyzing..."
+    }
+  },
+  "warRoom": {
+    "header": {
+      "warRoom": "War Room",
+      "aiPartnerActive": "AI Strategy Partner Active",
+      "connecting": "Connecting..."
+    },
+    "kpi": {
+      "addKpi": "Add KPI",
+      "revenueTarget": "Revenue Target",
+      "cashPosition": "Cash Position",
+      "teamEfficiency": "Team Efficiency"
+    },
+    "frameworks": {
+      "title": "Strategy Frameworks",
+      "pyramid": {
+        "name": "Pyramid Principle",
+        "description": "Structure your thinking top-down"
+      },
+      "swot": {
+        "name": "SWOT Analysis",
+        "description": "Strengths, Weaknesses, Opportunities, Threats"
+      },
+      "bcg": {
+        "name": "BCG Matrix",
+        "description": "Portfolio analysis framework"
+      },
+      "7s": {
+        "name": "McKinsey 7S",
+        "description": "Organizational alignment model"
+      },
+      "horizon": {
+        "name": "Three Horizons",
+        "description": "Growth planning framework"
+      },
+      "porter": {
+        "name": "Porter's 5 Forces",
+        "description": "Industry competitive analysis"
+      }
+    },
+    "context": {
+      "title": "Context Loaded",
+      "industry": "Industry",
+      "focus": "Focus",
+      "team": "Team"
+    },
+    "actions": {
+      "title": "Priority Actions",
+      "impact": "impact",
+      "effort": "effort",
+      "high": "high",
+      "medium": "medium",
+      "low": "low"
+    },
+    "documents": {
+      "title": "Generated Documents",
+      "strategicDiagnosis": "Strategic Diagnosis Report",
+      "kpiTracker": "KPI Tracker Template"
+    },
+    "insights": {
+      "title": "Quick Insights",
+      "industryBenchmark": "Industry Benchmark",
+      "benchmarkDesc": "Your {painPoint} metrics are in the top 40% of {industry} companies your size.",
+      "viewFullAnalysis": "View full analysis"
+    },
+    "errors": {
+      "connectionFailed": "Connection Failed",
+      "cannotConnectAI": "Cannot connect to AI service",
+      "retryConnection": "Retry Connection"
+    },
+    "loading": "Loading War Room...",
+    "resetOnboarding": "Reset Onboarding"
   }
 }

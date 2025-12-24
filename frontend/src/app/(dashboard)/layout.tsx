@@ -7,9 +7,6 @@ import { useTranslations, useLocale } from "next-intl";
 import type { Route } from "next";
 import {
   Brain,
-  MessageSquare,
-  BarChart3,
-  LayoutDashboard,
   Settings,
   Menu,
   X,
@@ -37,11 +34,10 @@ export default function DashboardLayout({
   // Full-screen pages without sidebar
   const isFullScreenPage = pathname === "/onboarding" || pathname === "/war-room";
 
+  // Simplified navigation - War Room is the primary feature
+  // All AI Assistant, Analytics, and Dashboard features are consolidated in War Room
   const navigation = [
     { name: t("nav.warRoom") || "War Room", href: "/war-room" as Route, icon: Crosshair },
-    { name: t("nav.dashboard"), href: "/dashboard" as Route, icon: LayoutDashboard },
-    { name: t("nav.aiAssistant"), href: "/chat" as Route, icon: MessageSquare },
-    { name: t("nav.analytics"), href: "/analytics" as Route, icon: BarChart3 },
     { name: t("nav.settings"), href: "/settings" as Route, icon: Settings },
   ];
 
@@ -71,7 +67,7 @@ export default function DashboardLayout({
       >
         {/* Logo */}
         <div className="flex h-16 items-center justify-between px-4 border-b border-white/5">
-          <Link href={"/dashboard" as Route} className="flex items-center gap-3">
+          <Link href={"/war-room" as Route} className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent-cyan to-accent-blue shrink-0">
               <Brain className="h-5 w-5 text-white" />
             </div>

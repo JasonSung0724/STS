@@ -182,5 +182,230 @@
   "footer": {
     "copyright": "版權所有。",
     "aiDisclaimer": "AI 回應為自動生成，可能並非完全準確，請驗證重要資訊。"
+  },
+  "onboarding": {
+    "steps": {
+      "welcome": "歡迎",
+      "companyProfile": "公司資訊",
+      "painPoints": "痛點分析",
+      "dataGoals": "數據與目標",
+      "launch": "啟動"
+    },
+    "welcome": {
+      "title": "歡迎來到您的 AI 策略夥伴",
+      "subtitle": "Start to Scale 現已正式成為您的策略顧問。如同麥肯錫顧問，我們會先深入了解您的業務，再提供洞察。",
+      "whatHappensNext": "接下來會發生什麼：",
+      "step1Title": "企業掃描",
+      "step1Desc": "我們將了解您的企業 DNA",
+      "step2Title": "痛點聚焦",
+      "step2Desc": "識別關鍵的 20% 核心問題",
+      "step3Title": "數據連接",
+      "step3Desc": "為數據驅動決策做準備",
+      "step4Title": "啟動戰情室",
+      "step4Desc": "您的專屬指揮中心",
+      "estimatedTime": "預計時間：3-5 分鐘"
+    },
+    "companyProfile": {
+      "title": "企業健康掃描",
+      "subtitle": "就像醫生檢查生命徵象，我們需要了解您的基準狀態。",
+      "companyName": "公司名稱",
+      "companyNamePlaceholder": "請輸入公司名稱",
+      "industry": "產業類別",
+      "teamSize": "團隊規模",
+      "annualRevenue": "年營收（選填）"
+    },
+    "industries": {
+      "technology": "科技 / SaaS",
+      "manufacturing": "製造業",
+      "retail": "零售 / 電商",
+      "healthcare": "醫療保健",
+      "financial": "金融服務",
+      "professional": "專業服務",
+      "education": "教育",
+      "realEstate": "房地產",
+      "foodBeverage": "餐飲業",
+      "other": "其他"
+    },
+    "employeeRanges": {
+      "startup": "1-10 人（新創）",
+      "small": "11-50 人（小型）",
+      "medium": "51-200 人（中型）",
+      "growth": "201-500 人（成長期）",
+      "enterprise": "500+ 人（企業級）"
+    },
+    "revenueRanges": {
+      "under500k": "< 1,500萬台幣",
+      "500kTo2m": "1,500萬 - 6,000萬",
+      "2mTo10m": "6,000萬 - 3億",
+      "10mTo50m": "3億 - 15億",
+      "over50m": "15億+"
+    },
+    "painPoints": {
+      "title": "麥肯錫原則",
+      "subtitle": "專注於驅動 80% 成果的關鍵 20%。什麼讓您徹夜難眠？",
+      "selectChallenge": "選擇您的首要挑戰",
+      "tellUsMore": "告訴我們更多（選填）",
+      "tellUsMorePlaceholder": "這項挑戰有哪些具體方面最為迫切？",
+      "howUrgent": "這有多緊急？",
+      "cashflow": {
+        "title": "現金流管理",
+        "description": "難以預測和管理營運資金"
+      },
+      "customer": {
+        "title": "客戶獲取",
+        "description": "高獲客成本或難以找到新客戶"
+      },
+      "efficiency": {
+        "title": "營運效率",
+        "description": "低生產力或手動流程拖慢成長"
+      },
+      "growth": {
+        "title": "營收成長",
+        "description": "成長停滯或擴張路徑不明確"
+      },
+      "talent": {
+        "title": "人才與團隊",
+        "description": "招聘、留任或團隊績效問題"
+      },
+      "strategy": {
+        "title": "策略方向",
+        "description": "優先事項不明確或機會太多"
+      }
+    },
+    "urgencyLevels": {
+      "critical": "緊急 - 需要立即行動",
+      "high": "高 - 30 天內",
+      "medium": "中 - 90 天內",
+      "low": "低 - 策略規劃"
+    },
+    "dataGoals": {
+      "title": "數據是決策的燃料",
+      "subtitle": "了解您的數據環境有助於我們提供更好的洞察。",
+      "currentTools": "您目前使用哪些工具？（可多選）",
+      "dataReadiness": "您如何描述您的數據準備度？",
+      "primaryGoal": "使用 STS 的首要目標是什麼？",
+      "primaryGoalPlaceholder": "例如：提高 30% 營收、降低營運成本..."
+    },
+    "tools": {
+      "erp": "ERP 系統",
+      "crm": "CRM（Salesforce、HubSpot）",
+      "accounting": "會計軟體",
+      "biAnalytics": "BI/分析工具",
+      "projectManagement": "專案管理",
+      "hr": "人力資源系統",
+      "ecommerce": "電商平台",
+      "customTools": "自訂內部工具"
+    },
+    "dataReadinessLevels": {
+      "advanced": {
+        "title": "進階",
+        "description": "我們有集中化數據並定期產出報表"
+      },
+      "developing": {
+        "title": "發展中",
+        "description": "有些數據但分散在多個系統"
+      },
+      "basic": {
+        "title": "基礎",
+        "description": "主要使用試算表和手動追蹤"
+      },
+      "starting": {
+        "title": "剛起步",
+        "description": "數據收集有限"
+      }
+    },
+    "launch": {
+      "title": "準備啟動您的戰情室",
+      "subtitle": "我們的 AI 將分析您的企業資料，準備個人化的策略框架和建議。",
+      "profileSummary": "您的資料摘要",
+      "company": "公司",
+      "industry": "產業",
+      "teamSize": "團隊規模",
+      "primaryChallenge": "首要挑戰",
+      "goal": "目標",
+      "aiActivating": "AI 策略引擎啟動中...",
+      "analyzingBenchmarks": "分析產業標竿",
+      "mappingFrameworks": "對應策略框架",
+      "generatingRoadmap": "生成優先路線圖",
+      "preparingWarRoom": "準備您的戰情室"
+    },
+    "navigation": {
+      "back": "上一步",
+      "continue": "繼續",
+      "launchWarRoom": "啟動戰情室",
+      "analyzing": "分析中..."
+    }
+  },
+  "warRoom": {
+    "header": {
+      "warRoom": "戰情室",
+      "aiPartnerActive": "AI 策略夥伴運作中",
+      "connecting": "連接中..."
+    },
+    "kpi": {
+      "addKpi": "新增 KPI",
+      "revenueTarget": "營收目標",
+      "cashPosition": "現金部位",
+      "teamEfficiency": "團隊效率"
+    },
+    "frameworks": {
+      "title": "策略框架",
+      "pyramid": {
+        "name": "金字塔原則",
+        "description": "自上而下結構化思維"
+      },
+      "swot": {
+        "name": "SWOT 分析",
+        "description": "優勢、劣勢、機會、威脅"
+      },
+      "bcg": {
+        "name": "BCG 矩陣",
+        "description": "產品組合分析框架"
+      },
+      "7s": {
+        "name": "麥肯錫 7S",
+        "description": "組織協調模型"
+      },
+      "horizon": {
+        "name": "三地平線",
+        "description": "成長規劃框架"
+      },
+      "porter": {
+        "name": "波特五力",
+        "description": "產業競爭分析"
+      }
+    },
+    "context": {
+      "title": "已載入情境",
+      "industry": "產業",
+      "focus": "聚焦",
+      "team": "團隊"
+    },
+    "actions": {
+      "title": "優先行動",
+      "impact": "影響",
+      "effort": "努力",
+      "high": "高",
+      "medium": "中",
+      "low": "低"
+    },
+    "documents": {
+      "title": "生成的文件",
+      "strategicDiagnosis": "策略診斷報告",
+      "kpiTracker": "KPI 追蹤模板"
+    },
+    "insights": {
+      "title": "快速洞察",
+      "industryBenchmark": "產業標竿",
+      "benchmarkDesc": "您的{painPoint}指標在同規模的{industry}企業中位於前 40%。",
+      "viewFullAnalysis": "查看完整分析"
+    },
+    "errors": {
+      "connectionFailed": "連接失敗",
+      "cannotConnectAI": "無法連接到 AI 服務",
+      "retryConnection": "重試連接"
+    },
+    "loading": "載入戰情室中...",
+    "resetOnboarding": "重置引導流程"
   }
 }

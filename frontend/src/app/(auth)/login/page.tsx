@@ -31,6 +31,12 @@ export default function LoginPage() {
     resolver: zodResolver(loginSchema),
   });
 
+  const getRedirectPath = () => {
+    // Check if user has completed onboarding
+    const onboardingCompleted = localStorage.getItem("onboarding_completed");
+    return onboardingCompleted === "true" ? "/war-room" : "/onboarding";
+  };
+
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     setError(null);
@@ -38,7 +44,7 @@ export default function LoginPage() {
       const response = await authApi.login(data.email, data.password);
       localStorage.setItem("access_token", response.access_token);
       localStorage.setItem("refresh_token", response.refresh_token);
-      router.push("/dashboard");
+      router.push(getRedirectPath());
     } catch (err) {
       setError("Invalid email or password. Please try again.");
       console.error("Login failed:", err);

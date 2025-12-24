@@ -393,18 +393,63 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           envs: ENVIRONMENT
           script: |
-            sleep 15
+            cd ~/sts/docker
 
             # Health check based on environment
             if [ "${ENVIRONMENT}" == "prod" ]; then
               HEALTH_URL="http://localhost:80/health"
+              BACKEND_CONTAINER="sts-backend-prod"
             else
               HEALTH_URL="http://localhost:8080/health"
+              BACKEND_CONTAINER="sts-backend-dev"
             fi
 
+            # Wait for backend container to be healthy (max 90 seconds)
+            echo "Waiting for backend container to be healthy..."
+            MAX_ATTEMPTS=18
+            ATTEMPT=0
+            while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+              ATTEMPT=$((ATTEMPT + 1))
+              HEALTH_STATUS=$(docker inspect --format='{{.State.Health.Status}}' ${BACKEND_CONTAINER} 2>/dev/null || echo "not_found")
+
+              if [ "$HEALTH_STATUS" == "healthy" ]; then
+                echo "Backend container is healthy after $((ATTEMPT * 5)) seconds"
+                break
+              fi
+
+              echo "Attempt $ATTEMPT/$MAX_ATTEMPTS: Backend status = $HEALTH_STATUS, waiting..."
+              sleep 5
+            done
+
+            if [ "$HEALTH_STATUS" != "healthy" ]; then
+              echo "Backend container not healthy after 90 seconds"
+              echo "=== Container logs ==="
+              docker logs --tail 50 ${BACKEND_CONTAINER} 2>&1 || true
+              exit 1
+            fi
+
+            # Reload nginx to ensure it has the latest container IPs
+            docker compose -f docker-compose.vm.yml exec -T nginx nginx -s reload 2>/dev/null || true
+            sleep 2
+
+            # Health check via nginx with retry
             echo "Checking health at ${HEALTH_URL}..."
-            curl -f "${HEALTH_URL}" || exit 1
-            echo "Health check passed for ${ENVIRONMENT}!"
+            RETRY=0
+            MAX_RETRY=5
+            while [ $RETRY -lt $MAX_RETRY ]; do
+              RETRY=$((RETRY + 1))
+              if curl -sf "${HEALTH_URL}" > /dev/null 2>&1; then
+                echo "Health check passed for ${ENVIRONMENT}!"
+                exit 0
+              fi
+              echo "Retry $RETRY/$MAX_RETRY..."
+              sleep 3
+            done
+
+            echo "Health check failed after $MAX_RETRY retries"
+            echo "=== Nginx error log ==="
+            docker logs --tail 30 sts-nginx 2>&1 || true
+            exit 1
 
       - name: Deployment Summary
         run: |
