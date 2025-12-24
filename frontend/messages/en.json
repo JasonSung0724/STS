@@ -154,6 +154,7 @@
   },
   "chat": {
     "title": "AI CEO Assistant",
+    "subtitle": "Your AI-powered business advisor",
     "ready": "Ready to help",
     "thinking": "Thinking...",
     "newChat": "New Chat",
@@ -167,7 +168,10 @@
       "q3": "How can we optimize operational costs?",
       "q4": "Show me the top performing products"
     },
-    "copyMessage": "Copy message"
+    "copyMessage": "Copy message",
+    "connectionFailed": "Connection Failed",
+    "connectionFailedDesc": "Unable to connect to AI service. Please ensure the backend is running.",
+    "retry": "Retry Connection"
   },
   "settings": {
     "title": "Settings",

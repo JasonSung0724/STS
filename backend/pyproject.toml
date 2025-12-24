@@ -30,6 +30,7 @@ dependencies = [
     # OpenAI
     "openai>=1.60.0",
     "openai-agents>=0.1.0",
+    "openai-chatkit>=1.4.0",
 
     # Redis (for caching and sessions)
     "redis>=5.0.0",

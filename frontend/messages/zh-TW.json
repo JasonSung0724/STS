@@ -154,6 +154,7 @@
   },
   "chat": {
     "title": "AI 執行長助理",
+    "subtitle": "您的 AI 商業顧問",
     "ready": "準備就緒",
     "thinking": "思考中...",
     "newChat": "新對話",
@@ -167,7 +168,10 @@
       "q3": "如何優化營運成本？",
       "q4": "顯示表現最佳的產品"
     },
-    "copyMessage": "複製訊息"
+    "copyMessage": "複製訊息",
+    "connectionFailed": "連接失敗",
+    "connectionFailedDesc": "無法連接到 AI 服務。請確認後端服務正在運行。",
+    "retry": "重試連接"
   },
   "settings": {
     "title": "設定",

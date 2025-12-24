@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ChatKit, useChatKit } from "@openai/chatkit-react";
-import { getClientSecret } from "@/lib/chatkit";
+import { getChatKitApiConfig } from "@/lib/chatkit";
 import {
   Brain,
   TrendingUp,
@@ -77,22 +77,17 @@ export default function WarRoomPage() {
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // ChatKit Hook with context
+  // ChatKit Hook with context - Self-hosted mode
+  const apiConfig = getChatKitApiConfig();
   const { control } = useChatKit({
-    api: {
-      getClientSecret: async (existing: string | null | undefined) => {
-        try {
-          const secret = await getClientSecret(existing ?? undefined);
-          setIsReady(true);
-          setError(null);
-          return secret;
-        } catch (err) {
-          setError(t("errors.cannotConnectAI"));
-          throw err;
-        }
-      },
-    },
+    api: apiConfig,
+    theme: "dark",
   });
+
+  // Mark as ready once mounted
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
 
   // Sample action items
   const [actionItems, setActionItems] = useState<ActionItem[]>([
