@@ -1,39 +1,22 @@
 # ===========================================
 # STS - Local Development Environment
 # ===========================================
-# 使用本地 Docker PostgreSQL + Redis
-# 啟動: docker compose -f deployment/docker/docker-compose.local.yml up -d
-# 或從 deployment/docker 目錄: docker compose -f docker-compose.local.yml up -d
+# 使用 Supabase CLI (本地) + Redis + Backend + Frontend
+#
+# 啟動順序:
+# 1. 先啟動 Supabase: supabase start
+# 2. 再啟動其他服務: docker compose -f deployment/docker/docker-compose.local.yml --env-file deployment/env/.env.local up -d
+#
+# 服務端點:
+# - Frontend: http://localhost:3000
+# - Backend API: http://localhost:8000
+# - Supabase API: http://localhost:54321
+# - Supabase Studio: http://localhost:54323
+# - Supabase DB: postgresql://postgres:postgres@localhost:54322/postgres
 
 services:
   # ===========================================
-  # PostgreSQL Database (Local)
-  # ===========================================
-  db:
-    image: postgres:17-alpine
-    container_name: sts-postgres-local
-    restart: unless-stopped
-    env_file:
-      - ../env/.env.local
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-sts}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sts_password}
-      POSTGRES_DB: ${POSTGRES_DB:-sts}
-    volumes:
-      - postgres_data_local:/var/lib/postgresql/data
-      - ../postgres/init:/docker-entrypoint-initdb.d:ro
-    ports:
-      - "5433:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sts} -d ${POSTGRES_DB:-sts}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - sts-local
-
-  # ===========================================
-  # Redis Cache (Local)
+  # Redis Cache
   # ===========================================
   redis:
     image: redis:7-alpine
@@ -53,7 +36,7 @@ services:
       - sts-local
 
   # ===========================================
-  # Backend API (Local Development)
+  # STS Backend API
   # ===========================================
   backend:
     build:
@@ -65,15 +48,19 @@ services:
     env_file:
       - ../env/.env.local
     environment:
-      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-sts}:${POSTGRES_PASSWORD:-sts_password}@db:5432/${POSTGRES_DB:-sts}
+      # 連接到 Supabase CLI 啟動的 PostgreSQL
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@host.docker.internal:54322/postgres
       - REDIS_URL=redis://redis:6379/0
+      # Supabase API
+      - SUPABASE_URL=http://host.docker.internal:54321
+      - SUPABASE_PUBLIC_URL=http://localhost:54321
     ports:
       - "8000:8000"
     depends_on:
-      db:
-        condition: service_healthy
       redis:
         condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ../../backend:/app
     command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
@@ -81,7 +68,7 @@ services:
       - sts-local
 
   # ===========================================
-  # Frontend (Local Development)
+  # STS Frontend
   # ===========================================
   frontend:
     build:
@@ -94,6 +81,8 @@ services:
       - ../env/.env.local
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
     ports:
       - "3000:3000"
     depends_on:
@@ -105,8 +94,6 @@ services:
       - sts-local
 
 volumes:
-  postgres_data_local:
-    driver: local
   redis_data_local:
     driver: local
   frontend_node_modules:

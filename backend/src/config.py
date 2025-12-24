@@ -48,10 +48,16 @@ class Settings(BaseSettings):
         return url
 
     # Supabase Configuration
-    supabase_url: str = ""
+    supabase_url: str = ""  # Internal URL (for container-to-container)
+    supabase_public_url: str = ""  # Public URL (for browser redirects)
     supabase_anon_key: str = ""
     supabase_service_role_key: str = ""
     supabase_jwt_secret: str = ""
+
+    @property
+    def supabase_browser_url(self) -> str:
+        """Get Supabase URL for browser redirects (public URL)."""
+        return self.supabase_public_url or self.supabase_url
 
     # LINE OAuth Configuration
     line_channel_id: str = ""

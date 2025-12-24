@@ -18,6 +18,7 @@ import {
   ChevronRight,
   Bell,
   Search,
+  Crosshair,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -33,12 +34,21 @@ export default function DashboardLayout({
   const t = useTranslations();
   const locale = useLocale();
 
+  // Full-screen pages without sidebar
+  const isFullScreenPage = pathname === "/onboarding" || pathname === "/war-room";
+
   const navigation = [
+    { name: t("nav.warRoom") || "War Room", href: "/war-room" as Route, icon: Crosshair },
     { name: t("nav.dashboard"), href: "/dashboard" as Route, icon: LayoutDashboard },
     { name: t("nav.aiAssistant"), href: "/chat" as Route, icon: MessageSquare },
     { name: t("nav.analytics"), href: "/analytics" as Route, icon: BarChart3 },
     { name: t("nav.settings"), href: "/settings" as Route, icon: Settings },
   ];
+
+  // Full-screen layout for onboarding and war-room
+  if (isFullScreenPage) {
+    return <>{children}</>;
+  }
 
   return (
     <div className="flex h-screen bg-slate-950">

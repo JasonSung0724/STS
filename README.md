@@ -54,51 +54,51 @@ STS 是一個以 AI 為核心的企業級智慧助理平台，扮演「AI CEO」
 
 ### Frontend
 
-| 技術 | 版本 | 說明 |
-|------|------|------|
-| Node.js | >=20.11.0 | JavaScript 執行環境 (LTS) |
-| Next.js | ^15.5.9 | React 全端框架 |
-| React | ^19.2.0 | UI 元件庫 |
-| TypeScript | ^5.6.0 | 型別安全的 JavaScript |
-| TailwindCSS | ^3.4.0 | Utility-first CSS 框架 |
-| next-intl | ^4.6.1 | 國際化 (i18n) |
-| @openai/chatkit-react | ^1.4.0 | OpenAI ChatKit UI 元件 |
-| @tanstack/react-query | ^5.60.0 | 伺服器狀態管理 |
-| Zustand | ^5.0.0 | 輕量狀態管理 |
-| React Hook Form | ^7.54.0 | 表單處理 |
-| Zod | ^3.24.0 | Schema 驗證 |
-| Recharts | ^2.15.0 | 圖表視覺化 |
-| Axios | ^1.7.0 | HTTP 請求庫 |
-| Lucide React | ^0.460.0 | 圖示庫 |
+| 技術                  | 版本      | 說明                      |
+| --------------------- | --------- | ------------------------- |
+| Node.js               | >=20.11.0 | JavaScript 執行環境 (LTS) |
+| Next.js               | ^15.5.9   | React 全端框架            |
+| React                 | ^19.2.0   | UI 元件庫                 |
+| TypeScript            | ^5.6.0    | 型別安全的 JavaScript     |
+| TailwindCSS           | ^3.4.0    | Utility-first CSS 框架    |
+| next-intl             | ^4.6.1    | 國際化 (i18n)             |
+| @openai/chatkit-react | ^1.4.0    | OpenAI ChatKit UI 元件    |
+| @tanstack/react-query | ^5.60.0   | 伺服器狀態管理            |
+| Zustand               | ^5.0.0    | 輕量狀態管理              |
+| React Hook Form       | ^7.54.0   | 表單處理                  |
+| Zod                   | ^3.24.0   | Schema 驗證               |
+| Recharts              | ^2.15.0   | 圖表視覺化                |
+| Axios                 | ^1.7.0    | HTTP 請求庫               |
+| Lucide React          | ^0.460.0  | 圖示庫                    |
 
 ### Backend
 
-| 技術 | 版本 | 說明 |
-|------|------|------|
-| Python | >=3.12.0 | 程式語言 |
-| FastAPI | >=0.124.0 | 高效能 Web 框架 |
-| Uvicorn | >=0.32.0 | ASGI 伺服器 |
-| OpenAI Agents SDK | >=0.1.0 | AI Agent 框架 |
-| OpenAI | >=1.60.0 | OpenAI Python SDK |
-| SQLAlchemy | >=2.0.36 | ORM |
-| asyncpg | >=0.30.0 | PostgreSQL 異步驅動 |
-| Alembic | >=1.14.0 | 資料庫遷移 |
-| Pydantic | >=2.10.0 | 資料驗證 |
-| Redis | >=5.0.0 | 快取與 Session |
-| python-jose | >=3.3.0 | JWT 處理 |
-| passlib | >=1.7.4 | 密碼加密 |
-| httpx | >=0.28.0 | 異步 HTTP 客戶端 |
+| 技術              | 版本      | 說明                |
+| ----------------- | --------- | ------------------- |
+| Python            | >=3.12.0  | 程式語言            |
+| FastAPI           | >=0.124.0 | 高效能 Web 框架     |
+| Uvicorn           | >=0.32.0  | ASGI 伺服器         |
+| OpenAI Agents SDK | >=0.1.0   | AI Agent 框架       |
+| OpenAI            | >=1.60.0  | OpenAI Python SDK   |
+| SQLAlchemy        | >=2.0.36  | ORM                 |
+| asyncpg           | >=0.30.0  | PostgreSQL 異步驅動 |
+| Alembic           | >=1.14.0  | 資料庫遷移          |
+| Pydantic          | >=2.10.0  | 資料驗證            |
+| Redis             | >=5.0.0   | 快取與 Session      |
+| python-jose       | >=3.3.0   | JWT 處理            |
+| passlib           | >=1.7.4   | 密碼加密            |
+| httpx             | >=0.28.0  | 異步 HTTP 客戶端    |
 
 ### Infrastructure
 
-| 技術 | 版本 | 說明 |
-|------|------|------|
-| Docker | >=27.0.0 | 容器化 |
-| Docker Compose | >=2.0.0 | 多容器編排 |
-| PostgreSQL | 17-alpine | 關聯式資料庫 |
-| Redis | 7-alpine | 快取 |
-| Nginx | latest | 反向代理 (Production) |
-| Supabase | - | 雲端 PostgreSQL (Dev/Prod) |
+| 技術           | 版本      | 說明                       |
+| -------------- | --------- | -------------------------- |
+| Docker         | >=27.0.0  | 容器化                     |
+| Docker Compose | >=2.0.0   | 多容器編排                 |
+| PostgreSQL     | 17-alpine | 關聯式資料庫               |
+| Redis          | 7-alpine  | 快取                       |
+| Nginx          | latest    | 反向代理 (Production)      |
+| Supabase       | -         | 雲端 PostgreSQL (Dev/Prod) |
 
 ---
 
@@ -151,12 +151,12 @@ docker compose -f docker-compose.local.yml up -d
 
 ### 4. 訪問服務
 
-| 服務 | URL |
-|------|-----|
-| Frontend | http://localhost:3000 |
-| Backend API | http://localhost:8000 |
-| API Docs (Swagger) | http://localhost:8000/docs |
-| API Docs (ReDoc) | http://localhost:8000/redoc |
+| 服務               | URL                         |
+| ------------------ | --------------------------- |
+| Frontend           | http://localhost:3000       |
+| Backend API        | http://localhost:8000       |
+| API Docs (Swagger) | http://localhost:8000/docs  |
+| API Docs (ReDoc)   | http://localhost:8000/redoc |
 
 ---
 
@@ -166,28 +166,28 @@ docker compose -f docker-compose.local.yml up -d
 
 ```bash
 # 啟動所有服務
-docker compose -f docker-compose.local.yml up -d
+docker compose -f deployment/docker/docker-compose.local.yml up -d
 
 # 查看服務狀態
-docker compose -f docker-compose.local.yml ps
+docker compose -f deployment/docker/docker-compose.local.yml ps
 
 # 查看日誌
-docker compose -f docker-compose.local.yml logs -f
-docker compose -f docker-compose.local.yml logs -f backend   # 只看 backend
-docker compose -f docker-compose.local.yml logs -f frontend  # 只看 frontend
+docker compose -f deployment/docker/docker-compose.local.yml logs -f
+docker compose -f deployment/docker/docker-compose.local.yml logs -f backend   # 只看 backend
+docker compose -f deployment/docker/docker-compose.local.yml logs -f frontend  # 只看 frontend
 
 # 重啟單一服務
-docker compose -f docker-compose.local.yml restart backend
+docker compose -f deployment/docker/docker-compose.local.yml restart backend
 
 # 重建服務 (程式碼有重大變更時)
-docker compose -f docker-compose.local.yml build --no-cache backend
-docker compose -f docker-compose.local.yml up -d backend
+docker compose -f deployment/docker/docker-compose.local.yml build --no-cache backend
+docker compose -f deployment/docker/docker-compose.local.yml up -d backend
 
 # 停止所有服務 (保留資料)
-docker compose -f docker-compose.local.yml down
+docker compose -f deployment/docker/docker-compose.local.yml down
 
 # 停止並清除所有資料
-docker compose -f docker-compose.local.yml down -v
+docker compose -f deployment/docker/docker-compose.local.yml down -v
 ```
 
 ### 本地開發 (不使用 Docker)
@@ -237,11 +237,11 @@ uv run alembic revision -m "xxx" # 建立新的遷移
 
 專案支援三種環境：
 
-| 環境 | 配置檔 | 資料庫 | 用途 |
-|------|--------|--------|------|
-| Local | `.env.local` + `docker-compose.local.yml` | Docker PostgreSQL | 本地開發 |
-| Dev | `.env.dev` + `docker-compose.dev.yml` | Supabase | 開發測試 |
-| Prod | `.env.prod` + `docker-compose.prod.yml` | Supabase + Nginx SSL | 生產環境 |
+| 環境  | 配置檔                                    | 資料庫               | 用途     |
+| ----- | ----------------------------------------- | -------------------- | -------- |
+| Local | `.env.local` + `docker-compose.local.yml` | Docker PostgreSQL    | 本地開發 |
+| Dev   | `.env.dev` + `docker-compose.dev.yml`     | Supabase             | 開發測試 |
+| Prod  | `.env.prod` + `docker-compose.prod.yml`   | Supabase + Nginx SSL | 生產環境 |
 
 ### 部署指令
 
@@ -306,13 +306,13 @@ PUT    /api/v1/users/me                    # 更新用戶資訊
 
 CEO Agent 使用 OpenAI Agents SDK 實作，提供以下工具：
 
-| 工具 | 說明 |
-|------|------|
-| `analyze_kpis` | 分析 KPI 指標與趨勢 |
-| `get_revenue_data` | 取得營收數據與預測 |
-| `analyze_costs` | 成本分析與優化建議 |
-| `generate_report` | 生成商業報告 |
-| `search_business_data` | 搜尋商業數據 |
+| 工具                   | 說明                |
+| ---------------------- | ------------------- |
+| `analyze_kpis`         | 分析 KPI 指標與趨勢 |
+| `get_revenue_data`     | 取得營收數據與預測  |
+| `analyze_costs`        | 成本分析與優化建議  |
+| `generate_report`      | 生成商業報告        |
+| `search_business_data` | 搜尋商業數據        |
 
 ---
 
@@ -391,6 +391,7 @@ scope: frontend, backend, infra, docs
 ```
 
 範例：
+
 ```
 feat(backend): add CEO agent with OpenAI Agents SDK
 fix(frontend): resolve chat streaming issue

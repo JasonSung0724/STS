@@ -314,18 +314,22 @@ class SupabaseAuthService:
         self,
         provider: str,
         redirect_to: str,
+        use_public_url: bool = True,
     ) -> str:
         """Get OAuth URL for a provider.
 
         Args:
             provider: OAuth provider (google, github, etc.)
             redirect_to: URL to redirect after authentication
+            use_public_url: Use public URL for browser redirects (default True)
 
         Returns:
             OAuth authorization URL
         """
+        # Use public URL for browser redirects, internal URL for API calls
+        base_url = settings.supabase_browser_url if use_public_url else self.supabase_url
         return (
-            f"{self.supabase_url}/auth/v1/authorize"
+            f"{base_url}/auth/v1/authorize"
             f"?provider={provider}"
             f"&redirect_to={redirect_to}"
         )

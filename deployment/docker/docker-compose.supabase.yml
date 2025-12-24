@@ -47,7 +47,7 @@ services:
   # Supabase Studio (Dashboard)
   # ===========================================
   studio:
-    image: supabase/studio:20241202-60d4e05
+    image: supabase/studio:20241028-a265374
     container_name: sts-supabase-studio
     restart: unless-stopped
     ports:
@@ -135,10 +135,12 @@ services:
       GOTRUE_MAILER_URLPATHS_CONFIRMATION: /auth/v1/verify
       GOTRUE_MAILER_URLPATHS_RECOVERY: /auth/v1/verify
       GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: /auth/v1/verify
-      # External OAuth providers (configure as needed)
-      GOTRUE_EXTERNAL_GOOGLE_ENABLED: false
-      GOTRUE_EXTERNAL_GOOGLE_CLIENT_ID: ""
-      GOTRUE_EXTERNAL_GOOGLE_SECRET: ""
+      # External OAuth providers
+      # Google OAuth - 從 .env 讀取或設定環境變數
+      GOTRUE_EXTERNAL_GOOGLE_ENABLED: true
+      GOTRUE_EXTERNAL_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOTRUE_EXTERNAL_GOOGLE_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOTRUE_EXTERNAL_GOOGLE_REDIRECT_URI: http://localhost:54321/auth/v1/callback
     depends_on:
       db:
         condition: service_healthy
