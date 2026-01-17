@@ -24,6 +24,14 @@ from src.schemas.analytics import (
     AnalyticsQuery,
     AnalyticsQueryResponse,
 )
+from src.schemas.article import (
+    ArticleCreate,
+    ArticleUpdate,
+    ArticleResponse,
+    ArticleListItem,
+    ArticleListResponse,
+    SyncResponse,
+)
 
 __all__ = [
     "UserCreate",
@@ -46,4 +54,11 @@ __all__ = [
     "ReportResponse",
     "AnalyticsQuery",
     "AnalyticsQueryResponse",
+    "ArticleCreate",
+    "ArticleUpdate",
+    "ArticleResponse",
+    "ArticleListItem",
+    "ArticleListResponse",
+    "SyncResponse",
 ]
+

@@ -35,6 +35,9 @@ dependencies = [
     # Redis (for caching and sessions)
     "redis>=5.0.0",
 
+    # Scheduler
+    "apscheduler>=3.10.0",
+
     # Utilities
     "python-dotenv>=1.0.0",
 ]

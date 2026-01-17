@@ -183,4 +183,69 @@ export const analyticsApi = {
   },
 };
 
+// Articles API
+export interface ArticleListItem {
+  id: string;
+  title: string;
+  original_url: string;
+  source_platform: string;
+  author: string | null;
+  summary: string | null;
+  tags: string[] | null;
+  status: "pending" | "processing" | "completed" | "failed";
+  published_at: string | null;
+  created_at: string;
+}
+
+export interface ArticleListResponse {
+  items: ArticleListItem[];
+  total: number;
+  page: number;
+  page_size: number;
+  total_pages: number;
+}
+
+export interface ArticleDetail extends ArticleListItem {
+  original_content: string;
+  rewritten_content: string | null;
+  updated_at: string;
+}
+
+export interface SyncResponse {
+  message: string;
+  articles_scraped: number;
+  articles_rewritten: number;
+  errors: string[] | null;
+}
+
+export const articlesApi = {
+  list: async (params?: {
+    page?: number;
+    page_size?: number;
+    status?: string;
+    platform?: string;
+  }): Promise<ArticleListResponse> => {
+    const response = await api.get("/articles", { params });
+    return response.data;
+  },
+
+  get: async (id: string): Promise<ArticleDetail> => {
+    const response = await api.get(`/articles/${id}`);
+    return response.data;
+  },
+
+  sync: async (params?: {
+    platforms?: string[];
+    limit_per_platform?: number;
+  }): Promise<SyncResponse> => {
+    const response = await api.post("/articles/sync", null, { params });
+    return response.data;
+  },
+
+  rewrite: async (id: string): Promise<ArticleDetail> => {
+    const response = await api.post(`/articles/${id}/rewrite`);
+    return response.data;
+  },
+};
+
 export default api;

@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
+import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,15 +9,30 @@ from src.api.v1 import router as api_v1_router
 from src.config import settings
 from src.db.session import init_db
 
+logger = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Application lifespan handler."""
     # Startup
     await init_db()
+    
+    # Start scheduler (only if enabled)
+    scheduler = None
+    if settings.enable_scheduler:
+        from src.services.scheduler import get_scheduler, setup_scheduled_jobs
+        scheduler = get_scheduler()
+        setup_scheduled_jobs(scheduler)
+        scheduler.start()
+        logger.info("Scheduler started with scheduled jobs")
+    
     yield
+    
     # Shutdown
-    pass
+    if scheduler:
+        scheduler.shutdown()
+        logger.info("Scheduler shutdown")
 
 
 def create_app() -> FastAPI:
@@ -47,6 +63,15 @@ def create_app() -> FastAPI:
         """Health check endpoint."""
         return {"status": "healthy"}
 
+    @app.get("/scheduler/jobs")
+    async def get_scheduler_jobs() -> dict:
+        """Get scheduled jobs status."""
+        if settings.enable_scheduler:
+            from src.services.scheduler import get_scheduler
+            scheduler = get_scheduler()
+            return {"jobs": scheduler.get_jobs()}
+        return {"jobs": [], "scheduler_enabled": False}
+
     return app
 
 
@@ -61,3 +86,4 @@ if __name__ == "__main__":
         port=settings.port,
         reload=settings.is_development,
     )
+

@@ -90,6 +90,9 @@ class Settings(BaseSettings):
     redis_url: str | None = None
     rabbitmq_url: str | None = None
 
+    # Scheduler
+    enable_scheduler: bool = True  # Set to False to disable scheduled tasks
+
     @property
     def is_local(self) -> bool:
         return self.app_env == "local"

@@ -16,6 +16,7 @@ import {
   Bell,
   Search,
   Crosshair,
+  Newspaper,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -38,6 +39,7 @@ export default function DashboardLayout({
   // All AI Assistant, Analytics, and Dashboard features are consolidated in War Room
   const navigation = [
     { name: t("nav.warRoom") || "War Room", href: "/war-room" as Route, icon: Crosshair },
+    { name: t("nav.articles") || "文章", href: "/articles" as Route, icon: Newspaper },
     { name: t("nav.settings"), href: "/settings" as Route, icon: Settings },
   ];
 
