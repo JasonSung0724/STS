@@ -1,0 +1,561 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <!-- DNS Prefetch and Preconnect for Performance -->
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+                <!-- DNS Prefetch for GTM -->
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+        <link rel="preconnect" href="https://www.googletagmanager.com">
+
+        <!-- Cookie Consent CSS (非同步載入，非關鍵資源) -->
+        <link rel="stylesheet" href="https://haiwo.tw/assets/css/cookieconsent.css" media="all" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="https://haiwo.tw/assets/css/cookieconsent.css"></noscript>
+
+        <!-- GTM Consent Mode 預設設定 -->
+        <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/AWtrSI7lAmTAfV1rzWqEqz54/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-DNsk1l2N8IJMT/1D2GaYe7/7wf4BKkES+NGns242eIkpk/PIUnpeVsUuno96AxVX"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-SDFSS8G95Z&amp;cx=c&amp;gtm=4e62p1"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5PWCX49W"></script><script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        // 設定預設 consent 狀態（在 GTM 載入前）
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'functionality_storage': 'granted',
+            'personalization_storage': 'denied',
+            'security_storage': 'granted',
+            'wait_for_update': 500
+        });
+        </script>
+
+        <!-- Google Tag Manager -->
+        <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5PWCX49W');
+        </script>
+
+                
+        <link href="https://haiwo.tw/assets/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="https://haiwo.tw/assets/css/layout.css" rel="stylesheet">
+            <link href="https://haiwo.tw/assets/css/contactus.css" rel="stylesheet" media="all" onload="this.media='all'" data-page-style="contactus">
+    <noscript><link href="https://haiwo.tw/assets/css/contactus.css" rel="stylesheet"></noscript>
+    
+        <!-- Favicon 標準配置 -->
+        <link rel="icon" type="image/x-icon" href="https://haiwo.tw/favicon.ico">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://haiwo.tw/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://haiwo.tw/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="https://haiwo.tw/favicon-48x48.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://haiwo.tw/favicon-96x96.png">
+
+        <!-- Apple Touch Icon -->
+        <link rel="apple-touch-icon" sizes="120x120" href="https://haiwo.tw/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://haiwo.tw/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="https://haiwo.tw/apple-touch-icon-167x167.png">
+        <link rel="apple-touch-icon" sizes="1024x1024" href="https://haiwo.tw/apple-touch-icon-1024x1024.png">
+
+        <!-- Windows Tile -->
+        <meta name="msapplication-TileImage" content="https://haiwo.tw/mstile-150x150.png">
+        <meta name="msapplication-TileColor" content="#1a4370">
+
+        <title>聯絡我們 | 海濣資產管理</title>
+
+        <!-- SEO -->
+        <meta name="description" content="聯絡海濣資產管理團隊，我們提供專業的資產管理諮詢服務。歡迎填寫表單或致電 02-2796-0036 與我們聯繫。">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://haiwo.tw/contactus">
+        <meta property="og:title" content="聯絡我們 | 海濣資產管理">
+        <meta property="og:description" content="聯絡海濣資產管理團隊，我們提供專業的資產管理諮詢服務。歡迎填寫表單或致電 02-2796-0036 與我們聯繫。">
+        <meta property="og:image" content="https://haiwo.tw/favicon.png">
+        <meta property="og:site_name" content="海濣資產管理">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://haiwo.tw/contactus">
+        <meta property="twitter:title" content="聯絡我們 | 海濣資產管理">
+        <meta property="twitter:description" content="聯絡海濣資產管理團隊，我們提供專業的資產管理諮詢服務。歡迎填寫表單或致電 02-2796-0036 與我們聯繫。">
+        <meta property="twitter:image" content="https://haiwo.tw/favicon.png">
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://haiwo.tw/contactus">
+
+        
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "name": "海濣資產管理",
+              "url": "https://haiwo.tw",
+              "logo": "https://haiwo.tw/assets/images/img_logo.png",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+886-2-2796-0036",
+                "contactType": "customer service",
+                "email": "service@haiwo.tw"
+              },
+              "sameAs": ["https:\/\/www.facebook.com\/profile.php?id=61556892665629","https:\/\/www.instagram.com\/haiwo.tw\/","https:\/\/maac.io\/2x20K"]            },
+            {
+              "@type": "WebSite",
+              "name": "海濣資產管理",
+              "url": "https://haiwo.tw"
+            }
+                                  ]
+        }
+        </script>
+    <style>/* Make clicks pass-through */
+
+    #nprogress {
+      pointer-events: none;
+    }
+
+    #nprogress .bar {
+      background: var(--livewire-progress-bar-color, #29d);
+
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Fancy blur effect */
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);
+      opacity: 1.0;
+
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+              transform: rotate(3deg) translate(0px, -4px);
+    }
+
+    /* Remove these to get rid of the spinner */
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+
+      border: solid 2px transparent;
+      border-top-color: var(--livewire-progress-bar-color, #29d);
+      border-left-color: var(--livewire-progress-bar-color, #29d);
+      border-radius: 50%;
+
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+              animation: nprogress-spinner 400ms linear infinite;
+    }
+
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+
+    @-webkit-keyframes nprogress-spinner {
+      0%   { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes nprogress-spinner {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style><style id="keyVisual-title-style">
+                .keyVisual-title {
+                    animation: marqueeJs 30s linear infinite;
+                }
+                @keyframes marqueeJs {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(var(--move-distance));
+                    }
+                }
+            </style></head>
+    <body id="top">
+                <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PWCX49W"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
+        <div class="container-fluid">
+            <nav class="navbar fixed-top navbar-light bg-transparent" id="header">
+                <div class="container">
+                    <a class="navbar-brand" href="https://haiwo.tw" wire:navigate="">
+                        <picture>
+            <source srcset="https://haiwo.tw/assets/images/img_logo.webp" type="image/webp">
+        <img src="https://haiwo.tw/assets/images/img_logo.png" alt="Haiwo" width="180" height="50" loading="lazy" decoding="async">
+</picture>
+                    </a>
+                    <ul class="nav justify-content-end social-media">
+                        <li class="nav-item lg-show">
+                            <a class="nav-link" target="_blank" href="https://www.facebook.com/profile.php?id=61556892665629" data-gtm-tracked="true">
+                                <div class="icon-socials">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_fb_off.svg" alt="Facebook" class="icon-social off">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_fb_on.svg" alt="Facebook" class="icon-social on">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item lg-show">
+                            <a class="nav-link" target="_blank" href="https://www.instagram.com/haiwo.tw/" data-gtm-tracked="true">
+                                <div class="icon-socials">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_ig_off.svg" alt="Instagram" class="icon-social off">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_ig_on.svg" alt="Instagram" class="icon-social on">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item lg-show">
+                            <a class="nav-link" target="_blank" href="https://maac.io/2x20K">
+                                <div class="icon-socials">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_line_off.svg" alt="LINE" class="icon-social off">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_line_on.svg" alt="LINE" class="icon-social on">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="nav-link" onclick="openMenu();" aria-label="開啟選單">
+                                <div class="icon-socials">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_menu_off.svg" class="icon-social off" alt="">
+                                    <img src="https://haiwo.tw/assets/images/svg/btn_menu_on.svg" class="icon-social on" alt="">
+                                </div>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="menu">
+                <div class="bg"></div>
+                <div class="menu-content">
+                    <div class="header-nav">
+                        <ul class="nav-links">
+                            
+                            <li><a href="https://haiwo.tw/aboutus" wire:navigate=""><span>About Us</span> <span>關於我們</span></a></li>
+                            <li><a href="https://haiwo.tw/insights" wire:navigate=""><span>Haiwo <br class="d-xl-none">Insights</span> <span>海濣專欄</span></a></li>
+                            <li><a href="https://haiwo.tw/contactus" wire:navigate=""><span>Contact Us</span> <span>聯絡我們</span></a></li>
+                            <li><a href="https://haiwo.tw/ouroffices" wire:navigate=""><span>Our Offices</span> <span>服務據點</span></a></li>
+                            <li><a href="https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s" target="_blank" data-gtm-tracked="true"><span>Careers</span> <span>人才招募</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="header-social">
+                        <div class="follow-us">
+                            <div class="social-icons">
+                                <h6>Follow Us</h6>
+                                <a href="https://www.facebook.com/profile.php?id=61556892665629" target="_blank" class="social-icon" data-gtm-tracked="true">
+                                    <div class="icon-socials">
+                                        <img src="https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg" class="icon-social off" alt="Facebook">
+                                        <img src="https://haiwo.tw/assets/images/svg/btn_fb_on.svg" class="icon-social on" alt="Facebook">
+                                    </div>
+                                </a>
+                                <a href="https://www.instagram.com/haiwo.tw/" target="_blank" class="social-icon" data-gtm-tracked="true">
+                                    <div class="icon-socials">
+                                        <img src="https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg" class="icon-social off" alt="Instagram">
+                                        <img src="https://haiwo.tw/assets/images/svg/btn_ig_on.svg" class="icon-social on" alt="Instagram">
+                                    </div>
+                                </a>
+                                <a href="https://maac.io/2x20K" target="_blank" class="social-icon">
+                                    <div class="icon-socials">
+                                        <img src="https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg" class="icon-social off" alt="LINE">
+                                        <img src="https://haiwo.tw/assets/images/svg/btn_line_on.svg" class="icon-social on" alt="LINE">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-policy">
+                        <a href="https://haiwo.tw/privacy" class="policy-item" wire:navigate="">Privacy Policy</a>
+                        <span class="policy-item">|</span>
+                        <a href="https://haiwo.tw/terms" class="policy-item" wire:navigate="">Terms of Use</a>
+                        <span class="policy-item">|</span>
+                        <a href="https://haiwo.tw/cookies" class="policy-item" wire:navigate="">Cookies Notice</a>
+                    </div>
+                    <div class="header-copyright">Copyright © 2026 HAIWO CO.,LTD.</div>
+                    <div class="header-close">
+                        <a href="#" onclick="closeMenu();">
+                            <img src="https://haiwo.tw/assets/images/svg/btn_menu_close.svg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div wire:snapshot="{&quot;data&quot;:{&quot;title&quot;:&quot;\u806f\u7d61\u6211\u5011 | \u6d77\u6fe3\u8cc7\u7522\u7ba1\u7406&quot;,&quot;ask&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;email&quot;:&quot;&quot;,&quot;phone&quot;:&quot;&quot;,&quot;company&quot;:&quot;&quot;,&quot;position&quot;:&quot;&quot;,&quot;content&quot;:&quot;&quot;,&quot;agree&quot;:false,&quot;recaptcha_token&quot;:&quot;&quot;,&quot;showSuccess&quot;:false,&quot;isSubmitting&quot;:false},&quot;memo&quot;:{&quot;id&quot;:&quot;vi32WD49qx43RQXkWfXT&quot;,&quot;name&quot;:&quot;contact-us&quot;,&quot;path&quot;:&quot;contactus&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[&quot;4058223094-0&quot;],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;64a41179208fe212db1cc6000fd51c1a2b43f660a32ade70ead9dd078cd05297&quot;}" wire:effects="{&quot;scripts&quot;:{&quot;4058223094-0&quot;:&quot;    &lt;script&gt;\n        $wire.on('hide-success-message', () =&gt; {\n            setTimeout(() =&gt; {\n                $wire.set('showSuccess', false);\n                \/\/ \u6210\u529f\u8a0a\u606f\u6d88\u5931\u5f8c\u518d\u6e05\u7a7a\u8868\u55ae\u548c\u6539\u56de\u300c\u9001\u51fa\u300d\n                $wire.call('resetForm');\n                \/\/ \u6062\u5fa9\u6309\u9215\u6587\u5b57\u548c\u555f\u7528\u72c0\u614b\n                const submitBtn = document.querySelector('#contactus-form .submit-btn');\n                if (submitBtn) {\n                    submitBtn.disabled = false;\n                    submitBtn.textContent = '\u9001\u51fa';\n                }\n            }, 3000);\n        });\n\n        \/*\/\/ \u76e3\u807d reCAPTCHA \u9a57\u8b49\u7d50\u679c\n        $wire.on('recaptcha-verified', (...args) =&gt; {\n            \/\/ Livewire 3 \u53ef\u80fd\u5c07\u6578\u64da\u4f5c\u70ba\u6578\u7d44\u7684\u7b2c\u4e00\u500b\u5143\u7d20\u50b3\u905e\n            const data = Array.isArray(args) &amp;&amp; args.length &gt; 0 ? args[0] : (args[0] || {});\n            console.log('reCAPTCHA \u9a57\u8b49\u7d50\u679c:', data);\n            console.log('\u539f\u59cb\u53c3\u6578:', args);\n\n            \/\/ \u78ba\u4fdd data \u662f\u5c0d\u8c61\u4e14\u6709 success \u5c6c\u6027\n            if (data &amp;&amp; typeof data === 'object' &amp;&amp; 'success' in data) {\n                if (data.success === true || data.success === 'true') {\n                    console.log('\u2713 reCAPTCHA \u9a57\u8b49\u6210\u529f\uff0c\u5206\u6578:', data.score);\n                    \/\/ \u53ef\u4ee5\u5728\u9019\u88e1\u986f\u793a\u6210\u529f\u63d0\u793a\uff08\u53ef\u9078\uff09\n                } else {\n                    console.error('\u2717 reCAPTCHA \u9a57\u8b49\u5931\u6557:', data.message);\n                    \/\/ \u986f\u793a\u932f\u8aa4\u63d0\u793a\u7d66\u7528\u6236\n                    alert(data.message || 'reCAPTCHA \u9a57\u8b49\u5931\u6557\uff0c\u8acb\u91cd\u65b0\u63d0\u4ea4\u8868\u55ae\u3002');\n                }\n            } else {\n                console.error('reCAPTCHA \u9a57\u8b49\u7d50\u679c\u683c\u5f0f\u932f\u8aa4:', data);\n            }\n        });*\/\n\n        \/\/ reCAPTCHA v3 \u8655\u7406\n        const siteKey = '6Le9-CwsAAAAAEB8_KpRVgGTCftMS01BUHHC6F_j';\n        const hasRecaptcha = siteKey &amp;&amp; siteKey !== '#';\n\n        \/\/ \u8868\u55ae\u63d0\u4ea4\u8655\u7406\u51fd\u6578\uff08\u5728 JS \u9a57\u8b49\u901a\u904e\u5f8c\u8abf\u7528\uff09\n        async function handleFormSubmitAfterValidation() {\n            console.log('JS \u9a57\u8b49\u901a\u904e\uff0c\u958b\u59cb\u8655\u7406\u8868\u55ae\u63d0\u4ea4');\n\n            \/\/ \u5982\u679c\u6b63\u5728\u63d0\u4ea4\u4e2d\uff0c\u4e0d\u91cd\u8907\u63d0\u4ea4\n            if ($wire.get('isSubmitting')) {\n                console.log('\u6b63\u5728\u63d0\u4ea4\u4e2d\uff0c\u5ffd\u7565\u91cd\u8907\u63d0\u4ea4');\n                return false;\n            }\n\n            \/\/ \u8a2d\u7f6e\u63d0\u4ea4\u72c0\u614b\n            $wire.set('isSubmitting', true);\n\n            try {\n                if (hasRecaptcha) {\n                    \/\/ \u6709\u914d\u7f6e reCAPTCHA\uff1a\u5148\u7372\u53d6 token\uff0c\u518d\u63d0\u4ea4\u8868\u55ae\n                    console.log('\u958b\u59cb\u7372\u53d6 reCAPTCHA token');\n\n                    await new Promise((resolve) =&gt; {\n                        grecaptcha.enterprise.ready(async () =&gt; {\n                            try {\n                                const token = await grecaptcha.enterprise.execute(siteKey, {action: 'submit'});\n\n                                if (!token) {\n                                    console.error('reCAPTCHA \u932f\u8aa4: \u7121\u6cd5\u7372\u53d6 token');\n                                    $wire.set('isSubmitting', false);\n                                    resolve();\n                                    return;\n                                }\n\n                                console.log('reCAPTCHA token \u5df2\u7372\u53d6\uff0c\u9577\u5ea6:', token.length);\n\n                                \/\/ \u8a2d\u7f6e token \u5230\u96b1\u85cf\u8f38\u5165\u6846\uff08\u7528\u65bc\u986f\u793a\uff09\n                                const tokenInput = document.getElementById('recaptcha_token');\n                                if (tokenInput) {\n                                    tokenInput.value = token;\n                                }\n\n                                \/\/ \u540c\u6642\u8a2d\u7f6e\u5230 Livewire \u5c6c\u6027\n                                $wire.set('recaptcha_token', token);\n\n                                \/\/ \u76f4\u63a5\u5c07 token \u4f5c\u70ba\u53c3\u6578\u50b3\u905e\u7d66 submit \u65b9\u6cd5\uff08\u6700\u53ef\u9760\u7684\u65b9\u5f0f\uff09\n                                await $wire.call('submit', token);\n                                resolve();\n                            } catch (error) {\n                                console.error('reCAPTCHA \u932f\u8aa4:', error);\n                                \/\/ reCAPTCHA \u5931\u6557\u6642\uff0c\u91cd\u7f6e\u63d0\u4ea4\u72c0\u614b\n                                $wire.set('isSubmitting', false);\n                                resolve();\n                            }\n                        });\n                    });\n                } else {\n                    \/\/ \u6c92\u6709\u914d\u7f6e reCAPTCHA\uff1a\u76f4\u63a5\u63d0\u4ea4\u8868\u55ae\n                    console.log('\u6c92\u6709\u914d\u7f6e reCAPTCHA: \u76f4\u63a5\u63d0\u4ea4\u8868\u55ae');\n                    await $wire.call('submit');\n                }\n            } catch (error) {\n                console.error('\u63d0\u4ea4\u8868\u55ae\u6642\u767c\u751f\u932f\u8aa4:', error);\n                $wire.set('isSubmitting', false);\n            }\n\n            return false;\n        }\n\n        \/\/ \u5c07\u8655\u7406\u51fd\u6578\u66b4\u9732\u5230\u5168\u5c40\uff0c\u4f9b layout.js \u8abf\u7528\n        window.handleContactUsFormSubmit = handleFormSubmitAfterValidation;\n    &lt;\/script&gt;\n        &quot;}}" wire:id="vi32WD49qx43RQXkWfXT" id="contactusBlade">
+        
+        <div id="keyVisual" class="row">
+            <div class="rotate-container">
+                <picture class="yellow"><img src="https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg" alt=""></picture>
+                <picture class="orange"><img src="https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg" alt=""></picture>
+            </div>
+
+            <div class="keyVisual-block-title">
+                <div>聯絡我們</div>
+                <div>Contact Us</div>
+            </div>
+
+            <div class="scroll-down">
+                <a href="#keyframe" class="scroll-down-btn">
+                    <div class="scroll-down-circle">
+                        <img src="https://haiwo.tw/assets/images/svg/btn_arrow-down.svg" alt="向下滾動">
+                    </div>
+                    <span>Scroll</span>
+                </a>
+            </div>
+
+            <div class="keyVisual-title" data-marquee-initialized="true" style="--move-distance: -1378px;">
+                <span>CONTACT US</span>
+                <span>CONTACT US</span>
+                <span>CONTACT US</span>
+            </div>
+        </div>
+
+        <div id="keyframe" class="row">
+            <div class="container">
+                <div class="row">
+                    <nav style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&quot;);" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="https://haiwo.tw" wire:navigate="">Home</a></li>
+                            <li class="breadcrumb-item">Contact Us</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div id="contactus" class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 contactus-thanks">
+                        <div>感謝您對我們公司的關注</div>
+                        <div>如果您對我們的服務項目有任何疑問，請隨時與我們聯繫。<br>在確認您的詢問內容後，我們的工作人員將與您聯繫。</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="block-title">
+                            <div><span>聯絡</span>表單</div>
+                            <div>Contact Form</div>
+                            <div>* 表示必填欄位</div>
+                        </div>
+                    </div>
+                </div>
+                <form id="contactus-form" novalidate="">
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"><div class="warning-required">* 尚未選擇</div></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border"><div class="label-text required">詢問項目</div></div></div>
+                    <div class="col-8 col-lg-6 inputs">
+                        <div class="height-border">
+                            <select class="form-select" id="ask" name="ask" wire:model="ask" required="">
+                                <option value="">請選擇</option>
+                                <option value="私人財富管理">私人財富管理</option>
+                                <option value="投資理財規劃">投資理財規劃</option>
+                                <option value="企業財稅規劃">企業財稅規劃</option>
+                                <option value="企業股權規劃">企業股權規劃</option>
+                                <option value="家族資產傳承">家族資產傳承</option>
+                                <option value="環球金融服務">環球金融服務</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"><div class="warning-required">* 尚未填寫</div></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border"><div class="label-text required">姓名</div></div></div>
+                    <div class="col-8 col-lg-6 inputs"><div class="height-border"><input type="text" id="name" name="name" wire:model="name" class="form-control" placeholder="請輸入您的姓名" required="" style=""></div></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"><div class="warning-required">* 尚未填寫</div><div class="warning-format">* 格式錯誤</div></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border"><div class="label-text required">電子信箱</div></div></div>
+                    <div class="col-8 col-lg-6 inputs"><div class="height-border"><input type="email" id="email" name="email" wire:model="email" class="form-control" placeholder="請輸入您的電子信箱" required="" style=""></div></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"><div class="warning-required">* 尚未填寫</div><div class="warning-format">* 格式錯誤</div></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border"><div class="label-text required">手機號碼</div></div></div>
+                    <div class="col-8 col-lg-6 inputs"><div class="height-border"><input type="tel" id="phone" name="phone" wire:model="phone" class="form-control" placeholder="請輸入您的手機號碼" required="" style=""></div></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border"><div class="label-text">公司名稱</div></div></div>
+                    <div class="col-8 col-lg-6 inputs"><div class="height-border"><input type="text" id="company" name="company" wire:model="company" class="form-control" placeholder="請輸入您的公司名稱" style=""></div></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border"><div class="label-text">職稱</div></div></div>
+                    <div class="col-8 col-lg-6 inputs"><div class="height-border"><input type="text" id="position" name="position" wire:model="position" class="form-control" placeholder="請輸入您的職稱" style=""></div></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 offset-lg-1 d-none d-lg-block warning-text"><div class="warning-required">* 尚未填寫</div></div>
+                    <div class="col-4 col-lg-2 labels"><div class="height-border height-border-none"><div class="label-text required">諮詢內容</div></div></div>
+                    <div class="col-12 col-lg-6 textarea"><textarea id="content" name="content" wire:model="content" class="form-control" placeholder="請輸入詢問項目的內容細節說明。" required="" style=""></textarea></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6 offset-lg-4 agree">
+                        <div><input type="checkbox" id="agree" name="agree" wire:model="agree" required="" style=""></div>
+                        <div>我已閱讀並接受<a href="https://haiwo.tw/terms" target="_blank">使用條款</a>。請閱讀我們的<a href="https://haiwo.tw/privacy" target="_blank">隱私權聲明</a>，以了解我們如何使用您的個人資料。</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6 offset-lg-4 text-end"><button type="submit" class="submit-btn"> <!--[if BLOCK]><![endif]--> 送出 <!--[if ENDBLOCK]><![endif]--></button></div>
+                </div>
+                <input type="hidden" id="recaptcha_token" wire:model="recaptcha_token" style="">
+                </form>
+            </div>
+            <div id="contactus-success-overlay" class=""></div>
+            <div id="contactus-success" class=" d-none ">
+                <div><img src="https://haiwo.tw/assets/images/svg/icon_success.svg"></div>
+                <div>已完成表單填寫</div>
+                <div>工作人員會盡快安排與您聯繫</div>
+            </div>
+        </div>
+    </div>
+
+            <div id="footer">
+                <div class="row">
+                    <div class="col-12 col-md-6 contact-us line" onclick="location.href='https://maac.io/2x20K'" data-gtm-tracked="true">
+                        <div class="contact-us-item">
+                            <div class="contact-icon">
+                                <img src="https://haiwo.tw/assets/images/svg/icon_line.svg" alt="LINE" width="100" height="100">
+                            </div>
+                            <div class="contact-content">
+                                <div class="contact-title">LINE</div>
+                                <div class="contact-desc">加入HaiWo官方，提供另種諮詢管道</div>
+                            </div>
+                            <div class="contact-toggle">
+                                <img src="https://haiwo.tw/assets/images/svg/ele_contact_off.svg" class="off" alt="">
+                                <img src="https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg" class="on" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 contact-us page" onclick="location.href='https://haiwo.tw/contactus'" data-gtm-tracked="true">
+                        <div class="contact-us-item-bg">
+                            <picture>
+            <source srcset="https://haiwo.tw/assets/images/img_contactus.webp" type="image/webp">
+        <img src="https://haiwo.tw/assets/images/img_contactus.jpg" alt="Contact Us" loading="lazy" decoding="async">
+</picture>
+                            <div class="contact-us-item-mask"></div>
+                        </div>
+                        <div class="contact-us-item">
+                            <div class="contact-icon"></div>
+                            <div class="contact-content">
+                                <div class="contact-title">Contact</div>
+                                <div class="contact-desc">如需諮詢及詢問Haiwo，請點擊這裡</div>
+                            </div>
+                            <div class="contact-toggle">
+                                <img src="https://haiwo.tw/assets/images/svg/ele_contact_off.svg" class="off" alt="">
+                                <img src="https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg" class="on" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-map">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col logo_footer">
+                                <picture>
+            <source srcset="https://haiwo.tw/assets/images/img_logo_footer.webp" type="image/webp">
+        <img src="https://haiwo.tw/assets/images/img_logo_footer.png" alt="Haiwo" width="554" height="138" loading="lazy" decoding="async">
+</picture>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-xl-5 col-xxl-6 footer-nav">
+                                <ul class="nav-links">
+                                    <li><a href="https://haiwo.tw/insights" wire:navigate=""><span>海濣專欄</span> Haiwo Insights</a></li>
+                                    <li><a href="https://haiwo.tw/contactus" wire:navigate=""><span>聯絡我們</span> Contact Us</a></li>
+                                    
+                                    <li><a href="https://haiwo.tw/ouroffices" wire:navigate=""><span>服務據點</span> Our Offices</a></li>
+                                    <li><a href="https://haiwo.tw/aboutus" wire:navigate=""><span>關於我們</span> About Us</a></li>
+                                    <li><a href="https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s" target="_blank" data-gtm-tracked="true"><span>人才招募</span> Careers</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-xl-3 col-xxl-3 footer-info">
+                                <div class="contact-info">
+                                    <div class="contact-item">
+                                        <img src="https://haiwo.tw/assets/images/svg/icon_map-pin.svg" alt="地址">
+                                        <a href="https://maps.app.goo.gl/DrhoxRLxFv4r1daWA" target="_blank">114065<br>台北市內湖區新湖一路303號7樓</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <img src="https://haiwo.tw/assets/images/svg/icon_phone.svg" alt="電話">
+                                        <a href="tel:02-2796-0036">02 - 2796 - 0036</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <img src="https://haiwo.tw/assets/images/svg/icon_mail.svg" alt="郵箱">
+                                        <a href="mailto:service@haiwo.tw">service@haiwo.tw</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-xl-4 col-xxl-3 footer-social">
+                                <div class="follow-us">
+                                    <h6>Follow Us</h6>
+                                    <div class="social-icons">
+                                        <a href="https://www.facebook.com/profile.php?id=61556892665629" target="_blank" class="social-icon" data-gtm-tracked="true">
+                                            <div class="icon-socials">
+                                                <img src="https://haiwo.tw/assets/images/svg/btn_fb_off.svg" class="icon-social off" alt="Facebook">
+                                                <img src="https://haiwo.tw/assets/images/svg/btn_fb_on.svg" class="icon-social on" alt="Facebook">
+                                            </div>
+                                        </a>
+                                        <a href="https://www.instagram.com/haiwo.tw/" target="_blank" class="social-icon" data-gtm-tracked="true">
+                                            <div class="icon-socials">
+                                                <img src="https://haiwo.tw/assets/images/svg/btn_ig_off.svg" class="icon-social off" alt="Instagram">
+                                                <img src="https://haiwo.tw/assets/images/svg/btn_ig_on.svg" class="icon-social on" alt="Instagram">
+                                            </div>
+                                        </a>
+                                        <a href="https://maac.io/2x20K" target="_blank" class="social-icon">
+                                            <div class="icon-socials">
+                                                <img src="https://haiwo.tw/assets/images/svg/btn_line_off.svg" class="icon-social off" alt="LINE">
+                                                <img src="https://haiwo.tw/assets/images/svg/btn_line_on.svg" class="icon-social on" alt="LINE">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="copyright">
+                                    <p>Copyright © 2026 HAIWO CO.,LTD.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page-top" class="">
+            <a href="#top" class="page-top-btn" data-initialized="true">
+                <div class="page-top-circle">
+                    <img src="https://haiwo.tw/assets/images/svg/btn_arrow-up.svg" alt="回到頂部">
+                </div>
+                <span>Page top</span>
+            </a>
+        </div>
+        <script src="https://haiwo.tw/assets/libs/bootstrap.bundle.min.js" defer=""></script>
+        <script src="https://haiwo.tw/assets/js/layout.js" defer=""></script>
+            <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le9-CwsAAAAAEB8_KpRVgGTCftMS01BUHHC6F_j"></script>
+            <script src="/livewire/livewire.min.js?id=646f9d24" data-csrf="cAVwdcJLTsYXLVElwcdk0Bf73UPHdNMVfBmsfxrX" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+
+                <!-- Cookie Consent JS -->
+        <script src="https://haiwo.tw/assets/js/cookieconsent.umd.js" defer=""></script>
+            
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-ml5kesnfbjnn" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/enterprise/anchor?ar=1&amp;k=6Le9-CwsAAAAAEB8_KpRVgGTCftMS01BUHHC6F_j&amp;co=aHR0cHM6Ly9oYWl3by50dzo0NDM.&amp;hl=en&amp;v=AWtrSI7lAmTAfV1rzWqEqz54&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=5brmf5iyq954"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

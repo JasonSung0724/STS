@@ -1,0 +1,896 @@
+{
+  "meta": {
+    "title": "首頁 | 海濣資產管理",
+    "viewport": "width=device-width, initial-scale=1.0",
+    "msapplication-TileImage": "https://haiwo.tw/mstile-150x150.png",
+    "msapplication-TileColor": "#1a4370",
+    "description": "海濣資產管理提供專業的資產管理服務，包含服務體系、客戶案例及產業洞察。歡迎聯絡我們以獲得更多資訊。",
+    "og:type": "website",
+    "og:url": "https://haiwo.tw",
+    "og:title": "首頁 | 海濣資產管理",
+    "og:description": "海濣資產管理提供專業的資產管理服務，包含服務體系、客戶案例及產業洞察。歡迎聯絡我們以獲得更多資訊。",
+    "og:image": "https://haiwo.tw/favicon.png",
+    "og:site_name": "海濣資產管理",
+    "twitter:card": "summary_large_image",
+    "twitter:url": "https://haiwo.tw",
+    "twitter:title": "首頁 | 海濣資產管理",
+    "twitter:description": "海濣資產管理提供專業的資產管理服務，包含服務體系、客戶案例及產業洞察。歡迎聯絡我們以獲得更多資訊。",
+    "twitter:image": "https://haiwo.tw/favicon.png"
+  },
+  "navigation": [
+    {
+      "text": "",
+      "href": "https://haiwo.tw"
+    },
+    {
+      "text": "",
+      "href": "https://www.facebook.com/profile.php?id=61556892665629"
+    },
+    {
+      "text": "",
+      "href": "https://www.instagram.com/haiwo.tw/"
+    },
+    {
+      "text": "",
+      "href": "https://maac.io/2x20K"
+    }
+  ],
+  "sections": [
+    {
+      "id": "menu",
+      "class": "",
+      "text_preview": "About Us關於我們HaiwoInsights海濣專欄Contact Us聯絡我們Our Offices服務據點Careers人才招募Follow UsPrivacy Policy|Terms of Use|Cookies NoticeCopyright © 2026 HAIWO CO.,LTD."
+    },
+    {
+      "id": "indexBlade",
+      "class": "",
+      "text_preview": "With Haiwoyou're in control選擇海濣 運籌帷幄Scroll關於我們About UsSteadfastTrust,TailoredForYou,BuiltForSuccession.That'sHaiwo.可靠於心專屬於你延續於世所以你選擇海濣可靠STEADFAST可靠團隊擁有律師、會計師、保險、銀行、財務策劃師、國內外金融機構等專業人士，致力於提供最頂尖財富管理顧問服務，"
+    },
+    {
+      "id": "keyVisual",
+      "class": "row",
+      "text_preview": "With Haiwoyou're in control選擇海濣 運籌帷幄Scroll"
+    },
+    {
+      "id": "welcome",
+      "class": "",
+      "text_preview": "With Haiwoyou're in control選擇海濣 運籌帷幄"
+    },
+    {
+      "id": "aboutus",
+      "class": "aboutus row in-view",
+      "text_preview": "關於我們About UsSteadfastTrust,TailoredForYou,BuiltForSuccession.That'sHaiwo.可靠於心專屬於你延續於世所以你選擇海濣可靠STEADFAST可靠團隊擁有律師、會計師、保險、銀行、財務策劃師、國內外金融機構等專業人士，致力於提供最頂尖財富管理顧問服務，提供最佳解決方案，協助客戶做出最有利決策。View More專屬Tailored專屬"
+    },
+    {
+      "id": "news",
+      "class": "news row",
+      "text_preview": "海濣專欄Haiwo Insights馬斯克的思維算法：如何用物理學邏輯進...為什麼有些人進入新領域的學習曲線是指數級的「複利」...2025.12.26聖石案後的殘酷反思：揭開你身處的「合...2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...2025.12.26財富的底層代碼：為什麼你省吃儉用，卻...在這個資本遊戲裡，最殘酷的現實不是貧窮，而是你明明...2025.12.22Vi"
+    },
+    {
+      "id": "footer",
+      "class": "",
+      "text_preview": "LINE加入HaiWo官方，提供另種諮詢管道Contact如需諮詢及詢問Haiwo，請點擊這裡海濣專欄Haiwo Insights聯絡我們Contact Us服務據點Our Offices關於我們About Us人才招募Careers114065台北市內湖區新湖一路303號7樓02 - 2796 - 0036service@haiwo.twFollow UsCopyright © 2026 HAI"
+    },
+    {
+      "id": "page-top",
+      "class": "",
+      "text_preview": "Page top"
+    }
+  ],
+  "footer": {},
+  "styles": {
+    "inline": [
+      "/* Make clicks pass-through */\n\n    #nprogress {\n      pointer-events: none;\n    }\n\n    #nprogress .bar {\n      background: var(--livewire-progress-bar-color, #29d);\n\n      position: fixed;\n      z-index: 1031;\n      top: 0;\n      left: 0;\n\n      width: 100%;\n      height: 2px;\n    }\n\n    /* Fancy blur effect */\n    #nprogress .peg {\n      display: block;\n      position: absolute;\n      right: 0px;\n      width: 100px;\n      height: 100%;\n      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);\n      opacity: 1.0;\n\n      -webkit-transform: rotate(3deg) translate(0px, -4px);\n          -ms-transform: rotate(3deg) translate(0px, -4px);\n              transform: rotate(3deg) translate(0px, -4px);\n    }\n\n    /* Remove these to get rid of the spinner */\n    #nprogress .spinner {\n      display: block;\n      position: fixed;\n      z-index: 1031;\n      top: 15px;\n      right: 15px;\n    }\n\n    #nprogress .spinner-icon {\n      width: 18px;\n      height: 18px;\n      box-sizing: border-box;\n\n      border: solid 2px transparent;\n      border-top-color: var(--livewire-progress-bar-color, #29d);\n      border-left-color: var(--livewire-progress-bar-color, #29d);\n      border-radius: 50%;\n\n      -webkit-animation: nprogress-spinner 400ms linear infinite;\n              animation: nprogress-spinner 400ms linear infinite;\n    }\n\n    .nprogress-custom-parent {\n      overflow: hidden;\n      position: relative;\n    }\n\n    .nprogress-custom-parent #nprogress .spinner,\n    .nprogress-custom-parent #nprogress .bar {\n      position: absolute;\n    }\n\n    @-webkit-keyframes nprogress-spinner {\n      0%   { -webkit-transform: rotate(0deg); }\n      100% { -webkit-transform: rotate(360deg); }\n    }\n    @keyframes nprogress-spinner {\n      0%   { transform: rotate(0deg); }\n      100% { transform: rotate(360deg); }\n    }\n    "
+    ],
+    "external": [
+      "https://haiwo.tw/assets/css/cookieconsent.css",
+      "https://haiwo.tw/assets/css/cookieconsent.css",
+      "https://haiwo.tw/assets/libs/bootstrap.min.css",
+      "https://haiwo.tw/assets/css/layout.css",
+      "https://haiwo.tw/assets/css/index.css",
+      "https://haiwo.tw/assets/css/index.css"
+    ]
+  },
+  "all_text": [
+    {
+      "tag": "li",
+      "text": "About Us關於我們",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "About Us關於我們",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "About Us",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "關於我們",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "HaiwoInsights海濣專欄",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "HaiwoInsights海濣專欄",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "HaiwoInsights",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "海濣專欄",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "Contact Us聯絡我們",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "Contact Us聯絡我們",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "Contact Us",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "聯絡我們",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "Our Offices服務據點",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "Our Offices服務據點",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "Our Offices",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "服務據點",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "Careers人才招募",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "Careers人才招募",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "Careers",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "人才招募",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "Privacy Policy",
+      "class": [
+        "policy-item"
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Terms of Use",
+      "class": [
+        "policy-item"
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Cookies Notice",
+      "class": [
+        "policy-item"
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Scroll",
+      "class": [
+        "scroll-down-btn"
+      ]
+    },
+    {
+      "tag": "span",
+      "text": "Scroll",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "Trust",
+      "class": [
+        "fw500"
+      ]
+    },
+    {
+      "tag": "span",
+      "text": "ForYou,BuiltFor",
+      "class": [
+        "fw500"
+      ]
+    },
+    {
+      "tag": "span",
+      "text": "That'sHaiwo",
+      "class": [
+        "fw500"
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "海濣專欄Haiwo Insights",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "海濣專欄Haiwo Insights",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "海濣專欄",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "聯絡我們Contact Us",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "聯絡我們Contact Us",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "聯絡我們",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "服務據點Our Offices",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "服務據點Our Offices",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "服務據點",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "關於我們About Us",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "關於我們About Us",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "關於我們",
+      "class": []
+    },
+    {
+      "tag": "li",
+      "text": "人才招募Careers",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "人才招募Careers",
+      "class": []
+    },
+    {
+      "tag": "span",
+      "text": "人才招募",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "114065台北市內湖區新湖一路303號7樓",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "02 - 2796 - 0036",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "service@haiwo.tw",
+      "class": []
+    },
+    {
+      "tag": "p",
+      "text": "Copyright © 2026 HAIWO CO.,LTD.",
+      "class": []
+    },
+    {
+      "tag": "a",
+      "text": "Page top",
+      "class": [
+        "page-top-btn"
+      ]
+    },
+    {
+      "tag": "span",
+      "text": "Page top",
+      "class": []
+    }
+  ],
+  "images": [
+    {
+      "src": "https://haiwo.tw/assets/images/img_logo.png",
+      "alt": "Haiwo",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+      "alt": "Facebook",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+      "alt": "Facebook",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+      "alt": "Instagram",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+      "alt": "Instagram",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+      "alt": "LINE",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+      "alt": "LINE",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+      "alt": "",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+      "alt": "",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+      "alt": "Facebook",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+      "alt": "Facebook",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+      "alt": "Instagram",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+      "alt": "Instagram",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+      "alt": "LINE",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+      "alt": "LINE",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+      "alt": "",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg",
+      "alt": "",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg",
+      "alt": "",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-down.svg",
+      "alt": "向下滾動",
+      "class": []
+    },
+    {
+      "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850870_-OhNc78nGCGPvlJZCs2d.webp",
+      "alt": "馬斯克的思維算法：如何用物理學邏輯進行「降維打擊」？",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+      "alt": "查看更多",
+      "class": [
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+      "alt": "查看更多",
+      "class": [
+        "on"
+      ]
+    },
+    {
+      "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850873_-OhO8tPz_oGOmIocdrN2.webp",
+      "alt": "聖石案後的殘酷反思：揭開你身處的「合法龐氏」矩陣",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+      "alt": "查看更多",
+      "class": [
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+      "alt": "查看更多",
+      "class": [
+        "on"
+      ]
+    },
+    {
+      "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850867_-Oh3PWqjXy9zzm9l43Wi.webp",
+      "alt": "財富的底層代碼：為什麼你省吃儉用，卻還是贏不了這個遊戲？",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+      "alt": "查看更多",
+      "class": [
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+      "alt": "查看更多",
+      "class": [
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+      "alt": "LINE",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+      "alt": "",
+      "class": [
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+      "alt": "",
+      "class": [
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+      "alt": "Contact Us",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+      "alt": "",
+      "class": [
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+      "alt": "",
+      "class": [
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+      "alt": "Haiwo",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+      "alt": "地址",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+      "alt": "電話",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+      "alt": "郵箱",
+      "class": []
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+      "alt": "Facebook",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+      "alt": "Facebook",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+      "alt": "Instagram",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+      "alt": "Instagram",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+      "alt": "LINE",
+      "class": [
+        "icon-social",
+        "off"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+      "alt": "LINE",
+      "class": [
+        "icon-social",
+        "on"
+      ]
+    },
+    {
+      "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+      "alt": "回到頂部",
+      "class": []
+    }
+  ],
+  "links": [
+    {
+      "href": "https://haiwo.tw",
+      "text": "",
+      "class": [
+        "navbar-brand"
+      ]
+    },
+    {
+      "href": "https://www.facebook.com/profile.php?id=61556892665629",
+      "text": "",
+      "class": [
+        "nav-link"
+      ]
+    },
+    {
+      "href": "https://www.instagram.com/haiwo.tw/",
+      "text": "",
+      "class": [
+        "nav-link"
+      ]
+    },
+    {
+      "href": "https://maac.io/2x20K",
+      "text": "",
+      "class": [
+        "nav-link"
+      ]
+    },
+    {
+      "href": "https://haiwo.tw/aboutus",
+      "text": "About Us關於我們",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/insights",
+      "text": "HaiwoInsights海濣專欄",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/contactus",
+      "text": "Contact Us聯絡我們",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/ouroffices",
+      "text": "Our Offices服務據點",
+      "class": []
+    },
+    {
+      "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+      "text": "Careers人才招募",
+      "class": []
+    },
+    {
+      "href": "https://www.facebook.com/profile.php?id=61556892665629",
+      "text": "",
+      "class": [
+        "social-icon"
+      ]
+    },
+    {
+      "href": "https://www.instagram.com/haiwo.tw/",
+      "text": "",
+      "class": [
+        "social-icon"
+      ]
+    },
+    {
+      "href": "https://maac.io/2x20K",
+      "text": "",
+      "class": [
+        "social-icon"
+      ]
+    },
+    {
+      "href": "https://haiwo.tw/privacy",
+      "text": "Privacy Policy",
+      "class": [
+        "policy-item"
+      ]
+    },
+    {
+      "href": "https://haiwo.tw/terms",
+      "text": "Terms of Use",
+      "class": [
+        "policy-item"
+      ]
+    },
+    {
+      "href": "https://haiwo.tw/cookies",
+      "text": "Cookies Notice",
+      "class": [
+        "policy-item"
+      ]
+    },
+    {
+      "href": "#",
+      "text": "",
+      "class": []
+    },
+    {
+      "href": "#keyframe",
+      "text": "Scroll",
+      "class": [
+        "scroll-down-btn"
+      ]
+    },
+    {
+      "href": "https://haiwo.tw/aboutus#steadfast-team",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/aboutus#tailored-services",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/aboutus#succession-vision",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/insights/-OhNc78nGCGPvlJZCs2d",
+      "text": "",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/insights/-OhO8tPz_oGOmIocdrN2",
+      "text": "",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/insights/-Oh3PWqjXy9zzm9l43Wi",
+      "text": "",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/insights",
+      "text": "View More",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/insights",
+      "text": "海濣專欄Haiwo Insights",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/contactus",
+      "text": "聯絡我們Contact Us",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/ouroffices",
+      "text": "服務據點Our Offices",
+      "class": []
+    },
+    {
+      "href": "https://haiwo.tw/aboutus",
+      "text": "關於我們About Us",
+      "class": []
+    },
+    {
+      "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+      "text": "人才招募Careers",
+      "class": []
+    },
+    {
+      "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+      "text": "114065台北市內湖區新湖一路303號7樓",
+      "class": []
+    },
+    {
+      "href": "tel:02-2796-0036",
+      "text": "02 - 2796 - 0036",
+      "class": []
+    },
+    {
+      "href": "mailto:service@haiwo.tw",
+      "text": "service@haiwo.tw",
+      "class": []
+    },
+    {
+      "href": "https://www.facebook.com/profile.php?id=61556892665629",
+      "text": "",
+      "class": [
+        "social-icon"
+      ]
+    },
+    {
+      "href": "https://www.instagram.com/haiwo.tw/",
+      "text": "",
+      "class": [
+        "social-icon"
+      ]
+    },
+    {
+      "href": "https://maac.io/2x20K",
+      "text": "",
+      "class": [
+        "social-icon"
+      ]
+    },
+    {
+      "href": "#top",
+      "text": "Page top",
+      "class": [
+        "page-top-btn"
+      ]
+    }
+  ]
+}

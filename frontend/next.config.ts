@@ -25,8 +25,8 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Enable typed routes (moved from experimental in Next.js 15.5+)
-  typedRoutes: true,
+  // Typed routes disabled for marketing pages flexibility
+  // typedRoutes: true,
 
   // Headers for security
   async headers() {

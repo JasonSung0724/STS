@@ -187,6 +187,10 @@ jobs:
           NEXT_PUBLIC_API_URL=${{ vars.API_URL || 'http://localhost:8000' }}
           NEXT_PUBLIC_APP_URL=${{ vars.APP_URL || 'http://localhost:3000' }}
 
+          # App Info
+          NEXT_PUBLIC_APP_NAME=STS
+          NEXT_PUBLIC_APP_DESCRIPTION=Start To Scale - 創業輔導顧問團隊
+
           # Database (Supabase)
           DATABASE_URL=${{ secrets.DATABASE_URL }}
           SUPABASE_URL=${{ vars.SUPABASE_URL }}

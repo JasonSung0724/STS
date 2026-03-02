@@ -1,0 +1,5080 @@
+{
+  "home": {
+    "title": "首頁 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 4301,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "WITH HAIWO\nYOU'RE IN CONTROL\n選擇海濣 運籌帷幄\nScroll\n關於我們\nAbout Us\nSteadfast Trust,\nTailored For You, Built For Succession.\nThat's Haiwo.\n可靠於心 專屬於你 延續於世 所以你選擇海濣\n可靠\nSTEADFAST\n可靠團隊\n擁有律師、會計師、保險、銀行、財務策劃師、國內外金融機構"
+      },
+      {
+        "index": 1,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 2,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "indexBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 3571,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "WITH HAIWO\nYOU'RE IN CONTROL\n選擇海濣 運籌帷幄\nScroll\n關於我們\nAbout Us\nSteadfast Trust,\nTailored For You, Built For Succession.\nThat's Haiwo.\n可靠於心 專屬於你 延續於世 所以你選擇海濣\n可靠\nSTEADFAST\n可靠團隊\n擁有律師、會計師、保險、銀行、財務策劃師、國內外金融機構"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "WITH HAIWO\nYOU'RE IN CONTROL\n選擇海濣 運籌帷幄\nScroll"
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "welcome",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "WITH HAIWO\nYOU'RE IN CONTROL\n選擇海濣 運籌帷幄"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": "aboutus",
+        "className": "aboutus row in-view",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "image-set(url(\"https://haiwo.tw/assets/images/bg_about.webp\") 1dppx, url(\"https://haiwo.tw/assets/images/bg_about.jpg\") 1dppx)",
+        "height": 1451,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "關於我們\nAbout Us\nSteadfast Trust,\nTailored For You, Built For Succession.\nThat's Haiwo.\n可靠於心 專屬於你 延續於世 所以你選擇海濣\n可靠\nSTEADFAST\n可靠團隊\n擁有律師、會計師、保險、銀行、財務策劃師、國內外金融機構等專業人士，致力於提供最頂尖財富管理顧問服務，提供最佳解決方案，協助客戶做出最有利決策。\nV"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 75,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "關於我們\nAbout Us"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 341,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Steadfast Trust,\nTailored For You, Built For Succession.\nThat's Haiwo.\n可靠於心 專屬於你 延續於世 所以你選擇海濣"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 835,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "可靠\nSTEADFAST\n可靠團隊\n擁有律師、會計師、保險、銀行、財務策劃師、國內外金融機構等專業人士，致力於提供最頂尖財富管理顧問服務，提供最佳解決方案，協助客戶做出最有利決策。\nVIEW MORE\n專屬\nTAILORED\n專屬服務\n以「量身打造」為核心，整合稅務規劃、家族傳承、資產配置與企業佈局，打造專屬的全方位策略方案。\n從創業初期到跨世代傳承，我們以專業洞察與長期陪伴，確保每一步都符合您的"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": "news",
+        "className": "news row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "linear-gradient(rgb(234, 226, 209) 0px, rgb(234, 226, 209) 50%, rgb(189, 192, 186) 50%, rgb(189, 192, 186) 100%)",
+        "height": 1040,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "海濣專欄\nHaiwo Insights\n馬斯克的思維算法：如何用物理學邏輯進...\n為什麼有些人進入新領域的學習曲線是指數級的「複利」...\n2025.12.26\n聖石案後的殘酷反思：揭開你身處的「合...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n2025.12.26\n財富的底層代碼：為什麼你省吃儉用，卻...\n在這個資本遊戲裡，最殘酷的現實不是貧窮，而是你明明...\n20"
+      },
+      {
+        "index": 11,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 75,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "海濣專欄\nHaiwo Insights"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row news-items",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 725,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "馬斯克的思維算法：如何用物理學邏輯進...\n為什麼有些人進入新領域的學習曲線是指數級的「複利」...\n2025.12.26\n聖石案後的殘酷反思：揭開你身處的「合...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n2025.12.26\n財富的底層代碼：為什麼你省吃儉用，卻...\n在這個資本遊戲裡，最殘酷的現實不是貧窮，而是你明明...\n2025.12.22"
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 15,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 16,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 17,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-down.svg",
+        "alt": "向下滾動",
+        "className": "",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850870_-OhNc78nGCGPvlJZCs2d.webp",
+        "alt": "馬斯克的思維算法：如何用物理學邏輯進行「降維打擊」？",
+        "className": "",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+        "alt": "查看更多",
+        "className": "off",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+        "alt": "查看更多",
+        "className": "on",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850873_-OhO8tPz_oGOmIocdrN2.webp",
+        "alt": "聖石案後的殘酷反思：揭開你身處的「合法龐氏」矩陣",
+        "className": "",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+        "alt": "查看更多",
+        "className": "off",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+        "alt": "查看更多",
+        "className": "on",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850867_-Oh3PWqjXy9zzm9l43Wi.webp",
+        "alt": "財富的底層代碼：為什麼你省吃儉用，卻還是贏不了這個遊戲？",
+        "className": "",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+        "alt": "查看更多",
+        "className": "off",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+        "alt": "查看更多",
+        "className": "on",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Scroll",
+        "href": "https://haiwo.tw/#keyframe",
+        "className": "scroll-down-btn"
+      },
+      {
+        "tagName": "A",
+        "text": "VIEW MORE",
+        "href": "https://haiwo.tw/aboutus#steadfast-team",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "VIEW MORE",
+        "href": "https://haiwo.tw/aboutus#tailored-services",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "VIEW MORE",
+        "href": "https://haiwo.tw/aboutus#succession-vision",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "VIEW MORE",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [],
+    "animations": [],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(189, 192, 186)",
+      "rgba(0, 0, 0, 0.5)",
+      "rgb(7, 53, 92)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)"
+    ],
+    "page_name": "home"
+  },
+  "aboutus": {
+    "title": "關於我們 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "STYLE",
+        "id": "keyVisual-title-style",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": "\n                .keyVisual-title {\n                    animation: marqueeJs 30s linear infinite;\n                }\n                @keyframes marqueeJs {\n                    0% {\n                    "
+      },
+      {
+        "index": 1,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 6024.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "關於我們\nAbout Us\nScroll\nABOUT US\nABOUT US\nABOUT US\nHome\nAbout Us\n團隊介紹\nSTEADFAST TEAM\nSteadfast Trust\nJEFFERY\n陳俊諺\nALFRED\n朱子旭\nAARON\n陳榆樵\nHEIDY\n蔡幸慧\n陳俊諺 | CEO\n海濣管理顧問股份有限公司負責人及執行長，海濣資本股份有限公司負責人。具國際證照 CCFP 與 RF"
+      },
+      {
+        "index": 2,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "aboutusBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 5294.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 5,
+        "textPreview": "關於我們\nAbout Us\nScroll\nABOUT US\nABOUT US\nABOUT US\nHome\nAbout Us\n團隊介紹\nSTEADFAST TEAM\nSteadfast Trust\nJEFFERY\n陳俊諺\nALFRED\n朱子旭\nAARON\n陳榆樵\nHEIDY\n蔡幸慧\n陳俊諺 | CEO\n海濣管理顧問股份有限公司負責人及執行長，海濣資本股份有限公司負責人。具國際證照 CCFP 與 RF"
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 4,
+        "textPreview": "關於我們\nAbout Us\nScroll\nABOUT US\nABOUT US\nABOUT US"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": "keyframe",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "url(\"https://haiwo.tw/assets/images/svg/bg_about_flower_left.svg\")",
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nAbout Us"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nAbout Us"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": "steadfast-team",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "url(\"https://haiwo.tw/assets/images/svg/bg_about_flower_left.svg\")",
+        "height": 960.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "團隊介紹\nSTEADFAST TEAM\nSteadfast Trust\nJEFFERY\n陳俊諺\nALFRED\n朱子旭\nAARON\n陳榆樵\nHEIDY\n蔡幸慧\n陳俊諺 | CEO\n海濣管理顧問股份有限公司負責人及執行長，海濣資本股份有限公司負責人。具國際證照 CCFP 與 RFP 認證。主要擅長個人、法人的財務策劃、企業管理與股權投資，同時本身是創業、實業家，連續創業者。\n經手台灣海濣管顧、台灣初拾"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 82,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "團隊介紹\nSTEADFAST TEAM\nSteadfast Trust"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row teams",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 468.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 4,
+        "textPreview": "JEFFERY\n陳俊諺\nALFRED\n朱子旭\nAARON\n陳榆樵\nHEIDY\n蔡幸慧"
+      },
+      {
+        "index": 11,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row team-item",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 398.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "JEFFERY\n陳俊諺"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row team-item",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 398.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "ALFRED\n朱子旭"
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row team-item d-none d-lg-block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 398.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "AARON\n陳榆樵"
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row team-item d-none d-lg-block",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 398.34375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "HEIDY\n蔡幸慧"
+      },
+      {
+        "index": 15,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 290,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "陳俊諺 | CEO\n海濣管理顧問股份有限公司負責人及執行長，海濣資本股份有限公司負責人。具國際證照 CCFP 與 RFP 認證。主要擅長個人、法人的財務策劃、企業管理與股權投資，同時本身是創業、實業家，連續創業者。\n經手台灣海濣管顧、台灣初拾、台灣永碁控股、香港雲隱、美國海濣、美國Baby Holding Ma…等多家企業股權的交易，曾任香港私募股權基金顧問，近十年從業經驗（至113年） 投資管理"
+      },
+      {
+        "index": 16,
+        "tagName": "DIV",
+        "id": "jeffery",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 143,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "陳俊諺 | CEO\n海濣管理顧問股份有限公司負責人及執行長，海濣資本股份有限公司負責人。具國際證照 CCFP 與 RFP 認證。主要擅長個人、法人的財務策劃、企業管理與股權投資，同時本身是創業、實業家，連續創業者。\n經手台灣海濣管顧、台灣初拾、台灣永碁控股、香港雲隱、美國海濣、美國Baby Holding Ma…等多家企業股權的交易，曾任香港私募股權基金顧問，近十年從業經驗（至113年） 投資管理"
+      },
+      {
+        "index": 17,
+        "tagName": "DIV",
+        "id": "alfred",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                            朱子旭  |  Senior Project Manager\n                            海濣管理顧問股份有限公司客戶關係經理，具國際證照 CFA 與 ABNLP\n                                以及CPEA認證。熟悉多項財富管理工具，包括各國保險、股權債權投資、等多元資產工具…，"
+      },
+      {
+        "index": 18,
+        "tagName": "DIV",
+        "id": "aaron",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                            陳榆樵  |  Senior Relationship Manager\n                            金融從業近10年經驗，有保險、投資、跨境金融經驗，擅長個人財務策劃及退休規劃，目前協助客戶管理資產已達上億。\n                                專業是為了提供更好的服務，透過不斷創新的"
+      },
+      {
+        "index": 19,
+        "tagName": "DIV",
+        "id": "heidy",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                            蔡幸慧  |  Senior Relationship Manager\n                            \n                                金融從業經驗5年，擁有退休理財規劃顧問（RFA）等多張金融證照，有保險、投資、跨境金融…等經驗，擅長風險管理與退休規劃，熟悉台灣退休金制度，協助超過"
+      },
+      {
+        "index": 20,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row teams d-lg-none teams-re",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                    \n                        \n            \n        \n\n                        \n                        \n                            AARON\n                            陳"
+      },
+      {
+        "index": 21,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row team-item",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "\n                    \n                        \n            \n        \n\n                        \n                        \n                            AARON\n                            陳榆樵\n              "
+      },
+      {
+        "index": 22,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row team-item",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "\n                    \n                        \n            \n        \n\n                        \n                        \n                            HEIDY\n                            蔡幸慧\n              "
+      },
+      {
+        "index": 23,
+        "tagName": "DIV",
+        "id": "tailored-services",
+        "className": "row",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": "url(\"https://haiwo.tw/assets/images/svg/bg_about_flower_right.svg\")",
+        "height": 1016,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "專屬服務\nTAILORED SERVICES\nTame the risks, with Haiwo's assist.\n掌握風險 海濣首選\n　　海濣管理顧問股份有限公司以「可靠、專屬、延續」為核心價值，服務高資產家族與成長型企業客戶；自創立以來，我們以顧問費與會員制為主體，摒除產品銷售衝突，將投資政策聲明、戰術/策略資產配置、風險預算與流動性管理，落實為可稽核的流程化交付；同時結合公司治理、稅務規"
+      },
+      {
+        "index": 24,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 82,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "專屬服務\nTAILORED SERVICES"
+      },
+      {
+        "index": 25,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 162,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Tame the risks, with Haiwo's assist.\n掌握風險 海濣首選"
+      },
+      {
+        "index": 26,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 425,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "　　海濣管理顧問股份有限公司以「可靠、專屬、延續」為核心價值，服務高資產家族與成長型企業客戶；自創立以來，我們以顧問費與會員制為主體，摒除產品銷售衝突，將投資政策聲明、戰術/策略資產配置、風險預算與流動性管理，落實為可稽核的流程化交付；同時結合公司治理、稅務規劃與資本市場服務，提供從資產保全、效率提升到企業結構優化的全鏈條方案。\n\n在研究與風控層面，我們以多維度風險指標（如波動度、下行風險、回撤控"
+      },
+      {
+        "index": 27,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 122,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Tailored for you"
+      },
+      {
+        "index": 28,
+        "tagName": "DIV",
+        "id": "succession-vision",
+        "className": "row",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": null,
+        "height": 2172,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "延續理念\nSUCCESSION VISION\nBuilt For Succession\n2016\n專業啟程\n於大型金控體系深耕金融與保險業務，建立嚴謹的合規與風控底層方法學。\n2017\n國際視野擴展\n系統研習財務策劃與資產配置專業框架，完備跨境合規與多市場制度理解，奠定服務高資產與企業法人之基礎。\n2018\n實務轉換與獨立運營\n承接國內外金融與海外資產規劃專案；年底完成團隊獨立與自有資本投入，建立"
+      },
+      {
+        "index": 29,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 82,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "延續理念\nSUCCESSION VISION\nBuilt For Succession"
+      },
+      {
+        "index": 30,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 31,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 32,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 33,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 34,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-down.svg",
+        "alt": "向下滾動",
+        "className": "",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/Jeffery_pic.jpg",
+        "alt": "Jeffery",
+        "className": "",
+        "width": 280,
+        "height": 390
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/Alferd_pic.jpg",
+        "alt": "Alferd",
+        "className": "",
+        "width": 280,
+        "height": 390
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/Aaron_pic.jpg",
+        "alt": "Aaron",
+        "className": "",
+        "width": 280,
+        "height": 390
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/Heidy_pic.jpg",
+        "alt": "Heidy",
+        "className": "",
+        "width": 280,
+        "height": 390
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/Aaron_pic.jpg",
+        "alt": "Aaron",
+        "className": "",
+        "width": 280,
+        "height": 390
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/Heidy_pic.jpg",
+        "alt": "Heidy",
+        "className": "",
+        "width": 280,
+        "height": 390
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_aboutus1.jpg",
+        "alt": "",
+        "className": "",
+        "width": 380,
+        "height": 480
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_aboutus2.png",
+        "alt": "",
+        "className": "",
+        "width": 420,
+        "height": 430
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_aboutus1.jpg",
+        "alt": "",
+        "className": "",
+        "width": 380,
+        "height": 480
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_aboutus2.png",
+        "alt": "",
+        "className": "",
+        "width": 420,
+        "height": 430
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Scroll",
+        "href": "https://haiwo.tw/aboutus#keyframe",
+        "className": "scroll-down-btn"
+      },
+      {
+        "tagName": "A",
+        "text": "Home",
+        "href": "https://haiwo.tw/",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/aboutus#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [],
+    "animations": [
+      {
+        "className": "timeline-item fadein fadein-applied",
+        "tagName": "DIV"
+      },
+      {
+        "className": "timeline-item fadein fadein-applied",
+        "tagName": "DIV"
+      },
+      {
+        "className": "timeline-item fadein fadein-applied",
+        "tagName": "DIV"
+      },
+      {
+        "className": "timeline-item fadein fadein-applied",
+        "tagName": "DIV"
+      },
+      {
+        "className": "timeline-item fadein fadein-applied",
+        "tagName": "DIV"
+      },
+      {
+        "className": "timeline-item fadein fadein-applied",
+        "tagName": "DIV"
+      }
+    ],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(7, 53, 92)",
+      "rgba(0, 0, 0, 0.75)",
+      "rgb(66, 51, 26)",
+      "rgb(189, 192, 186)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)"
+    ],
+    "page_name": "aboutus"
+  },
+  "insights": {
+    "title": "海濣專欄 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "STYLE",
+        "id": "keyVisual-title-style",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": "\n                .keyVisual-title {\n                    animation: marqueeJs 30s linear infinite;\n                }\n                @keyframes marqueeJs {\n                    0% {\n                    "
+      },
+      {
+        "index": 1,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 2626,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "海濣專欄\nHaiwo Insights\nScroll\nHAIWO INSIGHTS\nHAIWO INSIGHTS\nHAIWO INSIGHTS\nHome\nHaiwo Insights\n類別清單\nCATEGORY\n全部\n媒體報導\n客戶案例\n-\n聖石案後的殘酷反思：揭開你身...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n媒體報導\n2025.12.26\n馬斯克的思維算法：如何用物"
+      },
+      {
+        "index": 2,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "insightsBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1896,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄\nHaiwo Insights\nScroll\nHAIWO INSIGHTS\nHAIWO INSIGHTS\nHAIWO INSIGHTS\nHome\nHaiwo Insights\n類別清單\nCATEGORY\n全部\n媒體報導\n客戶案例\n-\n聖石案後的殘酷反思：揭開你身...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n媒體報導\n2025.12.26\n馬斯克的思維算法：如何用物"
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 4,
+        "textPreview": "海濣專欄\nHaiwo Insights\nScroll\nHAIWO INSIGHTS\nHAIWO INSIGHTS\nHAIWO INSIGHTS"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": "keyframe",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nHaiwo Insights"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nHaiwo Insights"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": "news-list",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 750,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "類別清單\nCATEGORY\n全部\n媒體報導\n客戶案例\n-\n聖石案後的殘酷反思：揭開你身...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n媒體報導\n2025.12.26\n馬斯克的思維算法：如何用物理...\n為什麼有些人進入新領域的學習曲線是指數級的「複利」...\n媒體報導\n2025.12.26\n財富的底層代碼：為什麼你省吃...\n在這個資本遊戲裡，最殘酷的現實不是貧窮，而是你明"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 550,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "類別清單\nCATEGORY\n全部\n媒體報導\n客戶案例\n-\n聖石案後的殘酷反思：揭開你身...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n媒體報導\n2025.12.26\n馬斯克的思維算法：如何用物理...\n為什麼有些人進入新領域的學習曲線是指數級的「複利」...\n媒體報導\n2025.12.26\n財富的底層代碼：為什麼你省吃...\n在這個資本遊戲裡，最殘酷的現實不是貧窮，而是你明"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 510,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "聖石案後的殘酷反思：揭開你身...\n2025年12月，台灣爆發了震驚社會的「聖石金業」詐欺案...\n媒體報導\n2025.12.26\n馬斯克的思維算法：如何用物理...\n為什麼有些人進入新領域的學習曲線是指數級的「複利」...\n媒體報導\n2025.12.26\n財富的底層代碼：為什麼你省吃...\n在這個資本遊戲裡，最殘酷的現實不是貧窮，而是你明明...\n客戶案例\n2025.12.22"
+      },
+      {
+        "index": 11,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 15,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-down.svg",
+        "alt": "向下滾動",
+        "className": "",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850873_-OhO8tPz_oGOmIocdrN2.webp",
+        "alt": "聖石案後的殘酷反思：揭開你身處的「合法龐氏」矩陣",
+        "className": "",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+        "alt": "查看更多",
+        "className": "off",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+        "alt": "查看更多",
+        "className": "on",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850870_-OhNc78nGCGPvlJZCs2d.webp",
+        "alt": "馬斯克的思維算法：如何用物理學邏輯進行「降維打擊」？",
+        "className": "",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+        "alt": "查看更多",
+        "className": "off",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+        "alt": "查看更多",
+        "className": "on",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://storage.googleapis.com/smai-mxinfra-251128.firebasestorage.app/insights/1767850867_-Oh3PWqjXy9zzm9l43Wi.webp",
+        "alt": "財富的底層代碼：為什麼你省吃儉用，卻還是贏不了這個遊戲？",
+        "className": "",
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right.svg",
+        "alt": "查看更多",
+        "className": "off",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-right-white.svg",
+        "alt": "查看更多",
+        "className": "on",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Scroll",
+        "href": "https://haiwo.tw/insights#keyframe",
+        "className": "scroll-down-btn"
+      },
+      {
+        "tagName": "A",
+        "text": "Home",
+        "href": "https://haiwo.tw/",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "全部",
+        "href": "https://haiwo.tw/insights?category=all&page=1",
+        "className": "news-list-category active"
+      },
+      {
+        "tagName": "A",
+        "text": "媒體報導",
+        "href": "https://haiwo.tw/insights?category=media&page=1",
+        "className": "news-list-category "
+      },
+      {
+        "tagName": "A",
+        "text": "客戶案例",
+        "href": "https://haiwo.tw/insights?category=customer&page=1",
+        "className": "news-list-category "
+      },
+      {
+        "tagName": "A",
+        "text": "-",
+        "href": "https://haiwo.tw/insights?category=all&page=1",
+        "className": "news-list-category opacity-0"
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/insights#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [],
+    "animations": [],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(7, 53, 92)",
+      "rgb(66, 51, 26)",
+      "rgb(195, 119, 46)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)"
+    ],
+    "page_name": "insights"
+  },
+  "contactus": {
+    "title": "聯絡我們 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "STYLE",
+        "id": "keyVisual-title-style",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": "\n                .keyVisual-title {\n                    animation: marqueeJs 30s linear infinite;\n                }\n                @keyframes marqueeJs {\n                    0% {\n                    "
+      },
+      {
+        "index": 1,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 3323,
+        "hasBackgroundImage": false,
+        "childrenCount": 9,
+        "textPreview": "聯絡我們\nContact Us\nScroll\nCONTACT US\nCONTACT US\nCONTACT US\nHome\nContact Us\n感謝您對我們公司的關注\n如果您對我們的服務項目有任何疑問，請隨時與我們聯繫。\n在確認您的詢問內容後，我們的工作人員將與您聯繫。\n聯絡表單\nCONTACT FORM\n* 表示必填欄位\n詢問項目\n請選擇\n私人財富管理\n投資理財規劃\n企業財稅規劃\n企業股權規劃\n"
+      },
+      {
+        "index": 2,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "contactusBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 2593,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "聯絡我們\nContact Us\nScroll\nCONTACT US\nCONTACT US\nCONTACT US\nHome\nContact Us\n感謝您對我們公司的關注\n如果您對我們的服務項目有任何疑問，請隨時與我們聯繫。\n在確認您的詢問內容後，我們的工作人員將與您聯繫。\n聯絡表單\nCONTACT FORM\n* 表示必填欄位\n詢問項目\n請選擇\n私人財富管理\n投資理財規劃\n企業財稅規劃\n企業股權規劃\n"
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 4,
+        "textPreview": "聯絡我們\nContact Us\nScroll\nCONTACT US\nCONTACT US\nCONTACT US"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": "keyframe",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nContact Us"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nContact Us"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": "contactus",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1447,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "感謝您對我們公司的關注\n如果您對我們的服務項目有任何疑問，請隨時與我們聯繫。\n在確認您的詢問內容後，我們的工作人員將與您聯繫。\n聯絡表單\nCONTACT FORM\n* 表示必填欄位\n詢問項目\n請選擇\n私人財富管理\n投資理財規劃\n企業財稅規劃\n企業股權規劃\n家族資產傳承\n環球金融服務\n姓名\n電子信箱\n手機號碼\n公司名稱\n職稱\n諮詢內容\n我已閱讀並接受使用條款。請閱讀我們的隱私權聲明，以了解我們如何使"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 250,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "感謝您對我們公司的關注\n如果您對我們的服務項目有任何疑問，請隨時與我們聯繫。\n在確認您的詢問內容後，我們的工作人員將與您聯繫。"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 82,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "聯絡表單\nCONTACT FORM\n* 表示必填欄位"
+      },
+      {
+        "index": 11,
+        "tagName": "FORM",
+        "id": "contactus-form",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1115,
+        "hasBackgroundImage": false,
+        "childrenCount": 10,
+        "textPreview": "詢問項目\n請選擇\n私人財富管理\n投資理財規劃\n企業財稅規劃\n企業股權規劃\n家族資產傳承\n環球金融服務\n姓名\n電子信箱\n手機號碼\n公司名稱\n職稱\n諮詢內容\n我已閱讀並接受使用條款。請閱讀我們的隱私權聲明，以了解我們如何使用您的個人資料。\n送出"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 69,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "詢問項目\n請選擇\n私人財富管理\n投資理財規劃\n企業財稅規劃\n企業股權規劃\n家族資產傳承\n環球金融服務"
+      },
+      {
+        "index": 13,
+        "tagName": "SELECT",
+        "id": "ask",
+        "className": "form-select",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e\")",
+        "height": 39,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "請選擇\n私人財富管理\n投資理財規劃\n企業財稅規劃\n企業股權規劃\n家族資產傳承\n環球金融服務"
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 69,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "姓名"
+      },
+      {
+        "index": 15,
+        "tagName": "INPUT",
+        "id": "name",
+        "className": "form-control",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 39,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 16,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 69,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "電子信箱"
+      },
+      {
+        "index": 17,
+        "tagName": "INPUT",
+        "id": "email",
+        "className": "form-control",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 39,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 18,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 69,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "手機號碼"
+      },
+      {
+        "index": 19,
+        "tagName": "INPUT",
+        "id": "phone",
+        "className": "form-control",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 39,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 20,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 69,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "公司名稱"
+      },
+      {
+        "index": 21,
+        "tagName": "INPUT",
+        "id": "company",
+        "className": "form-control",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 39,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 22,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 69,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "職稱"
+      },
+      {
+        "index": 23,
+        "tagName": "INPUT",
+        "id": "position",
+        "className": "form-control",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 39,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 24,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 310,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "諮詢內容"
+      },
+      {
+        "index": 25,
+        "tagName": "TEXTAREA",
+        "id": "content",
+        "className": "form-control",
+        "backgroundColor": "rgba(255, 255, 255, 0.33)",
+        "backgroundImage": null,
+        "height": 280,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 26,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 101,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "我已閱讀並接受使用條款。請閱讀我們的隱私權聲明，以了解我們如何使用您的個人資料。"
+      },
+      {
+        "index": 27,
+        "tagName": "INPUT",
+        "id": "agree",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 20,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 28,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 40,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "送出"
+      },
+      {
+        "index": 29,
+        "tagName": "INPUT",
+        "id": "recaptcha_token",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 30,
+        "tagName": "DIV",
+        "id": "contactus-success-overlay",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0.5)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 31,
+        "tagName": "DIV",
+        "id": "contactus-success",
+        "className": " d-none ",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "\n                \n                已完成表單填寫\n                工作人員會盡快安排與您聯繫\n            "
+      },
+      {
+        "index": 32,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 33,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 34,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 35,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 36,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      },
+      {
+        "index": 37,
+        "tagName": "TEXTAREA",
+        "id": "g-recaptcha-response-100000",
+        "className": "g-recaptcha-response",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-down.svg",
+        "alt": "向下滾動",
+        "className": "",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_success.svg",
+        "alt": "",
+        "className": "",
+        "width": 48,
+        "height": 48
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Scroll",
+        "href": "https://haiwo.tw/contactus#keyframe",
+        "className": "scroll-down-btn"
+      },
+      {
+        "tagName": "A",
+        "text": "Home",
+        "href": "https://haiwo.tw/",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "使用條款",
+        "href": "https://haiwo.tw/terms",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "隱私權聲明",
+        "href": "https://haiwo.tw/privacy",
+        "className": ""
+      },
+      {
+        "tagName": "BUTTON",
+        "text": "送出",
+        "href": null,
+        "className": "submit-btn"
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/contactus#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [
+      {
+        "id": "contactus-form",
+        "action": "https://haiwo.tw/contactus",
+        "method": "get",
+        "inputs": [
+          {
+            "type": "select-one",
+            "name": "ask",
+            "placeholder": null
+          },
+          {
+            "type": "text",
+            "name": "name",
+            "placeholder": "請輸入您的姓名"
+          },
+          {
+            "type": "email",
+            "name": "email",
+            "placeholder": "請輸入您的電子信箱"
+          },
+          {
+            "type": "tel",
+            "name": "phone",
+            "placeholder": "請輸入您的手機號碼"
+          },
+          {
+            "type": "text",
+            "name": "company",
+            "placeholder": "請輸入您的公司名稱"
+          },
+          {
+            "type": "text",
+            "name": "position",
+            "placeholder": "請輸入您的職稱"
+          },
+          {
+            "type": "textarea",
+            "name": "content",
+            "placeholder": "請輸入詢問項目的內容細節說明。"
+          },
+          {
+            "type": "checkbox",
+            "name": "agree",
+            "placeholder": ""
+          },
+          {
+            "type": "hidden",
+            "name": "",
+            "placeholder": ""
+          }
+        ]
+      }
+    ],
+    "animations": [],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(7, 53, 92)",
+      "rgb(189, 0, 0)",
+      "rgb(0, 0, 0) rgb(0, 0, 0) rgb(119, 120, 120)",
+      "rgb(195, 119, 46)",
+      "rgb(119, 120, 120)",
+      "rgba(255, 255, 255, 0.33)",
+      "rgba(0, 0, 0, 0.5)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)",
+      "rgb(193, 193, 193)"
+    ],
+    "page_name": "contactus"
+  },
+  "ouroffices": {
+    "title": "服務據點 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "STYLE",
+        "id": "keyVisual-title-style",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": "\n                .keyVisual-title {\n                    animation: marqueeJs 30s linear infinite;\n                }\n                @keyframes marqueeJs {\n                    0% {\n                    "
+      },
+      {
+        "index": 1,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 2416,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "服務據點\nOur Offices\nScroll\nOUR OFFICES\nOUR OFFICES\nOUR OFFICES\nHome\nOur Offices\nHAIWO TAIPEI | 台北總部\n114台北市內湖區新湖一路303號7樓\n7 F., No. 303, Xinhu 1st Rd., Neihu Dist., Taipei City 114065, Taiwan (R.O.C.)\n服務時間"
+      },
+      {
+        "index": 2,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "ourofficesBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1686,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "服務據點\nOur Offices\nScroll\nOUR OFFICES\nOUR OFFICES\nOUR OFFICES\nHome\nOur Offices\nHAIWO TAIPEI | 台北總部\n114台北市內湖區新湖一路303號7樓\n7 F., No. 303, Xinhu 1st Rd., Neihu Dist., Taipei City 114065, Taiwan (R.O.C.)\n服務時間"
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1080,
+        "hasBackgroundImage": false,
+        "childrenCount": 4,
+        "textPreview": "服務據點\nOur Offices\nScroll\nOUR OFFICES\nOUR OFFICES\nOUR OFFICES"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": "keyframe",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nOur Offices"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nOur Offices"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": "ouroffices",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 540,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "HAIWO TAIPEI | 台北總部\n114台北市內湖區新湖一路303號7樓\n7 F., No. 303, Xinhu 1st Rd., Neihu Dist., Taipei City 114065, Taiwan (R.O.C.)\n服務時間：週一至週五 10:00 - 18:00（國定假日休息）\n02-2796-0036\nROUTE"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row office-item",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 360,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "HAIWO TAIPEI | 台北總部\n114台北市內湖區新湖一路303號7樓\n7 F., No. 303, Xinhu 1st Rd., Neihu Dist., Taipei City 114065, Taiwan (R.O.C.)\n服務時間：週一至週五 10:00 - 18:00（國定假日休息）\n02-2796-0036\nROUTE"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 11,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_yellow.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/bg_keyvisual_orange.svg",
+        "alt": "",
+        "className": "",
+        "width": 1240,
+        "height": 1240
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-down.svg",
+        "alt": "向下滾動",
+        "className": "",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_office1.jpg",
+        "alt": "Office 1",
+        "className": "",
+        "width": 480,
+        "height": 310
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Scroll",
+        "href": "https://haiwo.tw/ouroffices#keyframe",
+        "className": "scroll-down-btn"
+      },
+      {
+        "tagName": "A",
+        "text": "Home",
+        "href": "https://haiwo.tw/",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "ROUTE",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/ouroffices#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [],
+    "animations": [],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(7, 53, 92)",
+      "rgb(195, 119, 46)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)"
+    ],
+    "page_name": "ouroffices"
+  },
+  "privacy": {
+    "title": "隱私權聲明 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 3248,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "Home\nPrivacy Policy\n隱私權聲明\nPrivacy Policy\n最後更新日期：2025年10月27日\n海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）重視您的個人資料保護與隱私權，並依據《個人資料保護法》及相關法規之要求，妥善蒐集、處理及利用您的個人資料。\n本聲明旨在說明本公司於您使用本網站、參與本公司活動或接受本公司服務時，如何收集、使用、儲存及保護您的個人資料。"
+      },
+      {
+        "index": 1,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 2,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "textpageBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 2518,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "Home\nPrivacy Policy\n隱私權聲明\nPrivacy Policy\n最後更新日期：2025年10月27日\n海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）重視您的個人資料保護與隱私權，並依據《個人資料保護法》及相關法規之要求，妥善蒐集、處理及利用您的個人資料。\n本聲明旨在說明本公司於您使用本網站、參與本公司活動或接受本公司服務時，如何收集、使用、儲存及保護您的個人資料。"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row textpage-keyvisual",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 130,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "keyframe",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nPrivacy Policy"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nPrivacy Policy"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": "page-detail",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 2322,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "隱私權聲明\nPrivacy Policy\n最後更新日期：2025年10月27日\n海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）重視您的個人資料保護與隱私權，並依據《個人資料保護法》及相關法規之要求，妥善蒐集、處理及利用您的個人資料。\n本聲明旨在說明本公司於您使用本網站、參與本公司活動或接受本公司服務時，如何收集、使用、儲存及保護您的個人資料。\n一、適用範圍\n本聲明適用於您透過以下方"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 75,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "隱私權聲明\nPrivacy Policy\n最後更新日期：2025年10月27日"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 2012,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）重視您的個人資料保護與隱私權，並依據《個人資料保護法》及相關法規之要求，妥善蒐集、處理及利用您的個人資料。\n本聲明旨在說明本公司於您使用本網站、參與本公司活動或接受本公司服務時，如何收集、使用、儲存及保護您的個人資料。\n一、適用範圍\n本聲明適用於您透過以下方式與本公司互動時所涉及之個人資料：\n造訪或使用本公司網站（以下稱「本網站」）；\n"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 75,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "海濣資產管理股份有限公司\n秉持誠信與專業，致力於守護每一位客戶的資產與信任。\n若您對本使用條款有任何疑問，請聯繫：service@haiwo.tw"
+      },
+      {
+        "index": 11,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 15,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "一、適用範圍",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "二、個人資料之蒐集方式與項目",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "三、個人資料之使用目的",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "四、個人資料之利用期間、地區、對象及方式",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "五、個人資料之保護措施",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "六、您的權利",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "七、第三方網站連結與Cookies",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "八、行銷與退訂",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "九、隱私權聲明之修訂",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Home",
+        "href": "https://haiwo.tw/",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/privacy#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [],
+    "animations": [],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(7, 53, 92)",
+      "rgb(195, 119, 46)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)"
+    ],
+    "page_name": "privacy"
+  },
+  "terms": {
+    "title": "使用條款 | 海濣資產管理",
+    "sections": [
+      {
+        "index": 0,
+        "tagName": "BODY",
+        "id": "top",
+        "className": null,
+        "backgroundColor": "rgb(234, 226, 209)",
+        "backgroundImage": null,
+        "height": 2765,
+        "hasBackgroundImage": false,
+        "childrenCount": 7,
+        "textPreview": "Home\nTerms of Use\n使用條款\nTerms of Use\n最後更新日期：2025年10月27日\n本網站（以下稱「本網站」）由海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）設立並維護。\n使用或瀏覽本網站，即表示您已閱讀、理解並同意遵守本使用條款。如您不同意，請立即停止使用本網站。\n一、適用範圍\n本使用條款適用於您瀏覽、存取或使用本公司所有官方網站、子網頁及相關線上服務之"
+      },
+      {
+        "index": 1,
+        "tagName": "NAV",
+        "id": "header",
+        "className": "navbar fixed-top navbar-light bg-transparent",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 108,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 2,
+        "tagName": "DIV",
+        "id": "menu",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 0,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "\n                \n                \n                    \n                        \n                            \n                            About Us 關於我們\n                            Haiwo Insights 海濣專欄\n"
+      },
+      {
+        "index": 3,
+        "tagName": "DIV",
+        "id": "textpageBlade",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 2035,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "Home\nTerms of Use\n使用條款\nTerms of Use\n最後更新日期：2025年10月27日\n本網站（以下稱「本網站」）由海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）設立並維護。\n使用或瀏覽本網站，即表示您已閱讀、理解並同意遵守本使用條款。如您不同意，請立即停止使用本網站。\n一、適用範圍\n本使用條款適用於您瀏覽、存取或使用本公司所有官方網站、子網頁及相關線上服務之"
+      },
+      {
+        "index": 4,
+        "tagName": "DIV",
+        "id": "keyVisual",
+        "className": "row textpage-keyvisual",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 130,
+        "hasBackgroundImage": false,
+        "childrenCount": 0,
+        "textPreview": ""
+      },
+      {
+        "index": 5,
+        "tagName": "DIV",
+        "id": "keyframe",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nTerms of Use"
+      },
+      {
+        "index": 6,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Home\nTerms of Use"
+      },
+      {
+        "index": 7,
+        "tagName": "DIV",
+        "id": "page-detail",
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1839,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "使用條款\nTerms of Use\n最後更新日期：2025年10月27日\n本網站（以下稱「本網站」）由海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）設立並維護。\n使用或瀏覽本網站，即表示您已閱讀、理解並同意遵守本使用條款。如您不同意，請立即停止使用本網站。\n一、適用範圍\n本使用條款適用於您瀏覽、存取或使用本公司所有官方網站、子網頁及相關線上服務之行為。\n本公司得隨時修訂本條款，修訂"
+      },
+      {
+        "index": 8,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 75,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "使用條款\nTerms of Use\n最後更新日期：2025年10月27日"
+      },
+      {
+        "index": 9,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 1529,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "本網站（以下稱「本網站」）由海濣資產管理股份有限公司（以下稱「本公司」或「海濣資產管理」）設立並維護。\n使用或瀏覽本網站，即表示您已閱讀、理解並同意遵守本使用條款。如您不同意，請立即停止使用本網站。\n一、適用範圍\n本使用條款適用於您瀏覽、存取或使用本公司所有官方網站、子網頁及相關線上服務之行為。\n本公司得隨時修訂本條款，修訂後之內容將於本頁公告並立即生效。使用者有責任定期檢視最新版本，並於修訂後繼"
+      },
+      {
+        "index": 10,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 75,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "海濣資產管理股份有限公司\n秉持誠信與專業，致力於守護每一位客戶的資產與信任。\n若您對本使用條款有任何疑問，請聯繫：service@haiwo.tw"
+      },
+      {
+        "index": 11,
+        "tagName": "DIV",
+        "id": "footer",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 730,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡\n海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\n"
+      },
+      {
+        "index": 12,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 390,
+        "hasBackgroundImage": false,
+        "childrenCount": 2,
+        "textPreview": "LINE\n加入HaiWo官方，提供另種諮詢管道\nContact\n如需諮詢及詢問Haiwo，請點擊這裡"
+      },
+      {
+        "index": 13,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 139.984375,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": ""
+      },
+      {
+        "index": 14,
+        "tagName": "DIV",
+        "id": null,
+        "className": "row",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 140,
+        "hasBackgroundImage": false,
+        "childrenCount": 3,
+        "textPreview": "海濣專欄 Haiwo Insights\n聯絡我們 Contact Us\n服務據點 Our Offices\n關於我們 About Us\n人才招募 Careers\n114065\n台北市內湖區新湖一路303號7樓\n02 - 2796 - 0036\nservice@haiwo.tw\nFollow Us\n\nCopyright © 2026 HAIWO CO.,LTD."
+      },
+      {
+        "index": 15,
+        "tagName": "DIV",
+        "id": "page-top",
+        "className": null,
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": null,
+        "height": 66,
+        "hasBackgroundImage": false,
+        "childrenCount": 1,
+        "textPreview": "Page top"
+      }
+    ],
+    "headings": [
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "一、適用範圍",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "二、內容之使用與限制",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "三、智慧財產權聲明",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "四、隱私權與資料保護",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "五、免責聲明與責任限制",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "六、終止使用",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "七、準據法與管轄法院",
+        "className": ""
+      },
+      {
+        "level": "H1",
+        "text": "八、其他",
+        "className": ""
+      },
+      {
+        "level": "H6",
+        "text": "Follow Us",
+        "className": ""
+      }
+    ],
+    "images": [
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 360,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_off.svg",
+        "alt": "",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_on.svg",
+        "alt": "",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off_menu.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off_menu.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off_menu.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_menu_close.svg",
+        "alt": "",
+        "className": "",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_line.svg",
+        "alt": "LINE",
+        "className": "",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_left_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_contactus.jpg",
+        "alt": "Contact Us",
+        "className": "",
+        "width": 1080,
+        "height": 585
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_off.svg",
+        "alt": "",
+        "className": "off",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/ele_contact_right_on.svg",
+        "alt": "",
+        "className": "on",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/img_logo_footer.png",
+        "alt": "Haiwo",
+        "className": "",
+        "width": 554,
+        "height": 138
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_map-pin.svg",
+        "alt": "地址",
+        "className": "",
+        "width": 18,
+        "height": 18
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_phone.svg",
+        "alt": "電話",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/icon_mail.svg",
+        "alt": "郵箱",
+        "className": "",
+        "width": 16,
+        "height": 16
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_off.svg",
+        "alt": "Facebook",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_fb_on.svg",
+        "alt": "Facebook",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_off.svg",
+        "alt": "Instagram",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_ig_on.svg",
+        "alt": "Instagram",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_off.svg",
+        "alt": "LINE",
+        "className": "icon-social off",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_line_on.svg",
+        "alt": "LINE",
+        "className": "icon-social on",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "src": "https://haiwo.tw/assets/images/svg/btn_arrow-up.svg",
+        "alt": "回到頂部",
+        "className": "",
+        "width": 24,
+        "height": 24
+      }
+    ],
+    "buttons": [
+      {
+        "tagName": "A",
+        "text": "About Us 關於我們",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Haiwo Insights 海濣專欄",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Contact Us 聯絡我們",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Our Offices 服務據點",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Careers 人才招募",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Privacy Policy",
+        "href": "https://haiwo.tw/privacy",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Terms of Use",
+        "href": "https://haiwo.tw/terms",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Cookies Notice",
+        "href": "https://haiwo.tw/cookies",
+        "className": "policy-item"
+      },
+      {
+        "tagName": "A",
+        "text": "Home",
+        "href": "https://haiwo.tw/",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "海濣專欄 Haiwo Insights",
+        "href": "https://haiwo.tw/insights",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "聯絡我們 Contact Us",
+        "href": "https://haiwo.tw/contactus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "服務據點 Our Offices",
+        "href": "https://haiwo.tw/ouroffices",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "關於我們 About Us",
+        "href": "https://haiwo.tw/aboutus",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "人才招募 Careers",
+        "href": "https://www.104.com.tw/company/1a2x6bm73m?jobsource=index_s",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "114065\n台北市內湖區新湖一路303號7樓",
+        "href": "https://maps.app.goo.gl/DrhoxRLxFv4r1daWA",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "02 - 2796 - 0036",
+        "href": "tel:02-2796-0036",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "service@haiwo.tw",
+        "href": "mailto:service@haiwo.tw",
+        "className": ""
+      },
+      {
+        "tagName": "A",
+        "text": "Page top",
+        "href": "https://haiwo.tw/terms#top",
+        "className": "page-top-btn"
+      }
+    ],
+    "forms": [],
+    "animations": [],
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(234, 226, 209)",
+      "rgba(0, 0, 0, 0.9)",
+      "rgb(13, 110, 253)",
+      "rgb(255, 255, 255)",
+      "rgb(215, 199, 164)",
+      "rgb(201, 186, 154)",
+      "rgb(7, 53, 92)",
+      "rgb(195, 119, 46)",
+      "rgb(3, 21, 37)",
+      "rgba(0, 0, 0, 0.6)",
+      "rgb(45, 32, 22)",
+      "rgb(176, 179, 174)"
+    ],
+    "page_name": "terms"
+  }
+}
