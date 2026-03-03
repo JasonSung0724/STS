@@ -1,0 +1,214 @@
+# ===========================================
+# STS Production - 子域名架构
+# ===========================================
+# 形象网站: sts.tw
+# 后台系统: app.sts.tw
+# API 服务: api.sts.tw (可选)
+
+# ===========================================
+# 形象网站 - sts.tw
+# ===========================================
+server {
+    listen 80;
+    listen [::]:80;
+    server_name sts.tw www.sts.tw;
+
+    # Let's Encrypt challenge
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    client_max_body_size 10M;
+
+    # Landing Page (首页直接显示)
+    location = / {
+        limit_req zone=general_limit burst=50 nodelay;
+        set $frontend_prod sts-frontend-prod:3000;
+
+        # 重写到 /landing 路由
+        rewrite ^ /landing break;
+        proxy_pass http://$frontend_prod;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 营销页面路由
+    location ~ ^/(landing|about|insights|contact|offices|privacy|terms)(/.*)?$ {
+        limit_req zone=general_limit burst=50 nodelay;
+        set $frontend_prod sts-frontend-prod:3000;
+        proxy_pass http://$frontend_prod;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    # Next.js 静态文件
+    location /_next/ {
+        set $frontend_prod sts-frontend-prod:3000;
+        proxy_pass http://$frontend_prod;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # 其他请求返回 404 或重定向
+    location / {
+        return 404;
+    }
+
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}
+
+# ===========================================
+# 后台系统 - app.sts.tw
+# ===========================================
+server {
+    listen 80;
+    listen [::]:80;
+    server_name app.sts.tw;
+
+    # Let's Encrypt challenge
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    client_max_body_size 10M;
+
+    # API Routes
+    location /api/ {
+        limit_req zone=api_limit burst=20 nodelay;
+        set $backend_prod sts-backend-prod:8000;
+        proxy_pass http://$backend_prod$request_uri;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+        proxy_buffering off;
+    }
+
+    # Health check
+    location /health {
+        set $backend_prod sts-backend-prod:8000;
+        proxy_pass http://$backend_prod/health;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    # API Documentation
+    location ~ ^/(docs|openapi.json|redoc)$ {
+        set $backend_prod sts-backend-prod:8000;
+        proxy_pass http://$backend_prod$request_uri;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    # 后台系统首页重定向到 dashboard
+    location = / {
+        return 302 /dashboard;
+    }
+
+    # 后台应用路由
+    location ~ ^/(login|register|dashboard|admin|chat|analytics|articles|settings|war-room|onboarding|auth)(/.*)?$ {
+        limit_req zone=general_limit burst=50 nodelay;
+        set $frontend_prod sts-frontend-prod:3000;
+        proxy_pass http://$frontend_prod;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    # Next.js 静态文件
+    location /_next/ {
+        set $frontend_prod sts-frontend-prod:3000;
+        proxy_pass http://$frontend_prod;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Fallback to frontend
+    location / {
+        limit_req zone=general_limit burst=50 nodelay;
+        set $frontend_prod sts-frontend-prod:3000;
+        proxy_pass http://$frontend_prod;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+}
+
+# ===========================================
+# API 服务 - api.sts.tw (可选)
+# ===========================================
+# 如果想要独立的 API 域名，取消注释:
+#
+# server {
+#     listen 80;
+#     listen [::]:80;
+#     server_name api.sts.tw;
+#
+#     location /.well-known/acme-challenge/ {
+#         root /var/www/certbot;
+#     }
+#
+#     client_max_body_size 10M;
+#
+#     # 所有请求转发到 backend
+#     location / {
+#         limit_req zone=api_limit burst=20 nodelay;
+#         set $backend_prod sts-backend-prod:8000;
+#         proxy_pass http://$backend_prod;
+#         proxy_http_version 1.1;
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+#         proxy_connect_timeout 60s;
+#         proxy_send_timeout 60s;
+#         proxy_read_timeout 60s;
+#         proxy_buffering off;
+#     }
+# }
+
+# ===========================================
+# HTTPS 配置 (取得 SSL 证书后启用)
+# ===========================================
+# 获取证书命令:
+# docker exec sts-certbot certbot certonly --webroot -w /var/www/certbot \
+#   -d sts.tw -d www.sts.tw \
+#   -d app.sts.tw \
+#   --email your@email.com --agree-tos
+#
+# 然后复制上面的配置，修改为 listen 443 ssl http2，并添加 SSL 配置
