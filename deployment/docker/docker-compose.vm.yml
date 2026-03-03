@@ -212,3 +212,4 @@ volumes:
 networks:
   sts-network:
     driver: bridge
+    name: sts-network
